@@ -13,7 +13,7 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0.4",
+	num: "0.0.5",
 	name: "Literally nothing5",
 }
 
@@ -42,7 +42,7 @@ function getPointGen() {
 	if(!canGenPoints())
 		return new Decimal(0)
 
-	let gain = new Decimal("e44")
+	let gain = new Decimal("1.8e43")
 	return gain
 }
 
