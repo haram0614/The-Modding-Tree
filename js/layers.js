@@ -43,7 +43,7 @@ addLayer("t", {
     type: "static", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: new Decimal(1.7),
     base: new Decimal(1e4)
-    branches: ["q"]
+    branches: ["q"],
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         return mult
