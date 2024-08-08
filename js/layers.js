@@ -25,4 +25,4 @@ addLayer("q", {
         {key: "q", description: "Q: Reset for Quantum", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true}
-}),
+})
