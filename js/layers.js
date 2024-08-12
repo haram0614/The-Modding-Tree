@@ -30,7 +30,7 @@ addLayer("q", {
         11: {
             title: "???",
             description: "???",
-            cost: decimal(1.8e44),
+            cost: new Decimal(1.8e44),
             effect(){
                 return true
             },
