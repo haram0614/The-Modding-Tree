@@ -25,19 +25,4 @@ addLayer("q", {
         {key: "q", description: "Q: Reset for Quantum", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true}
- upgrades: {
-        rows: 1,
-        cols: 1,
-        11: {
-            title: "???",
-            description: "???",
-            cost: decimal(1.8e44),
-            effect(){
-                return true
-            },
-            effectDisplay() {
-                return format(getPointGen()) + "/s"
-            }
-        },
-    },
 })
