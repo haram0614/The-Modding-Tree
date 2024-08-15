@@ -63,8 +63,11 @@ addLayer("q", {
             unlocked() {
 		    return hasUpgrade("q", 12)
 	    },
-            effect(){
-                return false
+              effect(){
+                return true
+            },
+            effectDisplay() {
+                return "???"
             },
         },
     },
