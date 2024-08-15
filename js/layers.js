@@ -31,8 +31,13 @@ addLayer("q", {
         cols: 1,
         11: {
             title: "1",
-            description: "Quantum expo +1",
+            description: "Qt expo +1",
             cost: new Decimal(1.8e44),
+            effect(){
+                return true
+            },
+            effectDisplay() {
+                return format(getPointGen()) + "xQt"
             }
         },
     },
