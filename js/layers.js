@@ -29,7 +29,7 @@ addLayer("q", {
     ],
 	 upgrades: {
         rows: 1,
-        cols: 2,
+        cols: 3,
         11: {
             title: "1",
             description: "Qt expo +1",
