@@ -28,11 +28,25 @@ addLayer("q", {
     ],
 	 upgrades: {
         rows: 1,
-        cols: 1,
+        cols: 2,
         11: {
             title: "1",
             description: "Qt expo +1",
+            
             cost: new Decimal(1.8e44),
+            effect(){
+                return true
+            },
+            effectDisplay() {
+                return format(getPointGen()) + "xQt"
+            }
+        },
+	12: {
+            title: "2",
+            description: "Qt expo +1",
+            cost: new Decimal(4e88),
+            unlocked() {
+		    return hasUpgrade("q", 11)
             effect(){
                 return true
             },
