@@ -20,6 +20,7 @@ addLayer("q", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         exp = new Decimal(1)
 	    if (hasUpgrade('q', 11)) exp = exp.add(1)
+	    if (hasUpgrade('q', 12)) exp = exp.add(1)
         return exp
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
@@ -37,8 +38,8 @@ addLayer("q", {
             effect(){
                 return true
             },
-            effectDisplay() {
-                return format(getPointGen()) + "xQt"
+             effectDisplay() {
+                return player.points + "xQt"
             }
         },
 	12: {
