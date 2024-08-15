@@ -56,6 +56,17 @@ addLayer("q", {
                 return player.points + "xQt"
             }
         },
+	13: {
+            title: "3",
+            description: "Qt expo +1",
+            cost: new Decimal(4e138),
+            unlocked() {
+		    return hasUpgrade("q", 12)
+	    },
+            effect(){
+                return false
+            },
+        },
     },
     layerShown(){return true}
 })
