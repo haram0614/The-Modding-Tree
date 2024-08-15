@@ -51,7 +51,7 @@ addLayer("q", {
                 return true
             },
             effectDisplay() {
-                return format(getPointGen()) + "xQt"
+                return player.points + "xQt"
             }
         },
     },
