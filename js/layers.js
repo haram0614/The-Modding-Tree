@@ -30,14 +30,9 @@ addLayer("q", {
         rows: 1,
         cols: 1,
         11: {
-            title: "???",
-            description: "???",
+            title: "1",
+            description: "Quantum expo +1",
             cost: new Decimal(1.8e44),
-            effect(){
-                return true
-            },
-            effectDisplay() {
-                return format(getPointGen()) + "/s"
             }
         },
     },
