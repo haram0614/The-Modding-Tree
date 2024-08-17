@@ -64,10 +64,10 @@ addLayer("q", {
 		    return hasUpgrade("q", 12)
 	    },
               effect(){
-                return true
+                return player[this.layer].points.add(1000).div(1000).pow("0.05").min("1000")
             },
             effectDisplay() {
-                return "???"
+                return { return format(upgradeEffect(this.layer, this.id))+"x" },
             },
         },
     },
