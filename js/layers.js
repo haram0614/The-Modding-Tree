@@ -58,16 +58,17 @@ addLayer("q", {
         },
 	13: {
             title: "3",
+            description: "Qt expo +1",
             description: "???",
             cost: new Decimal(4e138),
             unlocked() {
 		    return hasUpgrade("q", 12)
 	    },
               effect(){
-                return player[this.layer].points.add(1000).div(1000).pow("0.05").min("1000")
+                return true
             },
             effectDisplay() {
-                return { player[this.layer].points.add(1000).div(1000).pow("0.05").min("1000")+"x" },
+                return "???"
             },
         },
     },
