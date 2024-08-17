@@ -43,6 +43,7 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal("1.8e43")
+	if (hasUpgrade("q", 13)) gain = gain.mult(player.points.exp(0.05))
 	return gain
 }
 
