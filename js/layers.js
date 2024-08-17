@@ -67,7 +67,7 @@ addLayer("q", {
                 return player[this.layer].points.add(1000).div(1000).pow("0.05").min("1000")
             },
             effectDisplay() {
-                return { return format(upgradeEffect(this.layer, this.id))+"x" },
+                return { player[this.layer].points.add(1000).div(1000).pow("0.05").min("1000")+"x" },
             },
         },
     },
