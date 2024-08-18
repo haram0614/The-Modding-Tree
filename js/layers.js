@@ -59,15 +59,14 @@ addLayer("q", {
         },
 	13: {
             title: "3",
+            description: "Qt expo +1",
             description: "???",
             cost: new Decimal(4e138),
             unlocked() {
 		    return hasUpgrade("q", 12)
 	    },
               effect(){
-                let ret = player.q.points.add(1000).div(1000).pow(0.05)
-			if (ret.gte(Decimal("1e308"))) ret =  player.q.points.add(1000).div(1000).pow(0.05)
-		return ret;
+                return true
             },
             effectDisplay() {
                 return "???"
