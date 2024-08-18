@@ -65,7 +65,9 @@ addLayer("q", {
 		    return hasUpgrade("q", 12)
 	    },
               effect(){
-                return true
+                let ret = player.q.points.add(1000).div(1000).pow(0.05)
+			if (ret.gte(Decimal("1e308"))) ret =  player.q.points.add(1000).div(1000).pow(0.05)
+		return ret;
             },
             effectDisplay() {
                 return "???"
