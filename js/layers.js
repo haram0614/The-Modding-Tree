@@ -21,6 +21,7 @@ addLayer("q", {
         exp = new Decimal(1)
 	    if (hasUpgrade('q', 11)) exp = exp.add(1)
 	    if (hasUpgrade('q', 12)) exp = exp.add(1)
+	    if (hasUpgrade('q', 21)) exp = exp.add(1)
         return exp
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
@@ -28,7 +29,7 @@ addLayer("q", {
         {key: "q", description: "Q: Reset for Quantum", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
 	 upgrades: {
-        rows: 1,
+        rows: 3,
         cols: 3,
         11: {
             title: "1",
@@ -70,6 +71,20 @@ addLayer("q", {
             effectDisplay() {
                 return "???"
             },
+        },
+	21: {
+            title: "4",
+            description: "Qt expo +1",
+            cost: new Decimal(1e150),
+            unlocked() {
+		    return hasUpgrade("q", 13)
+	    },
+            effect(){
+                return true
+            },
+            effectDisplay() {
+                return player.points + "xQt"
+            }
         },
     },
     layerShown(){return true}
