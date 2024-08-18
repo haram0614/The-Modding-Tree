@@ -115,8 +115,5 @@ addLayer("a", {
             content: ["main-display",
             "achievements"]
         },
-        "Milestones" :{
-            content: ["milestones"]
-        }
     },
 })
