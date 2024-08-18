@@ -74,3 +74,49 @@ addLayer("q", {
     },
     layerShown(){return true}
 })
+addLayer("a", {
+    name: "Achievements", // This is optional, only used in a few places, If absent it just uses the layer id.
+    symbol: "A", // This appears on the layer's node. Default is the id with the first letter capitalized
+    position: 2, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
+    startData() { return {
+        unlocked: true,
+        points: decimalZero,
+    }},
+    tooltip() {
+      return "Achievements"
+    },
+    color: "#FFFF00",
+    nodeStyle() {return {
+        "background": "radial-gradient(#FFFF00, #d5ad83)" ,
+    }},
+    requires: decimalZero, // Can be a function that takes requirement increases into account
+    resource: "Achievement Points",
+    resourceSingular: "Achievement Point", 
+    type: "none", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+    exponent: 0.5, // Prestige currency exponent
+    row: "side", // Row the layer is in on the tree (0 is the first row)
+    layerShown() { return true },
+    achievements: {
+        rows: 30,
+        cols: 6,
+        11: {
+            name: "INF",
+            tooltip: "Get 1.79e308 Quantum. Reward: 1 AP.",
+            done() {
+                return player.points.gte(1.79e308)
+            },
+            onComplete() {
+                addPoints("a",1)
+            }
+        },
+    },
+    tabFormat: {
+        "Achievements" :{
+            content: ["main-display",
+            "achievements"]
+        },
+        "Milestones" :{
+            content: ["milestones"]
+        }
+    },
+})
