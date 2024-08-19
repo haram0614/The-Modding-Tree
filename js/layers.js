@@ -143,7 +143,7 @@ addLayer("Qc", {
     color: "#4BDC13",
     requires: new Decimal(1), // Can be a function that takes requirement increases into account
     resource: "Quantum Charge", // Name of prestige currency
-    baseResource: "Quantum", // Name of resource prestige is based on
+    baseResource: "Quantum expo", // Name of resource prestige is based on
     baseAmount() {return player.points.log10()}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 1, // Prestige currency exponent
