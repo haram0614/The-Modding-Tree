@@ -147,7 +147,7 @@ addLayer("Qc", {
     baseAmount() {return player.points.add(1).log10()}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 1, // Prestige currency exponent
-    branches: ["v"],
+    branches: ["q"],
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         return mult
@@ -155,7 +155,7 @@ addLayer("Qc", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(3)
     },
-    row: 0, // Row the layer is in on the tree (0 is the first row)
+    row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "c", description: "c: Reset for Quantum Charge", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
