@@ -116,7 +116,7 @@ addLayer("a", {
         cols: 6,
         11: {
             name: "INF",
-            tooltip: "Get 1.79e308 Quantum. Reward: 1 AP.",
+            tooltip: "Get 1.79e308 PL. Reward: 1 AP.",
             done() {
                 return player.points.gte(1.79e308)
             },
