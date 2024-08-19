@@ -61,7 +61,7 @@ addLayer("q", {
             title: "3",
             description: "Qt expo +1",
             description: "???",
-            cost: new Decimal(4e138),
+            cost: new Decimal(8e132),
             unlocked() {
 		    return hasUpgrade("q", 12)
 	    },
@@ -156,7 +156,7 @@ addLayer("Qc", {
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "c", description: "c: Reset for Quantum Charge", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true}
 })
