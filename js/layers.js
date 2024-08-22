@@ -29,8 +29,8 @@ addLayer("q", {
         {key: "q", description: "Q: Reset for Quantum", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
 	 upgrades: {
-        rows: 3,
-        cols: 3,
+        rows: 5,
+        cols: 5,
         11: {
             title: "1",
             description: "Qt expo +1",
@@ -59,7 +59,6 @@ addLayer("q", {
         },
 	13: {
             title: "3",
-            description: "Qt expo +1",
             description: "???",
             cost: new Decimal(8e132),
             unlocked() {
@@ -72,7 +71,7 @@ addLayer("q", {
                 return "???"
             },
         },
-	21: {
+	14: {
             title: "4",
             description: "Qt expo +1",
             cost: new Decimal(1e150),
