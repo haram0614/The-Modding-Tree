@@ -68,7 +68,7 @@ addLayer("q", {
                 return true
             },
             effectDisplay() {
-                return "???"
+                return player.q.points.add(1000).div(1000).pow(0.05) + "xPL"
             },
         },
 	14: {
