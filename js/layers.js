@@ -59,7 +59,7 @@ addLayer("q", {
         },
 	13: {
             title: "3",
-            description: "???",
+            description: "quantum boost PL",
             cost: new Decimal(8e132),
             unlocked() {
 		    return hasUpgrade("q", 12)
