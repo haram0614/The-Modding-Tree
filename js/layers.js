@@ -14,7 +14,7 @@ addLayer("q", {
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 1, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
-        mult = new Decimal(1e10)
+        mult = new Decimal(1)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -143,8 +143,8 @@ addLayer("Qc", {
     color: "#4BDC13",
     requires: new Decimal(1), // Can be a function that takes requirement increases into account
     resource: "Quantum Charge", // Name of prestige currency
-    baseResource: "PL expo", // Name of resource prestige is based on
-    baseAmount() {return player.points.add(1).log10()}, // Get the current amount of baseResource
+    baseResource: "Qt expo", // Name of resource prestige is based on
+    baseAmount() {return player.q.points.add(1).log10()}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 1, // Prestige currency exponent
     branches: ["q"],
