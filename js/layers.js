@@ -34,7 +34,7 @@ addLayer("q", {
         cols: 5,
         11: {
             title: "1",
-            description: "Qt expo +1",
+            description: "Qt,Qc expo +1",
             
             cost: new Decimal(1.8e44),
             effect(){
@@ -46,7 +46,7 @@ addLayer("q", {
         },
 	12: {
             title: "2",
-            description: "Qt expo +1",
+            description: "Qt,Qc expo +1",
             cost: new Decimal(4e88),
             unlocked() {
 		    return hasUpgrade("q", 11)
@@ -153,7 +153,10 @@ addLayer("Qc", {
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
-        return new Decimal(3)
+   	 exp = new Decimal(1)
+	    if (hasUpgrade('q', 11)) exp = exp.add(1)
+	    if (hasUpgrade('q', 12)) exp = exp.add(1)
+        return exp
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
