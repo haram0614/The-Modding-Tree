@@ -22,6 +22,7 @@ addLayer("q", {
 	    if (hasUpgrade('q', 11)) exp = exp.add(1)
 	    if (hasUpgrade('q', 12)) exp = exp.add(1)
 	    if (hasUpgrade('q', 14)) exp = exp.add(1)
+	    if (hasUpgrade('Qc', 11)) exp = exp.mul(1.8)
         return exp
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
@@ -158,5 +159,21 @@ addLayer("Qc", {
     hotkeys: [
         {key: "c", description: "c: Reset for Quantum Charge", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+	 upgrades: {
+        rows: 5,
+        cols: 5,
+        11: {
+            title: "11",
+            description: "Qt expo *1.8",
+            
+            cost: new Decimal(1e7),
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "1.8x Qt expo"
+            }
+        },
+    },
     layerShown(){return true}
 })
