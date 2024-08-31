@@ -87,7 +87,6 @@ addLayer("q", {
                 return player.points + "xQt"
             }
         },
-    },
 	15: {
             title: "5",
             description: "Qt expo +8",
