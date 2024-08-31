@@ -88,7 +88,7 @@ addLayer("q", {
             }
         },
     },
-	14: {
+	15: {
             title: "5",
             description: "Qt expo +8",
             cost: new Decimal(1e400),
