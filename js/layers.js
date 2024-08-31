@@ -22,6 +22,7 @@ addLayer("q", {
 	    if (hasUpgrade('q', 11)) exp = exp.add(1)
 	    if (hasUpgrade('q', 12)) exp = exp.add(1)
 	    if (hasUpgrade('q', 14)) exp = exp.add(1)
+	    if (hasUpgrade('q', 15)) exp = exp.add(8)
 	    if (hasUpgrade('Qc', 11)) exp = exp.mul(1.8)
         return exp
     },
@@ -84,6 +85,21 @@ addLayer("q", {
             },
             effectDisplay() {
                 return player.points + "xQt"
+            }
+        },
+    },
+	14: {
+            title: "5",
+            description: "Qt expo +8",
+            cost: new Decimal(1e400),
+            unlocked() {
+		    return hasUpgrade("q", 14)
+	    },
+            effect(){
+                return true
+            },
+            effectDisplay() {
+                return player.points.exp(8) + "xQt"
             }
         },
     },
