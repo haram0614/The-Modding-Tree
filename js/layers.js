@@ -98,7 +98,7 @@ addLayer("q", {
                 return true
             },
             effectDisplay() {
-                return player.points.exp(8) + "xQt"
+                return player.points.pow(8) + "xQt"
             }
         },
     },
