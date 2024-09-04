@@ -90,7 +90,7 @@ addLayer("q", {
 	15: {
             title: "5",
             description: "Qt expo +8",
-            cost: new Decimal(1e400),
+            cost: new Decimal("1e400"),
             unlocked() {
 		    return hasUpgrade("q", 14)
 	    },
