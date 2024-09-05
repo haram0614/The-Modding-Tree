@@ -107,7 +107,7 @@ addLayer("q", {
             
             cost: new Decimal(4e88),
             effect(){
-                return true
+                return hasUpgrade("q", 11)
             },
              effectDisplay() {
                 return player.points.log10() + "xQc"
