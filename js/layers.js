@@ -113,6 +113,18 @@ addLayer("q", {
                 return player.points.log10() + "xQc"
             }
         },
+	22: {
+            title: "7",
+            description: "Qc expo +1",
+            
+            cost: new Decimal(1e145),
+            effect(){
+                return hasUpgrade("q", 12)
+            },
+             effectDisplay() {
+                return player.points.log10() + "xQt"
+            }
+        },
     },
     layerShown(){return true}
 })
@@ -182,7 +194,7 @@ addLayer("Qc", {
     gainExp() { // Calculate the exponent on main currency from bonuses
    	 exp = new Decimal(1)
 	    if (hasUpgrade('q', 21)) exp = exp.add(1)
-	    if (hasUpgrade('q', 12)) exp = exp.add(1)
+	    if (hasUpgrade('q', 22)) exp = exp.add(1)
         return exp
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
