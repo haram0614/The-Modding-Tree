@@ -35,7 +35,7 @@ addLayer("q", {
         cols: 5,
         11: {
             title: "1",
-            description: "Qt,Qc expo +1",
+            description: "Qt expo +1",
             
             cost: new Decimal(1.8e44),
             effect(){
@@ -99,6 +99,18 @@ addLayer("q", {
             },
             effectDisplay() {
                 return player.points.pow(8) + "xQt"
+            }
+        },
+	21: {
+            title: "6",
+            description: "Qc expo +1",
+            
+            cost: new Decimal(4e88),
+            effect(){
+                return true
+            },
+             effectDisplay() {
+                return player.points.log10() + "xQc"
             }
         },
     },
@@ -169,7 +181,7 @@ addLayer("Qc", {
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
    	 exp = new Decimal(1)
-	    if (hasUpgrade('q', 11)) exp = exp.add(1)
+	    if (hasUpgrade('q', 21)) exp = exp.add(1)
 	    if (hasUpgrade('q', 12)) exp = exp.add(1)
         return exp
     },
