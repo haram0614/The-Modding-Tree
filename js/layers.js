@@ -128,7 +128,7 @@ addLayer("q", {
 	23: {
             title: "8",
             description: "quantum boost PL after Upgrade3 cap",
-            cost: new Decimal(1e1290),
+            cost: new Decimal("1e1290"),
             unlocked() {
 		    return hasUpgrade("q", 15)
 	    },
