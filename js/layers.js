@@ -125,6 +125,20 @@ addLayer("q", {
                 return player.points.log10() + "xQt"
             }
         },
+	23: {
+            title: "8",
+            description: "quantum boost PL after Upgrade3 cap",
+            cost: new Decimal(1e1290),
+            unlocked() {
+		    return hasUpgrade("q", 15)
+	    },
+              effect(){
+                return true
+            },
+            effectDisplay() {
+                return player.q.points.add(1e308).log10().mul(2).add(0.25).pow(0.5).pow_base(1.165).mul(169000) + "xPL"
+            },
+        },
     },
     layerShown(){return true}
 })
