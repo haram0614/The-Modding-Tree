@@ -110,7 +110,7 @@ addLayer("q", {
                 return hasUpgrade("q", 11)
             },
              effectDisplay() {
-                return player.points.log10() + "xQc"
+                return player.q.points.log10() + "xQc"
             }
         },
 	22: {
@@ -122,7 +122,7 @@ addLayer("q", {
                 return hasUpgrade("q", 12)
             },
              effectDisplay() {
-                return player.points.log10() + "xQt"
+                return player.q.points.log10() + "xQt"
             }
         },
 	23: {
