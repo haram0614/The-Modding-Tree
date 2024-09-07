@@ -177,7 +177,7 @@ addLayer("a", {
                 addPoints("a",1)
             }
         },
-        11: {
+        12: {
             name: "INF",
             tooltip: "Get 1.79e308 Qt. Reward: 1 AP.",
             done() {
