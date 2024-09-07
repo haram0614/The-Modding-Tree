@@ -19,11 +19,13 @@ addLayer("q", {
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         exp = new Decimal(1)
+	db = new Decimal(0)
 	    if (hasUpgrade('q', 11)) exp = exp.add(1)
 	    if (hasUpgrade('q', 12)) exp = exp.add(1)
 	    if (hasUpgrade('q', 14)) exp = exp.add(1)
 	    if (hasUpgrade('q', 15)) exp = exp.add(8)
-	    if (hasUpgrade('Qc', 11)) exp = exp.mul(1.8)
+	    if (hasUpgrade('Qc', 11)) db = db.add(0.9)
+	    if (true) exp = exp.mul(db.mul(db.add(1)).div(2).pow_base(2))
         return exp
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
