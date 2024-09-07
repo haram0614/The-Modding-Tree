@@ -167,11 +167,21 @@ addLayer("a", {
     achievements: {
         rows: 30,
         cols: 6,
+	11: {
+            name: "Start with googol",
+            tooltip: "Get 1e100 Qt. Reward: 1 AP.",
+            done() {
+                return player.q.points.gte(1e100)
+            },
+            onComplete() {
+                addPoints("a",1)
+            }
+        },
         11: {
             name: "INF",
             tooltip: "Get 1.79e308 Qt. Reward: 1 AP.",
             done() {
-                return player.q.points.gte(1.79e308)
+                return player.q.points.gte("1.79e308")
             },
             onComplete() {
                 addPoints("a",1)
