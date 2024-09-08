@@ -25,6 +25,7 @@ addLayer("q", {
 	    if (hasUpgrade('q', 14)) exp = exp.add(1)
 	    if (hasUpgrade('q', 15)) exp = exp.add(8)
 	    if (hasUpgrade('Qc', 11)) db = db.add(0.9)
+	    if (hasUpgrade('Qc', 12)) db = db.add(0.9)
 	    if (true) exp = exp.mul(db.mul(db.add(1)).div(2).pow_base(2))
         return exp
     },
@@ -240,6 +241,18 @@ addLayer("Qc", {
             },
              effectDisplay() {
 				return "1.8x Qt expo"
+            }
+	},
+        12: {
+            title: "12",
+            description: "Qt expo *3.18",
+            
+            cost: new Decimal(1e10),
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "3.18x Qt expo"
             }
         },
     },
