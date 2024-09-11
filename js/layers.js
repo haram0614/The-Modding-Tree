@@ -144,19 +144,19 @@ addLayer("q", {
             },
         },
 	24: {
-        title: "9",
-        description: "quantum boost Qt expo after Upgrade5 cap",
-        cost: new Decimal("1e4920"),
-        unlocked() {
-		 return hasUpgrade("q", 23)
-	 },
-          effect(){
-            return true
-         },
-         effectDisplay() {
-             return "+" + player.q.points.add("1e2000").div("1e308").log10().log10().mul(10) "Qt expo"
-    },
-},
+            title: "9",
+            description: "quantum boost PL after Upgrade3 cap",
+            cost: new Decimal("1e4920"),
+            unlocked() {
+		    return hasUpgrade("q", 23)
+	    },
+              effect(){
+                return true
+            },
+            effectDisplay() {
+                return "+" + player.q.points.add("1e2000").div("1e308").log10().log10().mul(10) + "Qt expo"
+            },
+        },
     },
     layerShown(){return true}
 })
