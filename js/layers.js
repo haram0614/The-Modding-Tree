@@ -24,6 +24,7 @@ addLayer("q", {
 	    if (hasUpgrade('q', 12)) exp = exp.add(1)
 	    if (hasUpgrade('q', 14)) exp = exp.add(1)
 	    if (hasUpgrade('q', 15)) exp = exp.add(8)
+	    if (hasUpgrade('q', 24)) exp = exp.add(player.q.points.add("1e2000").div("1e308").log10().log10().mul(10))
 	    if (hasUpgrade('Qc', 11)) db = db.add(0.9)
 	    if (hasUpgrade('Qc', 12)) db = db.add(0.9)
 	    if (true) exp = exp.mul(db.mul(db.add(1)).div(2).pow_base(2))
@@ -142,6 +143,20 @@ addLayer("q", {
                 return player.q.points.add(1e308).log10().mul(2).add(0.25).pow(0.5).pow_base(1.165).mul(169000) + "xPL"
             },
         },
+	24: {
+        title: "9",
+        description: "quantum boost Qt expo after Upgrade5 cap",
+        cost: new Decimal("1e4920"),
+        unlocked() {
+		 return hasUpgrade("q", 23)
+	 },
+          effect(){
+            return true
+         },
+         effectDisplay() {
+             return "+" + player.q.points.add("1e2000").div("1e308").log10().log10().mul(10) "Qt expo"
+    },
+},
     },
     layerShown(){return true}
 })
