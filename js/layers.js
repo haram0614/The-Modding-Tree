@@ -27,6 +27,7 @@ addLayer("q", {
 	    if (hasUpgrade('q', 24)) exp = exp.add(player.q.points.add("1e2000").div("1e308").log10().log10().mul(10))
 	    if (hasUpgrade('Qc', 11)) db = db.add(0.9)
 	    if (hasUpgrade('Qc', 12)) db = db.add(0.9)
+	    if (hasUpgrade('Qc', 13)) db = db.add(0.1)
 	    if (true) exp = exp.mul(db.mul(db.add(1)).div(2).pow_base(2))
         return exp
     },
@@ -260,16 +261,28 @@ addLayer("Qc", {
 	},
         12: {
             title: "12",
-            description: "Qt expo *3.18",
+            description: "Qt expo *1.14",
             
-            cost: new Decimal(1e10),
+            cost: new Decimal(1e13),
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "1.14x Qt expo"
+            }
+	},
+        13: {
+            title: "13",
+            description: "Qt expo *1.14",
+            
+            cost: new Decimal(1e13),
             effect(){
                 return true
             },
              effectDisplay() {
 				return "3.18x Qt expo"
             }
-        },
+	},
     },
     layerShown(){return true}
 })
