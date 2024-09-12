@@ -261,14 +261,14 @@ addLayer("Qc", {
 	},
         12: {
             title: "12",
-            description: "Qt expo *1.14",
+            description: "Qt expo *3.18",
             
             cost: new Decimal(1e13),
             effect(){
                 return true
             },
              effectDisplay() {
-				return "1.14x Qt expo"
+				return "3.18x Qt expo"
             }
 	},
         13: {
@@ -280,7 +280,7 @@ addLayer("Qc", {
                 return true
             },
              effectDisplay() {
-				return "3.18x Qt expo"
+				return "1.14x Qt expo"
             }
 	},
     },
