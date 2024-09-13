@@ -284,5 +284,10 @@ addLayer("Qc", {
             }
 	},
     },
+    tabFormat: {
+        "Achievements" :{
+            content: ["main-display"]
+        },
+    },
     layerShown(){return true}
 })
