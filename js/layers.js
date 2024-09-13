@@ -254,15 +254,6 @@ tabFormat: {
   "upgrades"
   ]
  },
- "Milestones": {
-  content:[
-   function() {if (player.tab == "Qc") return "main-display"},
-  "prestige-button",
-   function() {if (player.tab == "Qc") return "resource-display"},
-  "blank"
-  "milestones"
-  ]
- },
 	 upgrades: {
         rows: 5,
         cols: 5,
