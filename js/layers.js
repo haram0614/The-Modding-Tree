@@ -283,6 +283,18 @@ addLayer("Qc", {
 				return "1.14x Qt expo"
             }
         },
+        14: {
+            title: "14",
+            description: "Boost Qt expo",
+            
+            cost: new Decimal(1e14),
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "1.14x Qt expo"
+            }
+        },
     },
     layerShown(){return true}
 })
