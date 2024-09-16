@@ -287,9 +287,9 @@ addLayer("Qc", {
 	tabFormat: { 
           "Main": {
            content:[
-             function() {if (player.tab == "Qc") return "main-display"},
+              {if (player.tab == "Qc") return "main-display"},
            "prestige-button",
-           function() {if (player.tab == "Qc") return "resource-display"},
+              {if (player.tab == "Qc") return "resource-display"},
            "blank"
            "upgrades"
          ]
