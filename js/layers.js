@@ -331,9 +331,9 @@ addLayer("T", {
         unlocked: false,
 		points: new Decimal(0),
     }},
-    color: "#4BDC13",
+    color: "#FFA500",
     requires: new Decimal(1), // Can be a function that takes requirement increases into account
-    resource: "Quantum Charge", // Name of prestige currency
+    resource: "Theory", // Name of prestige currency
     baseResource: "Qt", // Name of resource prestige is based on
     baseAmount() {return player.q.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
@@ -349,7 +349,7 @@ addLayer("T", {
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "c", description: "c: Reset for Quantum Charge", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "t", description: "t: Reset for Quantum Charge", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true}
 })
