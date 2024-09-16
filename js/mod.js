@@ -13,8 +13,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.2",
-	name: "Boost1",
+	num: "0.2.1",
+	name: "Boost2",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -58,7 +58,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.q.points.gte(new Decimal("e32000"))
+	return player.q.points.gte(new Decimal("e160000"))
 }
 
 
