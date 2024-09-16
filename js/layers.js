@@ -283,6 +283,6 @@ addLayer("Qc", {
 				return "1.14x Qt expo"
             }
         },
-    }
+    },
     layerShown(){return true}
 })
