@@ -284,16 +284,5 @@ addLayer("Qc", {
             }
         },
     },
-	tabFormat: { 
-          "Main": {
-           content:[
-              {if (player.tab == "Qc") return "main-display"},
-           "prestige-button",
-              {if (player.tab == "Qc") return "resource-display"},
-           "blank"
-           "upgrades"
-         ]
-     },
-},
     layerShown(){return true}
 })
