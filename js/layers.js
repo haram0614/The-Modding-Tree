@@ -28,6 +28,7 @@ addLayer("q", {
 	    if (hasUpgrade('Qc', 11)) db = db.add(0.9)
 	    if (hasUpgrade('Qc', 12)) db = db.add(0.9)
 	    if (hasUpgrade('Qc', 13)) db = db.add(0.1)
+	    if (hasUpgrade('Qc', 13)) db = db.add(0.9)
 	    if (true) exp = exp.mul(db.mul(db.add(1)).div(2).pow_base(2))
         return exp
     },
