@@ -159,6 +159,20 @@ addLayer("q", {
                 return "+" + player.q.points.add("1e2000").div("1e308").log10().log10().mul(10) + "Qt expo"
             },
         },
+	25: {
+            title: "10",
+            description: "Unlock new layer",
+            cost: new Decimal("1e6161"),
+            unlocked() {
+		    return hasUpgrade("q", 24)
+	    },
+              effect(){
+                return true
+            },
+            effectDisplay() {
+                return "WIP"
+            },
+        },
     },
     layerShown(){return true}
 })
@@ -202,6 +216,16 @@ addLayer("a", {
             tooltip: "Get 1.79e308 Qt. Reward: 1 AP.",
             done() {
                 return player.q.points.gte("1.79e308")
+            },
+            onComplete() {
+                addPoints("a",1)
+            }
+        },
+        13: {
+            name: "Googol II",
+            tooltip: "Get 1e100 PL. Reward: 1 AP.",
+            done() {
+                return player.points.gte("1e100")
             },
             onComplete() {
                 addPoints("a",1)
