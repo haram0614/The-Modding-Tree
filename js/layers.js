@@ -286,14 +286,14 @@ addLayer("Qc", {
         },
         14: {
             title: "14",
-            description: "Boost Qt expo",
+            description: "Qt expo *5.91",
             
             cost: new Decimal(1e14),
             effect(){
                 return true
             },
              effectDisplay() {
-				return "1.14x Qt expo"
+				return "5.19x Qt expo!"
             }
         },
     },
