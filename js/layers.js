@@ -288,7 +288,7 @@ addLayer("Qc", {
             title: "12",
             description: "Qt expo *3.18",
             
-            cost: new Decimal(1e13),
+            cost: new Decimal(1e10),
             effect(){
                 return true
             },
