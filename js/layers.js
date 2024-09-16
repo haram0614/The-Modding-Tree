@@ -282,7 +282,18 @@ addLayer("Qc", {
              effectDisplay() {
 				return "1.14x Qt expo"
             }
-	},
+        },
+    }
+    tabFormat: { 
+     "Main": {
+      content:[
+        function() {if (player.tab == "Qc") return "main-display"},
+         "prestige-button",
+           function() {if (player.tab == "Qc") return "resource-display"},
+           "blank"
+	  "upgrades"
+            ]
+        },
     },
     layerShown(){return true}
 })
