@@ -170,6 +170,20 @@ addLayer("q", {
                 return true
             },
             effectDisplay() {
+                return player.q.points.mul("1e6160").log10().div(6161).log10().mul(3.32) + "T CAP (WIP)"
+            },
+        },
+	31: {
+            title: "?1",
+            description: "Qt boost theory",
+            cost: new Decimal("1e20000"),
+            unlocked() {
+		    return hasUpgrade("q", 24)
+	    },
+              effect(){
+                return true
+            },
+            effectDisplay() {
                 return "WIP"
             },
         },
