@@ -340,7 +340,7 @@ addLayer("T", {
     exponent: 0, // Prestige currency exponent
     branches: ["q"],
     gainMult() { // Calculate the multiplier for main currency from bonuses
-        mult = new Decimal(1)
+        mult = new Decimal(0)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
