@@ -167,7 +167,7 @@ addLayer("q", {
 		    return hasUpgrade("q", 24)
 	    },
               effect(){
-                return true
+                return player.q.points.mul("1e6160").log10().div(6161).log10().mul(3.32)
             },
             effectDisplay() {
                 return player.q.points.mul("1e6160").log10().div(6161).log10().mul(3.32) + "T CAP (WIP)"
