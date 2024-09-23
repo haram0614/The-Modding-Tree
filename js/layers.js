@@ -178,7 +178,7 @@ addLayer("q", {
             description: "Qt boost theory",
             cost: new Decimal("1e20000"),
             unlocked() {
-		    return hasUpgrade("q", 24)
+		    return hasUpgrade("q", 25)
 	    },
               effect(){
                 return true
@@ -303,6 +303,9 @@ addLayer("Qc", {
             description: "Qt expo *3.18",
             
             cost: new Decimal(1e10),
+            unlocked() {
+		    return hasUpgrade("Qc", 11)
+	    },
             effect(){
                 return true
             },
@@ -315,6 +318,9 @@ addLayer("Qc", {
             description: "Qt expo *1.14",
             
             cost: new Decimal(1e13),
+            unlocked() {
+		    return hasUpgrade("Qc", 12)
+	    },
             effect(){
                 return true
             },
@@ -327,6 +333,9 @@ addLayer("Qc", {
             description: "Qt expo *5.91",
             
             cost: new Decimal(1e14),
+            unlocked() {
+		    return hasUpgrade("Qc", 13)
+	    },
             effect(){
                 return true
             },
