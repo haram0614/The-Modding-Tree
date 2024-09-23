@@ -331,7 +331,7 @@ addLayer("Qc", {
                 return true
             },
              effectDisplay() {
-				return "5.19x Qt expo!"
+				return "5.91x Qt expo!"
             }
         },
     },
