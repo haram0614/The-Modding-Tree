@@ -377,5 +377,21 @@ addLayer("t", {
     hotkeys: [
         {key: "t", description: "t: Reset for Quantum Charge", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+	 upgrades: {
+        rows: 5,
+        cols: 5,
+        11: {
+            title: "21",
+            description: "boost Qt based on time spend on this layer",
+            
+            cost: new Decimal(1),
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "10^" + player[t].resetTime.add(10).log10()
+            }
+	},
+    },
     layerShown(){return true}
 })
