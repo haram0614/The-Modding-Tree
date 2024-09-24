@@ -383,7 +383,9 @@ addLayer("t", {
         11: {
             title: "21",
             description: "boost Qt based on time spend on this layer",
-            
+            unlocked() {
+		    return true
+	    },
             cost: new Decimal(1),
             effect(){
                 return true
