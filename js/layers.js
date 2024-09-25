@@ -389,7 +389,7 @@ addLayer("t", {
                 return true
             },
              effectDisplay() {
-				return "^" "player[layer].resetTime.add(10).log10()"
+				return "^" + "player[layer].resetTime.add(10).log10()"
             }
 	},
         12: {
