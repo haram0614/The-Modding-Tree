@@ -381,24 +381,24 @@ addLayer("t", {
         rows: 5,
         cols: 5,
         11: {
-            title: "11",
-            description: "Qt expo *1.8",
+            title: "21",
+            description: "Boost Qt based on time on this layer",
             
-            cost: new Decimal(1e7),
+            cost: new Decimal(1),
             effect(){
                 return true
             },
              effectDisplay() {
-				return "1.8x Qt expo"
+				return "^" "player[layer].resetTime.add(10).log10()"
             }
 	},
         12: {
-            title: "12",
+            title: "22",
             description: "Qt expo *3.18",
             
             cost: new Decimal(1e10),
             unlocked() {
-		    return hasUpgrade("Qc", 11)
+		    return hasUpgrade("t", 11)
 	    },
             effect(){
                 return true
@@ -408,12 +408,12 @@ addLayer("t", {
             }
 	},
         13: {
-            title: "13",
+            title: "23",
             description: "Qt expo *1.14",
             
             cost: new Decimal(1e13),
             unlocked() {
-		    return hasUpgrade("Qc", 12)
+		    return hasUpgrade("t", 12)
 	    },
             effect(){
                 return true
@@ -423,12 +423,12 @@ addLayer("t", {
             }
         },
         14: {
-            title: "14",
+            title: "24",
             description: "Qt expo *5.91",
             
             cost: new Decimal(1e14),
             unlocked() {
-		    return hasUpgrade("Qc", 13)
+		    return hasUpgrade("t", 13)
 	    },
             effect(){
                 return true
