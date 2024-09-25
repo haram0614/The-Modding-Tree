@@ -380,9 +380,6 @@ addLayer("t", {
 	 upgrades: {
         rows: 5,
         cols: 5,
-	 upgrades: {
-        rows: 5,
-        cols: 5,
         11: {
             title: "11",
             description: "Qt expo *1.8",
