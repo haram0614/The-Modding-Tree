@@ -13,8 +13,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.2.2",
-	name: "Theory1",
+	num: "0.2.3",
+	name: "Theory2",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -44,7 +44,7 @@ function getPointGen() {
 
 	let gain = new Decimal("1.8e43")
 	if (hasUpgrade("q", 13)) gain = gain.mul(player.q.points.add(1000).div(1000).pow(0.05).min(1e15))
-	if (hasUpgrade("q", 23)) gain = gain.mul(player.q.points.add(1e308).log10().mul(2).add(0.25).pow(0.5).pow_base(1.165).mul(169000))
+	if (hasUpgrade("q", 23)) gain = gain.mul(upgradeEffect("q",23))
 	return gain
 }
 
@@ -58,7 +58,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.q.points.gte(new Decimal("e3e5"))
+	return player.q.points.gte(new Decimal("e5e5"))
 }
 
 
