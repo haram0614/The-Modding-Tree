@@ -262,6 +262,16 @@ addLayer("a", {
                 addPoints("a",1)
             }
         },
+        14: {
+            name: "INF II",
+            tooltip: "Get 1.79e308 PL. Reward: 1 AP.",
+            done() {
+                return player.points.gte("1.79e308")
+            },
+            onComplete() {
+                addPoints("a",1)
+            }
+        },
     },
     tabFormat: {
         "Achievements" :{
