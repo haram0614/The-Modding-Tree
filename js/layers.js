@@ -184,7 +184,7 @@ addLayer("q", {
                 return true
             },
             effectDisplay() {
-                return player.q.points.add("1e2000").div("1e308").log10().log10().sub(1.8).div(20)
+                return "WIP"
             },
         },
 	32: {
@@ -198,7 +198,7 @@ addLayer("q", {
                 return true
             },
             effectDisplay() {
-                return "WIP"
+                return player.q.points.add("1e200000").div("1e308").log10().log10().sub(1.8).div(20).min(5) + "Qc expo"
             },
         },
     },
@@ -291,6 +291,7 @@ addLayer("Qc", {
    	 exp = new Decimal(1)
 	    if (hasUpgrade('q', 21)) exp = exp.add(1)
 	    if (hasUpgrade('q', 22)) exp = exp.add(1)
+	    if (hasUpgrade('q', 32)) exp = exp.add(player.q.points.add("1e200000").div("1e308").log10().log10().sub(1.8).div(20).min(5))
         return exp
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
