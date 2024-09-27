@@ -184,6 +184,20 @@ addLayer("q", {
                 return true
             },
             effectDisplay() {
+                return player.q.points.add("1e2000").div("1e308").log10().log10().sub(1.8).div(20)
+            },
+        },
+	32: {
+            title: "?2",
+            description: "Qt slightly boost Qc expo",
+            cost: new Decimal("1e200000"),
+            unlocked() {
+		    return hasUpgrade("q", 31)
+	    },
+              effect(){
+                return true
+            },
+            effectDisplay() {
                 return "WIP"
             },
         },
