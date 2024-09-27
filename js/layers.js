@@ -77,7 +77,7 @@ addLayer("q", {
                 return player.q.points.add(1000).div(1000).pow(0.05).min(1e15)
             },
             effectDisplay() {
-                return player.q.points.add(1000).div(1000).pow(0.05).min(1e15) + "xPL"
+                return upgradeEffect("q",13) + "xPL"
             },
         },
 	14: {
@@ -140,10 +140,10 @@ addLayer("q", {
 		    return hasUpgrade("q", 15)
 	    },
               effect(){
-                return true
+                return player.q.points.add(1e308).log10().mul(2).add(0.25).pow(0.5).pow_base(1.165).mul(169000)
             },
             effectDisplay() {
-                return player.q.points.add(1e308).log10().mul(2).add(0.25).pow(0.5).pow_base(1.165).mul(169000) + "xPL"
+                return upgradeEffect("q",23)+ "xPL"
             },
         },
 	24: {
@@ -154,10 +154,10 @@ addLayer("q", {
 		    return hasUpgrade("q", 23)
 	    },
               effect(){
-                return true
+                return player.q.points.add("1e2000").div("1e308").log10().log10().mul(10)
             },
             effectDisplay() {
-                return "+" + player.q.points.add("1e2000").div("1e308").log10().log10().mul(10) + "Qt expo"
+                return "+" + upgradeEffect("q",24) + "Qt expo"
             },
         },
 	25: {
