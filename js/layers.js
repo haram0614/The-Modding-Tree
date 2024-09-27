@@ -140,7 +140,10 @@ addLayer("q", {
 		    return hasUpgrade("q", 15)
 	    },
               effect(){
-                return player.q.points.add(1e308).log10().mul(2).add(0.25).pow(0.5).pow_base(1.165).mul(169000)
+                base = new Decimal(1.165)
+		      if (hasUpgrade('t', 12)) base = base.add(player.t.points.div(100).max(0))
+		      if base.gte(1.898) base = new Decimal(1.898)
+		return player.q.points.add(1e308).log10().mul(2).add(0.25).pow(0.5).pow_base(1.165).mul(169000)
             },
             effectDisplay() {
                 return upgradeEffect("q",23)+ "xPL"
