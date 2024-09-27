@@ -74,7 +74,7 @@ addLayer("q", {
 		    return hasUpgrade("q", 12)
 	    },
               effect(){
-                return true
+                return player.q.points.add(1000).div(1000).pow(0.05).min(1e15)
             },
             effectDisplay() {
                 return player.q.points.add(1000).div(1000).pow(0.05).min(1e15) + "xPL"
@@ -425,7 +425,7 @@ addLayer("t", {
 	},
         12: {
             title: "22",
-            description: "theory boost ???",
+            description: "theory boost Up8 base",
             
             cost: new Decimal(2),
             unlocked() {
@@ -435,7 +435,7 @@ addLayer("t", {
                 return true
             },
              effectDisplay() {
-				return "???"
+				return player.t.points.div(100).max(0) + "+Up8 base"
             }
 	},
         13: {
