@@ -29,6 +29,7 @@ addLayer("q", {
 	    if (hasUpgrade('Qc', 12)) db = db.add(0.9)
 	    if (hasUpgrade('Qc', 13)) db = db.add(0.1)
 	    if (hasUpgrade('Qc', 14)) db = db.add(0.9)
+	    if (hasUpgrade('Qc', 15)) db = db.add(0.1)
 	    if (true) exp = exp.mul(db.mul(db.add(1)).div(2).pow_base(2))
         return exp
     },
@@ -198,7 +199,7 @@ addLayer("q", {
                 return true
             },
             effectDisplay() {
-                return player.q.points.add("1e200000").div("1e308").log10().log10().sub(1.8).div(20).min(5) + "Qc expo"
+                return player.q.points.add("1e200000").div("1e308").log10().log10().sub(1.8).div(20).min(5) + "+Qc expo"
             },
         },
     },
@@ -358,6 +359,21 @@ addLayer("Qc", {
 				return "5.91x Qt expo!"
             }
         },
+        15: {
+            title: "15",
+            description: "Qt expo *1.26",
+            
+            cost: new Decimal(1e17),
+            unlocked() {
+		    return hasUpgrade("Qc", 14)
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "1.26x Qt expo"
+            }
+        },
     },
     layerShown(){return true}
 })
@@ -409,17 +425,17 @@ addLayer("t", {
 	},
         12: {
             title: "22",
-            description: "Qt expo *3.18",
+            description: "theory boost ???",
             
-            cost: new Decimal(1e10),
+            cost: new Decimal(2),
             unlocked() {
-		    return hasUpgrade("t", 11)
+		    return true
 	    },
             effect(){
                 return true
             },
              effectDisplay() {
-				return "3.18x Qt expo"
+				return "???"
             }
 	},
         13: {
@@ -428,7 +444,7 @@ addLayer("t", {
             
             cost: new Decimal(1e13),
             unlocked() {
-		    return hasUpgrade("t", 12)
+		    return hasUpgrade("t", 11)
 	    },
             effect(){
                 return true
@@ -443,7 +459,7 @@ addLayer("t", {
             
             cost: new Decimal(1e14),
             unlocked() {
-		    return hasUpgrade("t", 13)
+		    return hasUpgrade("t", 12)
 	    },
             effect(){
                 return true
