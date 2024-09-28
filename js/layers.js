@@ -375,7 +375,7 @@ addLayer("Qc", {
             title: "15",
             description: "Qt expo *1.26",
             
-            cost: new Decimal(1e17),
+            cost: new Decimal(1e18),
             unlocked() {
 		    return hasUpgrade("Qc", 14)
 	    },
