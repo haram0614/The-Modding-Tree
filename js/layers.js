@@ -447,7 +447,7 @@ addLayer("t", {
             cost: new Decimal(1),
             effect(){
                 upg21eff = player.t.points.add(10).log10()
-		    if hasUpgrade("t",13) upg.effect = player.t.points.pow(2).add(10).log10().mul(2)
+		    if hasUpgrade("t",13) upg21eff = player.t.points.pow(2).add(10).log10().mul(2)
                 return upg21eff
             },
              effectDisplay() {
