@@ -172,12 +172,10 @@ addLayer("q", {
 		    return hasUpgrade("q", 24)
 	    },
               effect(){
-		tbase = player.q.points.mul("1e6160").log10().div(6161).log10().mul(3.32)
-		tcap = tbase.mul(tbase.add(1).div(2))
-                return tcap
+                return true
             },
             effectDisplay() {
-                return upgradeEffect("q",25) + " T cap"
+                return "new layer!!"
         },
 	31: {
             title: "?1",
@@ -424,11 +422,13 @@ addLayer("t", {
     exponent: 0, // Prestige currency exponent
     branches: ["q"],
     gainMult() { // Calculate the multiplier for main currency from bonuses
-        mult = player.q.points.mul("1e6160").log10().div(6161).log10().mul(3.32)
+        multb = new Decimal(0)
+	mult = player.q.points.mul("1e6160").log10().div(6161).log10().mul(3.32)
         mult = mult.mul(mult.add(1).div(2))
         mult = mult.sub(player.t.points)
         mult = mult.max(0)
-        return mult
+	if hasUpgrade("q",25) multb = multb.add(1)
+        return mult.mul(multb)
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
    	 exp = new Decimal(1)
