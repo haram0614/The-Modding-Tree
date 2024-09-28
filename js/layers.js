@@ -203,7 +203,7 @@ addLayer("q", {
 		    return hasUpgrade("q", 31)
 	    },
               effect(){
-                return upgradeEffect("q",24).sub(48).min(160).div20
+                return upgradeEffect("q",24).sub(48).min(160).div(20)
             },
             effectDisplay() {
                 return upgradeEffect("q",32) + "+Qc expo"
