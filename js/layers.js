@@ -207,6 +207,20 @@ addLayer("q", {
                 return player.q.points.add("1e200000").div("1e308").log10().log10().sub(1.8).div(20).min(5) + "+Qc expo"
             },
         },
+	33: {
+            title: "?3",
+            description: "Unlock new layer!",
+            cost: new Decimal("ee12"),
+            unlocked() {
+		    return hasUpgrade("q", 32)
+	    },
+              effect(){
+                return true
+            },
+            effectDisplay() {
+                return "new layer!"
+            },
+        },
     },
     layerShown(){return true}
 })
@@ -487,4 +501,32 @@ addLayer("t", {
 	},
     },
     layerShown(){return true}
+})
+addLayer("a", {
+    name: "Acceleron", // This is optional, only used in a few places, If absent it just uses the layer id.
+    symbol: "A", // This appears on the layer's node. Default is the id with the first letter capitalized
+    position: 1, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
+    startData() { return {
+        unlocked: true,
+		points: new Decimal(0),
+    }},
+    color: "#4BDC13",
+    requires: new Decimal(84), // Can be a function that takes requirement increases into account
+    resource: "Acceleron", // Name of prestige currency
+    baseResource: "Theories", // Name of resource prestige is based on
+    baseAmount() {return player.t.points}, // Get the current amount of baseResource
+    type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+    exponent: 1, // Prestige currency exponent
+    gainMult() { // Calculate the multiplier for main currency from bonuses
+        mult = new Decimal(1)
+        return mult
+    },
+    gainExp() { // Calculate the exponent on main currency from bonuses
+        return new Decimal(1)
+    },
+    row: 0, // Row the layer is in on the tree (0 is the first row)
+    hotkeys: [
+        {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+    ],
+    layerShown(){return hasUpgrade("q", 33)}
 })
