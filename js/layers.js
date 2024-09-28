@@ -45,7 +45,7 @@ addLayer("q", {
         11: {
             title: "1",
             description: "Qt expo +1",
-            
+
             cost: new Decimal(1.8e44),
             effect(){
                 return true
@@ -113,7 +113,7 @@ addLayer("q", {
 	21: {
             title: "6",
             description: "Qc expo +1",
-            
+
             cost: new Decimal(4e88),
             effect(){
                 return hasUpgrade("q", 11)
@@ -125,7 +125,7 @@ addLayer("q", {
 	22: {
             title: "7",
             description: "Qc expo +1",
-            
+
             cost: new Decimal(1e145),
             effect(){
                 return hasUpgrade("q", 12)
@@ -175,11 +175,12 @@ addLayer("q", {
                 return true
             },
             effectDisplay() {
-                return "new layer!!"
+                return player.q.points.mul("1e6160").log10().div(6161).log10().mul(3.32) + "T CAP (WIP)"
+            },
         },
 	31: {
             title: "?1",
-            description: "+5 Up8 base cap",
+            description: "Qt boost theory",
             cost: new Decimal("1e20000"),
             unlocked() {
 		    return hasUpgrade("q", 25)
@@ -188,7 +189,7 @@ addLayer("q", {
                 return true
             },
             effectDisplay() {
-                return "+5 Up8 base"
+                return "WIP"
             },
         },
 	32: {
