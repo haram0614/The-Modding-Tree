@@ -172,15 +172,16 @@ addLayer("q", {
 		    return hasUpgrade("q", 24)
 	    },
               effect(){
-                return true
+		tbase = player.q.points.mul("1e6160").log10().div(6161).log10().mul(3.32)
+		tcap = tbase.mul(tbase.add(1).div(2)
+                return tcap
             },
             effectDisplay() {
-                return player.q.points.mul("1e6160").log10().div(6161).log10().mul(3.32) + "T CAP (WIP)"
-            },
+                return upgradeEffect("q",25) + " T cap"
         },
 	31: {
             title: "?1",
-            description: "Qt boost theory",
+            description: "+5 Up8 base cap",
             cost: new Decimal("1e20000"),
             unlocked() {
 		    return hasUpgrade("q", 25)
@@ -189,7 +190,7 @@ addLayer("q", {
                 return true
             },
             effectDisplay() {
-                return "WIP"
+                return "+5 Up8 base"
             },
         },
 	32: {
