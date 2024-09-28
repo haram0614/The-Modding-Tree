@@ -32,6 +32,7 @@ addLayer("q", {
 	    if (hasUpgrade('Qc', 14)) db = db.add(0.9)
 	    if (hasUpgrade('Qc', 15)) db = db.add(0.1)
 	    if (hasUpgrade('Qc', 21)) db = db.add(0.9)
+	    if (hasUpgrade('Qc', 22)) db = db.add(1)
 	    if (true) exp = exp.mul(db.mul(db.add(1)).div(2).pow_base(2))
         return exp
     },
@@ -401,6 +402,21 @@ addLayer("Qc", {
             },
              effectDisplay() {
 				return "add 0.9 booster"
+            }
+        },
+        22: {
+            title: "17",
+            description: "add 1 booster",
+            
+            cost: new Decimal(1e25),
+            unlocked() {
+		    return hasUpgrade("Qc", 21)
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "add 1 booster"
             }
         },
     },
