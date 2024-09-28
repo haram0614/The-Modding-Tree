@@ -446,9 +446,7 @@ addLayer("t", {
             
             cost: new Decimal(1),
             effect(){
-                upg21eff = player.t.points.add(10).log10()
-		    if hasUpgrade("t",13) upg21eff = player.t.points.pow(2).add(10).log10().mul(2)
-                return upg21eff
+                return player.t.points.add(10).log10()
             },
              effectDisplay() {
 				return "^" + upgradeEffect("t",11)
@@ -469,36 +467,6 @@ addLayer("t", {
 				return player.t.points.div(100).max(0) + "+Up8 base"
             }
 	},
-        13: {
-            title: "23",
-            description: "Upg21 formula better",
-            
-            cost: new Decimal(100),
-            unlocked() {
-		    return hasUpgrade("t", 11)
-	    },
-            effect(){
-                return true
-            },
-             effectDisplay() {
-				return "≈^4Qt"
-            }
-        },
-        14: {
-            title: "24",
-            description: "Qt expo *5.91",
-            
-            cost: new Decimal(1e14),
-            unlocked() {
-		    return hasUpgrade("t", 12)
-	    },
-            effect(){
-                return true
-            },
-             effectDisplay() {
-				return "5.91x Qt expo!"
-            }
-        },
     },
     layerShown(){return true}
 })
