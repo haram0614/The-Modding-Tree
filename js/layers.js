@@ -316,7 +316,7 @@ addLayer("Qc", {
         cols: 5,
         11: {
             title: "11",
-            description: "add 0.9 booster, booster formula:2^(b*(b+1)/2)",
+            description: "add 0.9 booster, booster formula:^2^(b*(b+1)/2) Qt",
             
             cost: new Decimal(1e7),
             effect(){
