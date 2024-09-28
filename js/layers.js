@@ -316,19 +316,19 @@ addLayer("Qc", {
         cols: 5,
         11: {
             title: "11",
-            description: "Qt expo *1.8",
+            description: "add 0.9 booster, booster formula:2^(b*(b+1)/2)",
             
             cost: new Decimal(1e7),
             effect(){
                 return true
             },
              effectDisplay() {
-				return "1.8x Qt expo"
+				return "add 0.9 booster"
             }
 	},
         12: {
             title: "12",
-            description: "Qt expo *3.18",
+            description: "add 0.9 booster",
             
             cost: new Decimal(1e10),
             unlocked() {
@@ -338,12 +338,12 @@ addLayer("Qc", {
                 return true
             },
              effectDisplay() {
-				return "3.18x Qt expo"
+				return "add 0.9 booster"
             }
 	},
         13: {
             title: "13",
-            description: "Qt expo *1.14",
+            description: "add 0.1 booster",
             
             cost: new Decimal(1e13),
             unlocked() {
@@ -353,12 +353,12 @@ addLayer("Qc", {
                 return true
             },
              effectDisplay() {
-				return "1.14x Qt expo"
+				return "add 0.1 booster"
             }
         },
         14: {
             title: "14",
-            description: "Qt expo *5.91",
+            description: "add 0.9 booster",
             
             cost: new Decimal(1e14),
             unlocked() {
@@ -368,12 +368,12 @@ addLayer("Qc", {
                 return true
             },
              effectDisplay() {
-				return "5.91x Qt expo!"
+				return "add 0.9 booster"
             }
         },
         15: {
             title: "15",
-            description: "Qt expo *1.26",
+            description: "add 0.1 booster",
             
             cost: new Decimal(1e18),
             unlocked() {
@@ -383,7 +383,22 @@ addLayer("Qc", {
                 return true
             },
              effectDisplay() {
-				return "1.26x Qt expo"
+				return "add 0.1 booster"
+            }
+        },
+        21: {
+            title: "16",
+            description: "add 0.9 booster",
+            
+            cost: new Decimal(1e10),
+            unlocked() {
+		    return hasUpgrade("Qc", 15)
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "add 0.9 booster"
             }
         },
     },
