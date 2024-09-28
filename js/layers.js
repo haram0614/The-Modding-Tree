@@ -173,7 +173,7 @@ addLayer("q", {
 	    },
               effect(){
 		tbase = player.q.points.mul("1e6160").log10().div(6161).log10().mul(3.32)
-		tcap = tbase.mul(tbase.add(1).div(2)
+		tcap = tbase.mul(tbase.add(1).div(2))
                 return tcap
             },
             effectDisplay() {
