@@ -323,7 +323,7 @@ addLayer("Qc", {
    	 exp = new Decimal(1)
 	    if (hasUpgrade('q', 21)) exp = exp.add(1)
 	    if (hasUpgrade('q', 22)) exp = exp.add(1)
-	    if (hasUpgrade('q', 32)) exp = exp.add(upgradeEffect("q",32)
+	    if (hasUpgrade('q', 32)) exp = exp.add(upgradeEffect("q",32))
         return exp
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
