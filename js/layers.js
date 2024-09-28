@@ -146,7 +146,7 @@ addLayer("q", {
                 base = new Decimal(1.165)
 		bcap = new Decimal(1.898)
 		      if (hasUpgrade('a', 11)) bcap = bcap.max(21000)
-		      if (hasUpgrade('t', 12)) base = base.add(player.t.points.div(100).max(0)).min(1.898)
+		      if (hasUpgrade('t', 12)) base = base.add(player.t.points.div(100).max(0)).min(bcap)
 		return player.q.points.add(1e308).log10().mul(2).add(0.25).pow(0.5).pow_base(base).mul(169000)
             },
             effectDisplay() {
@@ -495,10 +495,12 @@ addLayer("t", {
 		    return true
 	    },
             effect(){
-                return true
+                upg22eff = player.t.points.div(100).max(0)
+		    if (hasUpgrade('a', 12)) upg22eff = upg22eff.pow(2)
+		return upg22eff
             },
              effectDisplay() {
-				return player.t.points.div(100).max(0) + "+Up8 base"
+				return upgradeEffect("t",12) + "+Up8 base"
             }
 	},
     },
@@ -539,10 +541,10 @@ addLayer("a", {
             
             cost: new Decimal(1),
             effect(){
-                return "1.898=>21000 cap"
+                return true
             },
              effectDisplay() {
-				return "^" + upgradeEffect("t",11)
+				return "1.898=>21000 cap"
             }
 	},
         12: {
@@ -557,7 +559,7 @@ addLayer("a", {
                 return true
             },
              effectDisplay() {
-				return player.t.points.div(100).max(0) + "+Up8 base"
+				return "nice"
             }
 	},
     },
