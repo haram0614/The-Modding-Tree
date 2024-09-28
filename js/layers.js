@@ -144,6 +144,8 @@ addLayer("q", {
 	    },
               effect(){
                 base = new Decimal(1.165)
+		bcap = new Decimal(1.898)
+		      if (hasUpgrade('a', 11)) bcap = bcap.max(21000)
 		      if (hasUpgrade('t', 12)) base = base.add(player.t.points.div(100).max(0)).min(1.898)
 		return player.q.points.add(1e308).log10().mul(2).add(0.25).pow(0.5).pow_base(base).mul(169000)
             },
@@ -224,7 +226,7 @@ addLayer("q", {
     },
     layerShown(){return true}
 })
-addLayer("a", {
+addLayer("A", {
     name: "Achievements", // This is optional, only used in a few places, If absent it just uses the layer id.
     symbol: "A", // This appears on the layer's node. Default is the id with the first letter capitalized
     position: 2, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
@@ -528,5 +530,36 @@ addLayer("a", {
     hotkeys: [
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+	 upgrades: {
+        rows: 5,
+        cols: 5,
+        11: {
+            title: "41",
+            description: "increase Up8 base cap",
+            
+            cost: new Decimal(1),
+            effect(){
+                return "1.898=>21000 cap"
+            },
+             effectDisplay() {
+				return "^" + upgradeEffect("t",11)
+            }
+	},
+        12: {
+            title: "42",
+            description: "^2 Upg22 effect",
+            
+            cost: new Decimal(100),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return player.t.points.div(100).max(0) + "+Up8 base"
+            }
+	},
+    },
     layerShown(){return hasUpgrade("q", 33)}
 })
