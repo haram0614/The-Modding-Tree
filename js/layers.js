@@ -446,10 +446,12 @@ addLayer("t", {
             
             cost: new Decimal(1),
             effect(){
-                return true
+                upg21eff = player.t.points.add(10).log10()
+		    if hasUpgrade("t",13) upg.effect = player.t.points.pow(2).add(10).log10().mul(2)
+                return upg21eff
             },
              effectDisplay() {
-				return "^" + player.t.points.add(10).log10()
+				return "^" + upgradeEffect("t",11)
             }
 	},
         12: {
@@ -469,9 +471,9 @@ addLayer("t", {
 	},
         13: {
             title: "23",
-            description: "Qt expo *1.14",
+            description: "Upg21 formula better",
             
-            cost: new Decimal(1e13),
+            cost: new Decimal(100),
             unlocked() {
 		    return hasUpgrade("t", 11)
 	    },
@@ -479,7 +481,7 @@ addLayer("t", {
                 return true
             },
              effectDisplay() {
-				return "1.14x Qt expo"
+				return "≈^4Qt"
             }
         },
         14: {
