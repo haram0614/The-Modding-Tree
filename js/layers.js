@@ -25,6 +25,7 @@ addLayer("q", {
 	    if (hasUpgrade('q', 14)) exp = exp.add(1)
 	    if (hasUpgrade('q', 15)) exp = exp.add(8)
 	    if (hasUpgrade('q', 24)) exp = exp.add(player.q.points.add("1e2000").div("1e308").log10().log10().mul(10))
+	    if (hasUpgrade('t', 11)) exp = exp.add(player.t.points.add(10).log10())
 	    if (hasUpgrade('Qc', 11)) db = db.add(0.9)
 	    if (hasUpgrade('Qc', 12)) db = db.add(0.9)
 	    if (hasUpgrade('Qc', 13)) db = db.add(0.1)
@@ -441,14 +442,14 @@ addLayer("t", {
         cols: 5,
         11: {
             title: "21",
-            description: "Boost Qt based on time on this layer",
+            description: "Boost Qt based on theory",
             
             cost: new Decimal(1),
             effect(){
                 return true
             },
              effectDisplay() {
-				return "^" + player.timePlayed.add(10).log10()
+				return "^" + player.t.points.add(10).log10()
             }
 	},
         12: {
