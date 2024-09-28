@@ -155,7 +155,7 @@ addLayer("q", {
         },
 	24: {
             title: "9",
-            description: "quantum boost PL after Upgrade3 cap",
+            description: "quantum boost Qt expo",
             cost: new Decimal("1e4920"),
             unlocked() {
 		    return hasUpgrade("q", 23)
@@ -203,10 +203,10 @@ addLayer("q", {
 		    return hasUpgrade("q", 31)
 	    },
               effect(){
-                return true
+                return upgradeEffect("q",24).sub(48).min(160).div20
             },
             effectDisplay() {
-                return player.q.points.add("1e200000").div("1e308").log10().log10().sub(1.8).div(20).min(5) + "+Qc expo"
+                return upgradeEffect("q",32) + "+Qc expo"
             },
         },
 	33: {
@@ -323,7 +323,7 @@ addLayer("Qc", {
    	 exp = new Decimal(1)
 	    if (hasUpgrade('q', 21)) exp = exp.add(1)
 	    if (hasUpgrade('q', 22)) exp = exp.add(1)
-	    if (hasUpgrade('q', 32)) exp = exp.add(player.q.points.add("1e200000").div("1e308").log10().log10().sub(1.8).div(20).min(5))
+	    if (hasUpgrade('q', 32)) exp = exp.add(upgradeEffect("q",32)
         return exp
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
