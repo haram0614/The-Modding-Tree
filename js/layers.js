@@ -215,7 +215,7 @@ addLayer("q", {
             description: "Unlock new layer!",
             cost: new Decimal("ee12"),
             unlocked() {
-		    return hasUpgrade("q", 32)
+		    return hasUpgrade("q", 33)
 	    },
               effect(){
                 return true
@@ -553,8 +553,9 @@ addLayer("a", {
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 1, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
-        mult = new Decimal(1)
-        return mult
+        multb = new Decimal(0)
+	if (hasUpgrade('q', 25)) multb = multb.add(1)
+        return multb
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
