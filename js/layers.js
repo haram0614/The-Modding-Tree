@@ -33,7 +33,7 @@ addLayer("q", {
 	    if (hasUpgrade('Qc', 15)) db = db.add(0.1)
 	    if (hasUpgrade('Qc', 21)) db = db.add(0.9)
 	    if (hasUpgrade('Qc', 22)) db = db.add(1)
-	    if (hasUpgrade('Qc', 22)) db = db.add(upgradeEffect("Qc",23)
+	    if (hasUpgrade('Qc', 22)) db = db.add(upgradeEffect("Qc",23))
 	    if (true) exp = exp.mul(db.mul(db.add(1)).div(2).pow_base(2))
         return exp
     },
