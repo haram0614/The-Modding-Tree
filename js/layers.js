@@ -445,7 +445,7 @@ addLayer("Qc", {
 		    return hasUpgrade("Qc", 22)
 	    },
             effect(){
-                return player.Qc.points.add("1e90").log10().mul(1.0381).log10().sub(3.8)
+                return player.Qc.points.add("1e90").log10().div(3.2).log10().mul(3.321).sub(3.8)
             },
              effectDisplay() {
 				return upgradeEffect("Qc",23) + "+Booster"
