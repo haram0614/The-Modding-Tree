@@ -440,12 +440,12 @@ addLayer("Qc", {
             title: "18",
             description: "add booster based on Qc",
             
-            cost: new Decimal(1e48),
+            cost: new Decimal(1e90),
             unlocked() {
 		    return hasUpgrade("Qc", 22)
 	    },
             effect(){
-                return player.Qc.points.log10().mul(1.0381).log10().sub(3.8)
+                return player.Qc.points.add("1e90").log10().mul(1.0381).log10().sub(3.8)
             },
              effectDisplay() {
 				return upgradeEffect("Qc",23) + "+Booster"
