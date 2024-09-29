@@ -534,6 +534,21 @@ addLayer("t", {
 				return upgradeEffect("t",12) + "+Up8 base"
             }
 	},
+        13: {
+            title: "23",
+            description: "Keep Acceleron on reset",
+            
+            cost: new Decimal(1000),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+		return true
+            },
+             effectDisplay() {
+				return "nice"
+            }
+	},
     },
     layerShown(){return true}
 })
@@ -595,5 +610,5 @@ addLayer("a", {
             }
 	},
     },
-    layerShown(){return hasUpgrade("q", 33) || player.a.points.gte(1) || hasUpgrade("a",11)}
+    layerShown(){return hasUpgrade("q", 33) || hasUpgrade("t",13)}
 })
