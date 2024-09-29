@@ -273,7 +273,7 @@ addLayer("A", {
                 return player.q.points.gte(1e100)
             },
             onComplete() {
-                addPoints("a",1)
+                addPoints("A",1)
             }
         },
         12: {
@@ -283,7 +283,7 @@ addLayer("A", {
                 return player.q.points.gte("1.79e308")
             },
             onComplete() {
-                addPoints("a",1)
+                addPoints("A",1)
             }
         },
         13: {
@@ -293,7 +293,7 @@ addLayer("A", {
                 return player.points.gte("1e100")
             },
             onComplete() {
-                addPoints("a",1)
+                addPoints("A",1)
             }
         },
         14: {
@@ -303,7 +303,7 @@ addLayer("A", {
                 return player.points.gte("1.79e308")
             },
             onComplete() {
-                addPoints("a",1)
+                addPoints("A",1)
             }
         },
     },
