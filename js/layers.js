@@ -33,6 +33,7 @@ addLayer("q", {
 	    if (hasUpgrade('Qc', 15)) db = db.add(0.1)
 	    if (hasUpgrade('Qc', 21)) db = db.add(0.9)
 	    if (hasUpgrade('Qc', 22)) db = db.add(1)
+	    if (hasUpgrade('Qc', 22)) db = db.add(upgradeEffect("Qc",23)
 	    if (true) exp = exp.mul(db.mul(db.add(1)).div(2).pow_base(2))
         return exp
     },
@@ -433,6 +434,21 @@ addLayer("Qc", {
             },
              effectDisplay() {
 				return "add 1 booster"
+            }
+        },
+        23: {
+            title: "18",
+            description: "add booster based on Qc",
+            
+            cost: new Decimal(1e48),
+            unlocked() {
+		    return hasUpgrade("Qc", 22)
+	    },
+            effect(){
+                return player.Qc.points.log10().mul(1.0381).log10().sub(3.8)
+            },
+             effectDisplay() {
+				return upgradeEffect("Qc",23) + "+Booster"
             }
         },
     },
