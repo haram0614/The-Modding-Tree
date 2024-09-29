@@ -215,7 +215,7 @@ addLayer("q", {
             description: "Unlock new layer!",
             cost: new Decimal("ee12"),
             unlocked() {
-		    return hasUpgrade("q", 33)
+		    return hasUpgrade("q", 32)
 	    },
               effect(){
                 return true
@@ -229,7 +229,7 @@ addLayer("q", {
             description: "Boost Qc expo after 8",
             cost: new Decimal("e9e15"),
             unlocked() {
-		    return hasUpgrade("q", 32)
+		    return hasUpgrade("q", 33)
 	    },
               effect(){
                 return upgradeEffect("q",24).sub(148).min(840).div(120)
