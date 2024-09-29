@@ -579,5 +579,5 @@ addLayer("a", {
             }
 	},
     },
-    layerShown(){return hasUpgrade("q", 33)||player.a.points.gte(1)}
+    layerShown(){return hasUpgrade("q", 33)}
 })
