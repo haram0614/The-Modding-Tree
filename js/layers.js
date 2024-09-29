@@ -204,7 +204,7 @@ addLayer("q", {
 		    return hasUpgrade("q", 31)
 	    },
               effect(){
-                return upgradeEffect("q",24).sub(48).min(160).div(20)
+                return upgradeEffect("q",24).sub(48).min(100).div(20)
             },
             effectDisplay() {
                 return upgradeEffect("q",32) + "+Qc expo"
@@ -222,6 +222,20 @@ addLayer("q", {
             },
             effectDisplay() {
                 return "new layer!"
+            },
+        },
+	34: {
+            title: "?4",
+            description: "Boost Qc expo after 8",
+            cost: new Decimal("e9e15"),
+            unlocked() {
+		    return hasUpgrade("q", 32)
+	    },
+              effect(){
+                return upgradeEffect("q",24).sub(148).min(840).div(120)
+            },
+            effectDisplay() {
+                return upgradeEffect("q",34) + "+Qc expo"
             },
         },
     },
@@ -325,6 +339,7 @@ addLayer("Qc", {
 	    if (hasUpgrade('q', 21)) exp = exp.add(1)
 	    if (hasUpgrade('q', 22)) exp = exp.add(1)
 	    if (hasUpgrade('q', 32)) exp = exp.add(upgradeEffect("q",32))
+	    if (hasUpgrade('q', 34)) exp = exp.add(upgradeEffect("q",34))
         return exp
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
