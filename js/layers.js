@@ -648,7 +648,7 @@ addLayer("W", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         multw = new Decimal(0)
 	if (hasUpgrade("a", 13)) multw = multw.add(1)
-	if (hasUpgrade("w", 13)) multw = multw.mul(upgradeEffect('w',13))
+	if (hasUpgrade("W", 13)) multw = multw.mul(upgradeEffect('w',13))
         return multw
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
