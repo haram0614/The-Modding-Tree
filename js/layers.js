@@ -495,7 +495,7 @@ addLayer("t", {
         if (hasUpgrade('W', 12)) multb = multb.mul(mult.add(1).div(2))
         mult = mult.sub(player.t.points)
         mult = mult.max(0)
-	if (hasUpgrade('q', 25)) multb = multb.add(1)
+	if (hasUpgrade('q', 25)) mult = mult.mul(upgradeEffect('W',12))
         return mult.mul(multb)
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
