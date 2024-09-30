@@ -278,7 +278,7 @@ addLayer("A", {
         },
         12: {
             name: "INF",
-            tooltip: "Get 1.79e308 Qt. Reward: 1 AP.",
+            tooltip: "Get 1.79e308 Qt. Reward: 1 AP,Auto gain Qt(WIP)",
             done() {
                 return player.q.points.gte("1.79e308")
             },
@@ -346,6 +346,9 @@ addLayer("Qc", {
     hotkeys: [
         {key: "c", description: "c: Reset for Quantum Charge", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+update(diff) {
+	if (hasAchievement('A', 12)) generatePoints('q',diff);
+},
 	 upgrades: {
         rows: 5,
         cols: 5,
