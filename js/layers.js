@@ -329,6 +329,16 @@ addLayer("A", {
                 addPoints("A",1)
             }
         },
+        21: {
+            name: "Google 3",
+            tooltip: "Get (1e100^2) Qc. Reward: 1 AP.",
+            done() {
+                return player.Qc.points.gte("1e200")
+            },
+            onComplete() {
+                addPoints("A",1)
+            }
+        },
     },
     tabFormat: {
         "Achievements" :{
