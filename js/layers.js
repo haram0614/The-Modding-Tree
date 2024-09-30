@@ -659,7 +659,7 @@ addLayer("W", {
         {key: "w", description: "W: Reset for Waves", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
 update(diff) {
-	if (hasUpgrade('w', 11)) generatePoints('w',diff);
+	if (hasUpgrade('W', 11)) generatePoints('W',diff);
 },
 	 upgrades: {
         rows: 5,
@@ -673,7 +673,7 @@ update(diff) {
                 return true
             },
              effectDisplay() {
-				return "1.898=>21000 cap"
+				return "nice"
             }
 	},
         12: {
@@ -682,13 +682,13 @@ update(diff) {
             
             cost: new Decimal(100),
             unlocked() {
-		    return player.w.points.add(100).log10().mul(1.107)
+		    return player.W.points.add(100).log10().mul(1.107)
 	    },
             effect(){
                 return 
             },
              effectDisplay() {
-				return upgradeEffect('w',12) + "x theory"
+				return upgradeEffect('W',12) + "x theory"
             }
 	},
         13: {
@@ -700,7 +700,7 @@ update(diff) {
 		    return player.q.points.add("e9e15").log10().div(500).log10()
 	    },
             effect(){
-                return upgradeEffect('w',13) + "x waves"
+                return upgradeEffect('W',13) + "x waves"
             },
              effectDisplay() {
 				return "nice2"
