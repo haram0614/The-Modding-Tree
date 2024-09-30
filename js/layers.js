@@ -697,13 +697,13 @@ update(diff) {
             
             cost: new Decimal(400),
             unlocked() {
-		    return player.q.points.add("e9e15").log10().div(500).log10()
+		    return true
 	    },
             effect(){
-                return upgradeEffect('W',13) + "x waves"
+                return player.q.points.add("e9e15").log10().div(500).log10()
             },
              effectDisplay() {
-				return "nice2"
+				return upgradeEffect('W',13) + "x waves"
             }
 	},
     },
