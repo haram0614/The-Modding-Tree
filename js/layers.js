@@ -309,6 +309,26 @@ addLayer("A", {
                 addPoints("A",1)
             }
         },
+        15: {
+            name: "Double A",
+            tooltip: "Unlock Acceleron. Reward: 1 AP.",
+            done() {
+                return player.a.points.gte("1")
+            },
+            onComplete() {
+                addPoints("A",1)
+            }
+        },
+        16: {
+            name: "Wave",
+            tooltip: "Unlock Waves. Reward: 1 AP.",
+            done() {
+                return player.W.points.gte("1")
+            },
+            onComplete() {
+                addPoints("A",1)
+            }
+        },
     },
     tabFormat: {
         "Achievements" :{
