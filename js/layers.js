@@ -487,7 +487,7 @@ addLayer("t", {
     baseAmount() {return player.q.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0, // Prestige currency exponent
-    branches: ["q"],
+    branches: ["q","a","W"],
     gainMult() { // Calculate the multiplier for main currency from bonuses
         multb = new Decimal(0)
 	mult = player.q.points.mul("1e6160").log10().div(6161).log10().mul(3.32)
