@@ -777,7 +777,7 @@ update(diff) {
         rows: 5,
         cols: 5,
         11: {
-            title: "51",
+            title: "56",
             description: "auto gain waves",
             
             cost: new Decimal(1),
@@ -789,7 +789,7 @@ update(diff) {
             }
 	},
         12: {
-            title: "52",
+            title: "57",
             description: "Boost Qc base",
             
             cost: new Decimal(100),
@@ -804,7 +804,7 @@ update(diff) {
             }
 	},
         13: {
-            title: "43",
+            title: "58",
             description: "Qt boost waves",
             
             cost: new Decimal(400),
