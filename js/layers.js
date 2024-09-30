@@ -682,10 +682,10 @@ update(diff) {
             
             cost: new Decimal(100),
             unlocked() {
-		    return player.W.points.add(100).log10().mul(1.107)
+		    return true
 	    },
             effect(){
-                return 
+                return player.W.points.add(100).log10().mul(1.107)
             },
              effectDisplay() {
 				return upgradeEffect('W',12) + "x theory"
