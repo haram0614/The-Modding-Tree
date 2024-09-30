@@ -671,7 +671,7 @@ addLayer("W", {
 		points: new Decimal(0),
     }},
     color: "#989898",
-    requires: new Decimal(24), // Can be a function that takes requirement increases into account
+    requires: new Decimal(240), // Can be a function that takes requirement increases into account
     resource: "Waves", // Name of prestige currency
     baseResource: "Theory", // Name of resource prestige is based on
     baseAmount() {return player.t.points}, // Get the current amount of baseResource
@@ -751,7 +751,7 @@ addLayer("Wa", {
     }},
     color: "#989898",
     requires: new Decimal(24), // Can be a function that takes requirement increases into account
-    resource: "Waves", // Name of prestige currency
+    resource: "Wave2", // Name of prestige currency
     baseResource: "Theory", // Name of resource prestige is based on
     baseAmount() {return player.t.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
@@ -771,7 +771,7 @@ addLayer("Wa", {
         {key: "v", description: "V: Reset for Wave2", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
 update(diff) {
-	if (hasUpgrade('W', 11)) generatePoints('W',diff);
+	if (hasUpgrade('Wa', 11)) generatePoints('Wa',diff);
 },
 	 upgrades: {
         rows: 5,
