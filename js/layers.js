@@ -612,6 +612,21 @@ addLayer("a", {
 				return "nice"
             }
 	},
+        13: {
+            title: "43",
+            description: "unlock wave",
+            
+            cost: new Decimal(400),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "nice2"
+            }
+	},
     },
     layerShown(){return hasUpgrade("q", 33) || hasUpgrade("t",13)}
 })
