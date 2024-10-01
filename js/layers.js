@@ -891,5 +891,12 @@ addLayer("S", {
     hotkeys: [
         {key: "S", description: "S: Reset for Super Quantum", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+challenges: {
+    11: {
+        name: "Test",
+        challengeDescription: "Test",
+        canComplete: function() {return player.points.gte("10^^10")},
+    },
+}
     layerShown(){return hasUpgrade("a",14)}
 })
