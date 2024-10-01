@@ -912,14 +912,78 @@ addLayer("S", {
     branches: ["SL"],
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = player.SL.points.add(1).log10().pow(0.375).pow_base(10)
+	if (hasUpgrade("S", 12)) mult = mult.mul(upgradeEffect('S',12))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
-        return new Decimal(1)
+        exp = new Decimal(1)
+	if (hasUpgrade("S", 13)) exp = exp.mul(upgradeEffect('S',13))
+	return new exp
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "S", description: "S: Reset for Super Quantum", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+	 upgrades: {
+        rows: 5,
+        cols: 5,
+        11: {
+            title: "61",
+            description: "Qt boost SQ",
+            
+            cost: new Decimal(1),
+            effect(){
+                return player.q.points.add("e9e15").log10().pow(5)
+            },
+             effectDisplay() {
+				return upgradeEffect('S',11) + "xSQ"
+            }
+	},
+        12: {
+            title: "62",
+            description: "Boost SL",
+            
+            cost: new Decimal(1e100),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return player.S.points.add(1e100).pow(0.0511).min(1e15)
+            },
+             effectDisplay() {
+				return upgradeEffect('S',12) + "x Qc base"
+            }
+	},
+        13: {
+            title: "63",
+            description: "SQ boost SQ expo",
+            
+            cost: new Decimal(1e100),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return player.S.points.log10().mul(10).log10().mul(3.32).pow(0.375)
+            },
+             effectDisplay() {
+				return upgradeEffect('S',13) + "x Expo"
+            }
+	},
+        14: {
+            title: "59",
+            description: "Wave2 Boost Waves",
+            
+            cost: new Decimal(1.79e308),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "row3!!)
+            }
+	},
+    },
     layerShown(){return hasUpgrade("a",14)}
 })
