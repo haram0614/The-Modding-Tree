@@ -981,7 +981,7 @@ addLayer("S", {
                 return true
             },
              effectDisplay() {
-				return "row3!!)
+				return ("row3!!")
             }
 	},
     },
