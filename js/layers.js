@@ -918,7 +918,7 @@ addLayer("S", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         exp = new Decimal(1)
 	if (hasUpgrade("S", 13)) exp = exp.mul(upgradeEffect('S',13))
-	return new exp
+	return exp
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
