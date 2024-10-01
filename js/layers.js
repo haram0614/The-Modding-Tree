@@ -906,9 +906,9 @@ addLayer("S", {
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
     resource: "Super Quantum", // Name of prestige currency
     baseResource: "points", // Name of resource prestige is based on
-    baseAmount() {return player.points}, // Get the current amount of baseResource
+    baseAmount() {return player.SL.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.5, // Prestige currency exponent
+    exponent: 1, // Prestige currency exponent
     branches: ["SL"],
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = player.PL.points.add(1).log10().pow(0.375).pow_base(10)
