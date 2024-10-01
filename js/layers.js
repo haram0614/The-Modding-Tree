@@ -908,7 +908,7 @@ addLayer("S", {
     baseResource: "points", // Name of resource prestige is based on
     baseAmount() {return player.SL.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 1, // Prestige currency exponent
+    exponent: 0, // Prestige currency exponent
     branches: ["SL"],
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = player.SL.points.add(1).log10().pow(0.375).pow_base(10)
