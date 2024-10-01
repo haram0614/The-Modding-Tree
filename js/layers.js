@@ -549,7 +549,7 @@ addLayer("t", {
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "t", description: "t: Reset for Quantum Charge", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "t", description: "t: Reset for Theory", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
 	 upgrades: {
         rows: 5,
@@ -876,7 +876,7 @@ addLayer("SL", {
     }},
     color: "#FF00FF",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
-    resource: "Super Quantum", // Name of prestige currency
+    resource: "Super PL", // Name of prestige currency
     baseResource: "points", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
