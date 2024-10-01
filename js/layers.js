@@ -970,7 +970,7 @@ addLayer("S", {
             }
 	},
         14: {
-            title: "59",
+            title: "64",
             description: "Wave2 Boost Waves",
             
             cost: new Decimal(1.79e308),
