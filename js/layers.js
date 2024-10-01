@@ -339,6 +339,16 @@ addLayer("A", {
                 addPoints("A",1)
             }
         },
+        22: {
+            name: "Inf^3",
+            tooltip: "Get 1.79e308 Qc. Reward: 1 AP,Auto 1% of Qc gain...",
+            done() {
+                return player.Qc.points.gte("1.79e308")
+            },
+            onComplete() {
+                addPoints("A",1)
+            }
+        },
     },
     tabFormat: {
         "Achievements" :{
@@ -380,6 +390,9 @@ addLayer("Qc", {
     hotkeys: [
         {key: "c", description: "c: Reset for Quantum Charge", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+update(diff) {
+	if (hasAchievement('A', 22)) generatePoints('Qc',diff);
+},
 	 upgrades: {
         rows: 5,
         cols: 5,
@@ -823,12 +836,12 @@ update(diff) {
             title: "59",
             description: "Wave2 Boost Waves",
             
-            cost: new Decimal(1000000),
+            cost: new Decimal(100000),
             unlocked() {
 		    return true
 	    },
             effect(){
-                return player.Wa.points.add("1000000")
+                return player.Wa.points.add("100000")
             },
              effectDisplay() {
 				return upgradeEffect('Wa',14) + "x waves"
