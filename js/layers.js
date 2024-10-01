@@ -33,7 +33,8 @@ addLayer("q", {
 	    if (hasUpgrade('Qc', 15)) db = db.add(0.1)
 	    if (hasUpgrade('Qc', 21)) db = db.add(0.9)
 	    if (hasUpgrade('Qc', 22)) db = db.add(1)
-	    if (hasUpgrade('Qc', 22)) db = db.add(upgradeEffect("Qc",23))
+	    if (hasUpgrade('Qc', 23)) db = db.add(upgradeEffect("Qc",23))
+	    if (hasUpgrade('SP', 11)) db = db.add(upgradeEffect("SP",11))
 	    if (true) exp = exp.mul(db.mul(db.add(1)).div(2).pow_base(2))
         return exp
     },
@@ -987,4 +988,55 @@ addLayer("S", {
 	},
     },
     layerShown(){return hasUpgrade("a",14)}
+})
+addLayer("SP", {
+    name: "Spreon", // This is optional, only used in a few places, If absent it just uses the layer id.
+    symbol: "SP", // This appears on the layer's node. Default is the id with the first letter capitalized
+    position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
+    startData() { return {
+        unlocked: true,
+		points: new Decimal(0),
+    }},
+    color: "#4BDC13",
+    requires: new Decimal("1.79e308"), // Can be a function that takes requirement increases into account
+    resource: "Spreon", // Name of prestige currency
+    baseResource: "SQt", // Name of resource prestige is based on
+    baseAmount() {return player.S.points}, // Get the current amount of baseResource
+    type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+    exponent: 0, // Prestige currency exponent
+    branches: ["Qc","Y","Wa","S"],
+    gainMult() { // Calculate the multiplier for main currency from bonuses
+        mult = player.SL.points.pow(player.S.points.log10().mul(10).log10().mul(3.32))
+	if (mult.gte("1.79e308")) mult = mult.div("1.79e308").log10().pow(0.375).pow_base(10).mul(1.79e308)
+	if (mult.gte("1e1100")) mult = mult.div("1e1100").log10().pow(0.25).pow_base(10).mul("1e1100")
+	if (mult.gte("1e1900")) mult = mult.div("1e1900").log10().pow(0.125).pow_base(10).mul("1e1900")
+        return mult
+    },
+    gainExp() { // Calculate the exponent on main currency from bonuses
+        return new Decimal(1)
+    },
+    row: 2, // Row the layer is in on the tree (0 is the first row)
+    hotkeys: [
+        {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+    ],
+	 upgrades: {
+        rows: 5,
+        cols: 5,
+        11: {
+            title: "101",
+            description: "add booster based on SP",
+            
+            cost: new Decimal(1e90),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return player.SP.points.add("1e90").log10().div(3.2).log10().mul(3.321).add(1)
+            },
+             effectDisplay() {
+				return upgradeEffect("SP",11) + "+Booster"
+            }
+        },
+    },
+    layerShown(){return true}
 })
