@@ -671,7 +671,7 @@ addLayer("W", {
 		points: new Decimal(0),
     }},
     color: "#989898",
-    requires: new Decimal(240), // Can be a function that takes requirement increases into account
+    requires: new Decimal(24), // Can be a function that takes requirement increases into account
     resource: "Waves", // Name of prestige currency
     baseResource: "Theory", // Name of resource prestige is based on
     baseAmount() {return player.t.points}, // Get the current amount of baseResource
@@ -681,6 +681,7 @@ addLayer("W", {
         multw = new Decimal(0)
 	if (hasUpgrade("a", 13)) multw = multw.add(1)
 	if (hasUpgrade("W", 13)) multw = multw.mul(upgradeEffect('W',13))
+	if (hasUpgrade("Wa", 14)) multw = multw.mul(upgradeEffect('Wa',14))
         return multw
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -750,7 +751,7 @@ addLayer("Wa", {
 		points: new Decimal(0),
     }},
     color: "#989898",
-    requires: new Decimal(24), // Can be a function that takes requirement increases into account
+    requires: new Decimal(240), // Can be a function that takes requirement increases into account
     resource: "Wave2", // Name of prestige currency
     baseResource: "Theory", // Name of resource prestige is based on
     baseAmount() {return player.t.points}, // Get the current amount of baseResource
@@ -797,7 +798,7 @@ update(diff) {
 		    return true
 	    },
             effect(){
-                return player.Wa.points
+                return player.Wa.points.add(100)
             },
              effectDisplay() {
 				return upgradeEffect('Wa',12) + "x Qc base"
@@ -816,6 +817,21 @@ update(diff) {
             },
              effectDisplay() {
 				return upgradeEffect('Wa',13) + "x waves"
+            }
+	},
+        14: {
+            title: "59",
+            description: "Wave2 Boost Waves",
+            
+            cost: new Decimal(1000000),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return player.Wa.points.add("1000000")
+            },
+             effectDisplay() {
+				return upgradeEffect('Wa',14) + "x waves"
             }
 	},
     },
