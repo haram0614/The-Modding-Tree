@@ -912,7 +912,7 @@ addLayer("S", {
     branches: ["SL"],
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = player.SL.points.add(1).log10().pow(0.375).pow_base(10)
-	if (hasUpgrade("S", 12)) mult = mult.mul(upgradeEffect('S',12))
+	if (hasUpgrade("S", 11)) mult = mult.mul(upgradeEffect('S',11))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
