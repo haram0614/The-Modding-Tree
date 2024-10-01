@@ -911,7 +911,7 @@ addLayer("S", {
     exponent: 1, // Prestige currency exponent
     branches: ["SL"],
     gainMult() { // Calculate the multiplier for main currency from bonuses
-        mult = player.PL.points.add(1).log10().pow(0.375).pow_base(10)
+        mult = player.SL.points.add(1).log10().pow(0.375).pow_base(10)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
