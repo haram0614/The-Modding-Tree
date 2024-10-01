@@ -997,7 +997,7 @@ addLayer("SP", {
         unlocked: true,
 		points: new Decimal(0),
     }},
-    color: "#4BDC13",
+    color: "#FFFFFF",
     requires: new Decimal("1.79e308"), // Can be a function that takes requirement increases into account
     resource: "Spreon", // Name of prestige currency
     baseResource: "SQt", // Name of resource prestige is based on
@@ -1017,7 +1017,7 @@ addLayer("SP", {
     },
     row: 2, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "p", description: "P: Reset for Spreon", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
 	 upgrades: {
         rows: 5,
