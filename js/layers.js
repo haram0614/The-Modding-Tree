@@ -926,7 +926,7 @@ addLayer("S", {
 	    if (hasUpgrade("S", 13)) exp = exp.mul(upgradeEffect('S',13))
 	    if (true) exp = exp.mul(db.mul(db.add(1)).div(2).pow_base(2).pow(0.375)
         return exp
-    },a
+    },
     row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "S", description: "S: Reset for Super Quantum", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
