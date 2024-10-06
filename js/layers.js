@@ -921,9 +921,12 @@ addLayer("S", {
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         exp = new Decimal(1)
-	if (hasUpgrade("S", 13)) exp = exp.mul(upgradeEffect('S',13))
-	return exp
-    },
+	db = new Decimal(0)
+	    if (hasUpgrade('SP', 12)) db = db.add(upgradeEffect("SP",12))
+	    if (hasUpgrade("S", 13)) exp = exp.mul(upgradeEffect('S',13))
+	    if (true) exp = exp.mul(db.mul(db.add(1)).div(2).pow_base(2).pow(0.375)
+        return exp
+    },a
     row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "S", description: "S: Reset for Super Quantum", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
@@ -1043,7 +1046,7 @@ addLayer("SP", {
             title: "102",
             description: "add booster based on SP",
             
-            cost: new Decimal("1e318"),
+            cost: new Decimal("2e316"),
             unlocked() {
 		    return true
 	    },
