@@ -999,7 +999,7 @@ addLayer("S", {
 		    return hasUpgrade("SP", 12)
 	    },
               effect(){
-		return player.q.points.add(1e308).log10().mul(2).add(0.25).pow(0.5).pow_base(1.125)
+		return player.S.points.add(1e308).log10().mul(2).add(0.25).pow(0.5).pow_base(1.125)
             },
             effectDisplay() {
                 return upgradeEffect("S",23)+ "xPL"
