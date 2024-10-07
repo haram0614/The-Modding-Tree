@@ -924,7 +924,7 @@ addLayer("S", {
 	db = new Decimal(0)
 	    if (hasUpgrade('SP', 12)) db = db.add(upgradeEffect("SP",12))
 	    if (hasUpgrade("S", 13)) exp = exp.mul(upgradeEffect('S',13))
-	    if (true) exp = exp.mul(db.mul(db.add(1)).div(2).pow_base(2).pow(0.375)
+	    if (true) exp = exp.mul(db.mul(db.add(1)).div(2).pow_base(2).pow(0.375))
         return exp
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
