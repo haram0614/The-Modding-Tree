@@ -350,6 +350,16 @@ addLayer("A", {
                 addPoints("A",1)
             }
         },
+        23: {
+            name: "easy",
+            tooltip: "Get e2e11Qt without layer1~2 upgrade. Reward: 1 AP,Auto 1% of Qc gain...",
+            done() {
+                return (player.q.points.gte("e2e11") && !hasUpgrade("q",11) && hasUpgrade("Qc",11) )
+            },
+            onComplete() {
+                addPoints("A",1)
+            }
+        },
     },
     tabFormat: {
         "Achievements" :{
