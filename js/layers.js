@@ -188,38 +188,24 @@ update(diff) {
         },
 	31: {
             title: "?1",
-            description: "Qt boost theory",
-            cost: new Decimal("1e20000"),
-            unlocked() {
-		    return hasUpgrade("q", 25)
-	    },
-              effect(){
-                return true
-            },
-            effectDisplay() {
-                return "WIP"
-            },
-        },
-	32: {
-            title: "?2",
             description: "Qt slightly boost Qc expo",
             cost: new Decimal("1e200000"),
             unlocked() {
-		    return hasUpgrade("q", 31)
+		    return hasUpgrade("q", 25)
 	    },
               effect(){
                 return upgradeEffect("q",24).sub(48).min(100).div(20)
             },
             effectDisplay() {
-                return upgradeEffect("q",32) + "+Qc expo"
+                return upgradeEffect("q",31) + "+Qc expo"
             },
         },
-	33: {
-            title: "?3",
+	32: {
+            title: "?2",
             description: "Unlock new layer!",
             cost: new Decimal("ee12"),
             unlocked() {
-		    return hasUpgrade("q", 32)
+		    return hasUpgrade("q", 31)
 	    },
               effect(){
                 return true
@@ -228,18 +214,18 @@ update(diff) {
                 return "new layer!"
             },
         },
-	34: {
-            title: "?4",
+	33: {
+            title: "?3",
             description: "Boost Qc expo after 8",
             cost: new Decimal("e9e15"),
             unlocked() {
-		    return hasUpgrade("q", 33)
+		    return hasUpgrade("q", 32)
 	    },
               effect(){
                 return upgradeEffect("q",24).sub(148).min(840).div(120)
             },
             effectDisplay() {
-                return upgradeEffect("q",34) + "+Qc expo"
+                return upgradeEffect("q",33) + "+Qc expo"
             },
         },
     },
@@ -393,8 +379,8 @@ addLayer("Qc", {
    	 exp = new Decimal(1)
 	    if (hasUpgrade('q', 21)) exp = exp.add(1)
 	    if (hasUpgrade('q', 22)) exp = exp.add(1)
-	    if (hasUpgrade('q', 32)) exp = exp.add(upgradeEffect("q",32))
-	    if (hasUpgrade('q', 34)) exp = exp.add(upgradeEffect("q",34))
+	    if (hasUpgrade('q', 31)) exp = exp.add(upgradeEffect("q",31))
+	    if (hasUpgrade('q', 33)) exp = exp.add(upgradeEffect("q",33))
         return exp
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
@@ -699,7 +685,7 @@ addLayer("a", {
             }
 	},
     },
-    layerShown(){return hasUpgrade("q", 33) || hasUpgrade("t",13)}
+    layerShown(){return hasUpgrade("q", 32) || hasUpgrade("t",13)}
 })
 addLayer("W", {
     name: "Waves", // This is optional, only used in a few places, If absent it just uses the layer id.
