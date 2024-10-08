@@ -1069,7 +1069,7 @@ addLayer("SP", {
         },
         12: {
             title: "102",
-            description: "add booster based on SP",
+            description: "add booster based on SP on super Quantum",
             
             cost: new Decimal("2e316"),
             unlocked() {
