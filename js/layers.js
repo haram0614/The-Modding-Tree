@@ -884,6 +884,7 @@ addLayer("SL", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
 	if (hasUpgrade("S", 12)) mult = mult.mul(upgradeEffect('S',12))
+	if (hasUpgrade("S", 15)) mult = mult.mul(upgradeEffect('S',15))
 	if (true) mult = mult.log10().pow(0.375).pow_base(10)
 	if (true) mult = mult.mul(1.8e43)
         return mult
@@ -991,7 +992,7 @@ addLayer("S", {
 				return ("row3!!")
             }
 	},
-	23: {
+	15: {
             title: "65",
             description: "SQ boost SL after Upgrade62 cap",
             cost: new Decimal("ee7"),
@@ -1002,7 +1003,7 @@ addLayer("S", {
 		return player.S.points.add(1e308).log10().mul(2).add(0.25).pow(0.5).pow_base(1.125)
             },
             effectDisplay() {
-                return upgradeEffect("S",23)+ "xPL"
+                return upgradeEffect("S",15)+ "xPL"
             },
         },
     },
