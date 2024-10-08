@@ -340,7 +340,7 @@ addLayer("A", {
             name: "easy",
             tooltip: "Get e2e11Qt without layer1~2 upgrade. Reward: 1 AP,Unlock 3 Acc upgrade(WIP)",
             done() {
-                return (player.q.points.gte("e2e11") && !hasUpgrade("q",11) && hasUpgrade("Qc",11) )
+                return (player.q.points.gte("e2e11") && !hasUpgrade("q",11) && !hasUpgrade("Qc",11) )
             },
             onComplete() {
                 addPoints("A",1)
