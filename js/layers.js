@@ -1143,7 +1143,7 @@ update(diff) {
                 return new Decimal(1.213)
             },
              effectDisplay() {
-				return upgradeEffect("f",13) + "xT"
+				return upgradeEffect("f",21) + "xT"
             }
         },
     },
