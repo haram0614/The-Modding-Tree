@@ -890,7 +890,7 @@ addLayer("SL", {
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "L", description: "L: Reset for Super PL", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "l", description: "L: Reset for Super PL", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return hasUpgrade("a",14)}
 })
