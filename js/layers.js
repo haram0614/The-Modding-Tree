@@ -1094,8 +1094,42 @@ addLayer("f", {
         return new Decimal(1)
     },
     row: "side", // Row the layer is in on the tree (0 is the first row)
-    hotkeys: [
-        {key: "P", description: "shift + P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
-    ],
+update(diff) {
+	if (hasUpgrade('f', 11)) generatePoints('f',diff*27.7);
+},
+	 upgrades: {
+        rows: 5,
+        cols: 5,
+        11: {
+            title: "201",
+            description: "Generate QF",
+            
+            cost: new Decimal(1),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return new Decimal(27.7)
+            },
+             effectDisplay() {
+				return upgradeEffect("f",11) + "/s"
+            }
+        },
+        12: {
+            title: "202",
+            description: "unlock new layer (WIP)",
+            
+            cost: new Decimal("1e10"),
+            unlocked() {
+		    return hasUpgrade("f",11)
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return true
+            }
+        },
+    },
     layerShown(){return true}
 })
