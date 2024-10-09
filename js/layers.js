@@ -534,7 +534,7 @@ addLayer("t", {
 	mult = player.q.points.mul("1e6160").log10().div(6161).log10().mul(3.32)
         mult = mult.mul(mult.add(1).div(2))
         if (hasUpgrade('W', 12)) mult = mult.mul(upgradeEffect('W',12))
-        if (hasUpgrade('f', 13)) mult = mult.mul(upgradeEffect('f',13))
+        if (hasUpgrade('f', 21)) mult = mult.mul(upgradeEffect('f',21))
         mult = mult.sub(player.t.points)
         mult = mult.max(0)
 	if (hasUpgrade('q', 25)) multb = multb.add(1)
