@@ -557,7 +557,9 @@ addLayer("t", {
             
             cost: new Decimal(1),
             effect(){
-                return player.t.points.add(10).log10()
+		base = player.t.points
+		    	if (hasUpgrade("W", 14)) multw = multw.mul(upgradeEffect('W',14)) 
+                return base.add(10).log10()
             },
              effectDisplay() {
 				return "^" + upgradeEffect("t",11)
@@ -765,6 +767,21 @@ update(diff) {
 				return upgradeEffect('W',13) + "x waves"
             }
 	},
+        14: {
+            title: "54",
+            description: "Wave boost Up26 base",
+            
+            cost: new Decimal(1000),
+            unlocked() {
+		    return hasUpgrade("f",12)
+	    },
+            effect(){
+                return player.W.points.add(1000)
+            },
+             effectDisplay() {
+				return upgradeEffect('W',14) + "x Up26base"
+            }
+	},
     },
     layerShown(){return hasUpgrade("a", 13)}
 })
@@ -920,7 +937,7 @@ update(diff) {
 				return upgradeEffect('Wb',12) + "x Qc base"
             }
 	},
-        14: {
+        13: {
             title: "63",
             description: "Wave2 Boost Waves",
             
@@ -1193,6 +1210,21 @@ update(diff) {
         },
         12: {
             title: "202",
+            description: "unlock new Wave upgrade",
+            
+            cost: new Decimal("1000"),
+            unlocked() {
+		    return hasUpgrade("f",11)
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return true
+            }
+        },
+        13: {
+            title: "203",
             description: "Up26formula is better(WIP)",
             
             cost: new Decimal("1e10"),
@@ -1206,8 +1238,8 @@ update(diff) {
 				return true
             }
         },
-        13: {
-            title: "203",
+        14: {
+            title: "204",
             description: "unlock new layer (WIP)",
             
             cost: new Decimal("1e10"),
