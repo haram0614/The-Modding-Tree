@@ -187,7 +187,7 @@ update(diff) {
             },
         },
 	31: {
-            title: "?1",
+            title: "11",
             description: "Qt slightly boost Qc expo",
             cost: new Decimal("1e200000"),
             unlocked() {
@@ -201,7 +201,7 @@ update(diff) {
             },
         },
 	32: {
-            title: "?2",
+            title: "12",
             description: "Unlock new layer!",
             cost: new Decimal("ee12"),
             unlocked() {
@@ -215,7 +215,7 @@ update(diff) {
             },
         },
 	33: {
-            title: "?3",
+            title: "13",
             description: "Boost Qc expo after 8",
             cost: new Decimal("e9e15"),
             unlocked() {
@@ -394,7 +394,7 @@ update(diff) {
         rows: 5,
         cols: 5,
         11: {
-            title: "11",
+            title: "16",
             description: "add 0.9 booster, booster formula:^2^(b*(b+1)/2) Qt",
             
             cost: new Decimal(1e7),
@@ -406,7 +406,7 @@ update(diff) {
             }
 	},
         12: {
-            title: "12",
+            title: "17",
             description: "add 0.9 booster",
             
             cost: new Decimal(1e10),
@@ -421,7 +421,7 @@ update(diff) {
             }
 	},
         13: {
-            title: "13",
+            title: "18",
             description: "add 0.1 booster",
             
             cost: new Decimal(1e13),
@@ -436,7 +436,7 @@ update(diff) {
             }
         },
         14: {
-            title: "14",
+            title: "19",
             description: "add 0.9 booster",
             
             cost: new Decimal(1e14),
@@ -451,7 +451,7 @@ update(diff) {
             }
         },
         15: {
-            title: "15",
+            title: "20",
             description: "add 0.1 booster",
             
             cost: new Decimal(1e18),
@@ -466,7 +466,7 @@ update(diff) {
             }
         },
         21: {
-            title: "16",
+            title: "21",
             description: "add 0.9 booster",
             
             cost: new Decimal(1e19),
@@ -481,7 +481,7 @@ update(diff) {
             }
         },
         22: {
-            title: "17",
+            title: "22",
             description: "add 1 booster",
             
             cost: new Decimal(1e25),
@@ -496,7 +496,7 @@ update(diff) {
             }
         },
         23: {
-            title: "18",
+            title: "23",
             description: "add booster based on Qc",
             
             cost: new Decimal(1e90),
@@ -552,7 +552,7 @@ addLayer("t", {
         rows: 5,
         cols: 5,
         11: {
-            title: "21",
+            title: "26",
             description: "Boost Qt based on theory",
             
             cost: new Decimal(1),
@@ -564,7 +564,7 @@ addLayer("t", {
             }
 	},
         12: {
-            title: "22",
+            title: "27",
             description: "theory boost Up8 base",
             
             cost: new Decimal(2),
@@ -581,7 +581,7 @@ addLayer("t", {
             }
 	},
         13: {
-            title: "23",
+            title: "28",
             description: "Keep Acceleron on reset",
             
             cost: new Decimal(1000),
@@ -751,7 +751,7 @@ update(diff) {
             }
 	},
         13: {
-            title: "43",
+            title: "53",
             description: "Qt boost waves",
             
             cost: new Decimal(400),
@@ -894,7 +894,7 @@ update(diff) {
         rows: 5,
         cols: 5,
         11: {
-            title: "71",
+            title: "61",
             description: "auto gain waves",
             
             cost: new Decimal(1),
@@ -906,7 +906,7 @@ update(diff) {
             }
 	},
         12: {
-            title: "72",
+            title: "62",
             description: "Boost Qc base",
             
             cost: new Decimal(100),
@@ -921,7 +921,7 @@ update(diff) {
             }
 	},
         14: {
-            title: "73",
+            title: "63",
             description: "Wave2 Boost Waves",
             
             cost: new Decimal(10000),
@@ -1008,7 +1008,7 @@ addLayer("S", {
         rows: 5,
         cols: 5,
         11: {
-            title: "61",
+            title: "71",
             description: "Qt boost SQ",
             
             cost: new Decimal(1),
@@ -1020,7 +1020,7 @@ addLayer("S", {
             }
 	},
         12: {
-            title: "62",
+            title: "72",
             description: "Boost SL",
             
             cost: new Decimal(1e100),
@@ -1035,7 +1035,7 @@ addLayer("S", {
             }
 	},
         13: {
-            title: "63",
+            title: "73",
             description: "SQ boost SQ expo",
             
             cost: new Decimal(1e100),
@@ -1050,7 +1050,7 @@ addLayer("S", {
             }
 	},
         14: {
-            title: "64",
+            title: "74",
             description: "Wave2 Boost Waves",
             
             cost: new Decimal(1.79e308),
@@ -1065,7 +1065,7 @@ addLayer("S", {
             }
 	},
 	15: {
-            title: "65",
+            title: "75",
             description: "SQ boost SL after Upgrade62 cap",
             cost: new Decimal("ee7"),
             unlocked() {
