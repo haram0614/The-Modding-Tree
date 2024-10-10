@@ -788,6 +788,7 @@ addLayer("Wa", {
         multw = new Decimal(0)
 	if (hasUpgrade("a", 13)) multw = multw.add(1)
 	if (hasUpgrade("Wa", 13)) multw = multw.mul(upgradeEffect('W',13))
+	if (hasUpgrade("Wb", 14)) multw = multw.mul(upgradeEffect('Wb',14))
         return multw
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -862,7 +863,7 @@ update(diff) {
 })
 addLayer("Wb", {
     name: "Wave3", // This is optional, only used in a few places, If absent it just uses the layer id.
-    symbol: "W4", // This appears on the layer's node. Default is the id with the first letter capitalized
+    symbol: "W3", // This appears on the layer's node. Default is the id with the first letter capitalized
     position: 3, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
