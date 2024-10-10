@@ -558,7 +558,7 @@ addLayer("t", {
             cost: new Decimal(1),
             effect(){
 		base = player.t.points
-		    	if (hasUpgrade("W", 14)) multw = multw.mul(upgradeEffect('W',14)) 
+		    	if (hasUpgrade("W", 14)) base = base.mul(upgradeEffect('W',14)) 
                 return base.add(10).log10()
             },
              effectDisplay() {
