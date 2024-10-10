@@ -920,23 +920,8 @@ update(diff) {
 				return upgradeEffect('Wb',12) + "x Qc base"
             }
 	},
-        13: {
-            title: "73",
-            description: "Qt boost waves",
-            
-            cost: new Decimal(400),
-            unlocked() {
-		    return true
-	    },
-            effect(){
-                return player.q.points.add("e9e15").log10().div(500).log10()
-            },
-             effectDisplay() {
-				return upgradeEffect('Wb',13) + "x waves"
-            }
-	},
         14: {
-            title: "74",
+            title: "73",
             description: "Wave2 Boost Waves",
             
             cost: new Decimal(10000),
