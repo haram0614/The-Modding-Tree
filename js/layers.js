@@ -805,7 +805,7 @@ addLayer("Wa", {
         multw = new Decimal(0)
 	if (hasUpgrade("a", 13)) multw = multw.add(1)
 	if (hasUpgrade("Wa", 13)) multw = multw.mul(upgradeEffect('W',13))
-	if (hasUpgrade("Wb", 14)) multw = multw.mul(upgradeEffect('Wb',14))
+	if (hasUpgrade("Wb", 13)) multw = multw.mul(upgradeEffect('Wb',13))
         return multw
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -897,7 +897,7 @@ addLayer("Wb", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         multw = new Decimal(0)
 	if (hasUpgrade("a", 13)) multw = multw.add(1)
-	if (hasUpgrade("Wb", 13)) multw = multw.mul(upgradeEffect('W',13))
+	if (hasUpgrade("Wb", 12)) multw = multw.mul(upgradeEffect('Wb',12))
         return multw
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -924,22 +924,22 @@ update(diff) {
 	},
         12: {
             title: "62",
-            description: "Boost Qc base",
+            description: "Qt boost wave3",
             
-            cost: new Decimal(100),
+            cost: new Decimal(400),
             unlocked() {
 		    return true
 	    },
             effect(){
-                return player.Wb.points.add(100)
+                return player.q.points.add("e9e15").log10().div(500).log10()
             },
              effectDisplay() {
-				return upgradeEffect('Wb',12) + "x Qc base"
+				return upgradeEffect('Wb',13) + "x waves"
             }
 	},
         13: {
             title: "63",
-            description: "Wave2 Boost Waves",
+            description: "Wave3 Boost Wave2",
             
             cost: new Decimal(10000),
             unlocked() {
