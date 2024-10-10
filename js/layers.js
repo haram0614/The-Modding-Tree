@@ -949,7 +949,7 @@ update(diff) {
                 return player.Wb.points.add("10000")
             },
              effectDisplay() {
-				return upgradeEffect('Wb',14) + "x waves"
+				return upgradeEffect('Wb',13) + "x waves"
             }
 	},
     },
