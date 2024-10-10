@@ -1066,7 +1066,7 @@ addLayer("S", {
 	},
 	15: {
             title: "75",
-            description: "SQ boost SL after Upgrade62 cap",
+            description: "SQ boost SL after Upgrade72 cap",
             cost: new Decimal("ee7"),
             unlocked() {
 		    return hasUpgrade("SP", 12)
@@ -1193,6 +1193,21 @@ update(diff) {
         },
         12: {
             title: "202",
+            description: "Up26formula is better(WIP)",
+            
+            cost: new Decimal("1e10"),
+            unlocked() {
+		    return hasUpgrade("f",11)
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return true
+            }
+        },
+        13: {
+            title: "203",
             description: "unlock new layer (WIP)",
             
             cost: new Decimal("1e10"),
