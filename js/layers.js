@@ -63,7 +63,7 @@ update(diff) {
         },
 	12: {
             title: "2",
-            description: "Qt,Qc expo +1",
+            description: "Qt expo +1",
             cost: new Decimal(4e88),
             unlocked() {
 		    return hasUpgrade("q", 11)
@@ -226,12 +226,12 @@ update(diff) {
                 return upgradeEffect("q",24).sub(148).min(840).div(120)
             },
             effectDisplay() {
-                return upgradeEffect("q",34) + "+Qc expo"
+                return upgradeEffect("q",33) + "+Qc expo"
             },
         },
 	34: {
             title: "14",
-            description: "Boost Qc expo after 8",
+            description: "Boost Qc expo after 15",
             cost: new Decimal("ee100"),
             unlocked() {
 		    return hasUpgrade("a", 24)
@@ -240,7 +240,7 @@ update(diff) {
                 return upgradeEffect("q",24).mul(1000).pow(0.5).sub(1000).div(120)
             },
             effectDisplay() {
-                return upgradeEffect("q",33) + "+Qc expo"
+                return upgradeEffect("q",34) + "+Qc expo"
             },
         },
     },
