@@ -558,8 +558,11 @@ addLayer("t", {
             cost: new Decimal(1),
             effect(){
 		base = player.t.points
-		    	if (hasUpgrade("W", 14)) base = base.mul(upgradeEffect('W',14)) 
-                return base.add(10).log10()
+		mult = new Decimal(1)
+		    	if (hasUpgrade("W", 14)) base = base.mul(upgradeEffect('W',14))
+		        if (hasUpgrade("f", 14)) base = base.pow(3)
+		        if (base.gte(1e10)) mult = mult.mul(2.09) 
+                return base.add(10).log10().mul(mult)
             },
              effectDisplay() {
 				return "^" + upgradeEffect("t",11)
@@ -1225,11 +1228,11 @@ update(diff) {
         },
         13: {
             title: "203",
-            description: "Up26formula is better(WIP)",
+            description: "Up26formula is better",
             
-            cost: new Decimal("1e10"),
+            cost: new Decimal("10000"),
             unlocked() {
-		    return hasUpgrade("f",11)
+		    return hasUpgrade("f",12)
 	    },
             effect(){
                 return true
