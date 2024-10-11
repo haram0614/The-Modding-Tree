@@ -347,6 +347,16 @@ addLayer("A", {
                 addPoints("A",1)
             }
         },
+        24: {
+            name: "Medium",
+            tooltip: "Get ee13Qt without Q,Qc upgrade. Reward: 1 AP,(WIP)",
+            done() {
+                return (player.q.points.gte("ee13") && !hasUpgrade("q",11) && !hasUpgrade("Qc",11) && !hasUpgrade("t",11))
+            },
+            onComplete() {
+                addPoints("A",1)
+            }
+        },
     },
     tabFormat: {
         "Achievements" :{
@@ -1164,6 +1174,21 @@ addLayer("SP", {
             },
              effectDisplay() {
 				return upgradeEffect("SP",11) + "+Booster"
+            }
+        },
+        21: {
+            title: "?",
+            description: "SP boost PL",
+            
+            cost: new Decimal("1"),
+            unlocked() {
+		    return hasAchievement('A',23)
+	    },
+            effect(){
+                return player.SP.points.pow(player.SP.points.log10())
+            },
+             effectDisplay() {
+				return upgradeEffect("SP",21) + "xPL"
             }
         },
     },
