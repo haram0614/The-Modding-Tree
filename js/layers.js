@@ -721,7 +721,7 @@ addLayer("a", {
             title: "45",
             description: "Qt boost SQ",
             
-            cost: new Decimal(2000),
+            cost: new Decimal(500000),
             unlocked() {
 		    return hasAchievement("A",24)
 	    },
