@@ -23,8 +23,9 @@ addLayer("q", {
 	    if (hasUpgrade('q', 11)) exp = exp.add(1)
 	    if (hasUpgrade('q', 12)) exp = exp.add(1)
 	    if (hasUpgrade('q', 14)) exp = exp.add(1)
-	    if (hasUpgrade('q', 15)) exp = exp.add(8)
+            if (hasUpgrade('q', 15)) exp = exp.add(8)
 	    if (hasUpgrade('q', 24)) exp = exp.add(player.q.points.add("1e2000").div("1e308").log10().log10().mul(10))
+	    if (hasUpgrade('f', 15)) exp = exp.mul(2)
 	    if (hasUpgrade('t', 11)) exp = exp.mul(upgradeEffect("t",11))
 	    if (hasUpgrade('Qc', 11)) db = db.add(0.9)
 	    if (hasUpgrade('Qc', 12)) db = db.add(0.9)
@@ -268,7 +269,7 @@ addLayer("A", {
         },
         12: {
             name: "INF",
-            tooltip: "Get 1.79e308 Qt. Reward: 1 AP,Auto gain Qt(WIP)",
+            tooltip: "Get 1.79e308 Qt. Reward: 1 AP,Auto gain Qt,Unlock new upgrade",
             done() {
                 return player.q.points.gte("1.79e308")
             },
@@ -338,9 +339,9 @@ addLayer("A", {
         },
         23: {
             name: "easy",
-            tooltip: "Get e2e11Qt without layer1~2 upgrade. Reward: 1 AP,Unlock 3 Acc upgrade(WIP)",
+            tooltip: "Get e4e11Qt without layer1~2 upgrade. Reward: 1 AP,Unlock 3 Acc upgrade(WIP)",
             done() {
-                return (player.q.points.gte("e2e11") && !hasUpgrade("q",11) && !hasUpgrade("Qc",11) && !hasUpgrade("t",11))
+                return (player.q.points.gte("e4e11") && !hasUpgrade("q",11) && !hasUpgrade("Qc",11) && !hasUpgrade("t",11))
             },
             onComplete() {
                 addPoints("A",1)
@@ -1270,6 +1271,21 @@ update(diff) {
             },
              effectDisplay() {
 				return upgradeEffect("f",21) + "xT"
+            }
+        },
+        31: {
+            title: "a1",
+            description: "^2 Qt nice",
+            
+            cost: new Decimal("100"),
+            unlocked() {
+		    return hasUpgrade("f",11)
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "nice"
             }
         },
     },
