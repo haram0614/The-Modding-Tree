@@ -363,7 +363,7 @@ addLayer("A", {
         },
         24: {
             name: "Medium",
-            tooltip: "Get ee13Qt without Q,Qc upgrade. Reward: 1 AP,add 1 Qt upgrade",
+            tooltip: "Get ee13Qt without Q,Qc upgrade. Reward: 1 AP,add 1 Qt upgrade also boost SP boost based on Qt",
             done() {
                 return (player.q.points.gte("ee13") && !hasUpgrade("q",11) && !hasUpgrade("Qc",11) && !hasUpgrade("t",11))
             },
@@ -1042,9 +1042,13 @@ addLayer("S", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         exp = new Decimal(1)
 	db = new Decimal(0)
+	base = new Decimal(2)
+	    if (hasUpgrade('q', 31)) base = base.add(upgradeEffect("q",31).div(5))
+	    if (hasUpgrade('q', 33)) base = base.add(upgradeEffect("q",33).div(5))
+	    if (hasUpgrade('q', 34)) base = base.add(upgradeEffect("q",34).div(5))
 	    if (hasUpgrade('SP', 12)) db = db.add(upgradeEffect("SP",12))
 	    if (hasUpgrade("S", 13)) exp = exp.mul(upgradeEffect('S',13))
-	    if (true) exp = exp.mul(db.mul(db.add(1)).div(2).pow_base(2).pow(0.375))
+	    if (true) exp = exp.mul(db.mul(db.add(1)).div(2).pow_base(base).pow(0.375))
         return exp
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
