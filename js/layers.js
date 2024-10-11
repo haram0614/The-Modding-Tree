@@ -560,8 +560,9 @@ addLayer("t", {
 		base = player.t.points
 		mult = new Decimal(1)
 		    	if (hasUpgrade("W", 14)) base = base.mul(upgradeEffect('W',14))
-		        if (hasUpgrade("f", 14)) base = base.pow(3)
-		        if (base.gte(1e10)) mult = mult.mul(2.09) 
+		        if (hasUpgrade("f", 13)) base = base.pow(3)
+		        if (base.gte(1e10)) mult = mult.mul(2.09)
+		        if (hasUpgrade("f", 13) && base.gte(1e10)) mult = mult.mul(base.log10().mul(2.09).log10())
                 return base.add(10).log10().mul(mult)
             },
              effectDisplay() {
