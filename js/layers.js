@@ -1288,7 +1288,7 @@ update(diff) {
 				return "nice"
             }
         },
-        31: {
+        32: {
             title: "a2",
             description: "theory doesn't need Up10",
             
