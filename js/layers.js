@@ -226,6 +226,20 @@ update(diff) {
                 return upgradeEffect("q",24).sub(148).min(840).div(120)
             },
             effectDisplay() {
+                return upgradeEffect("q",34) + "+Qc expo"
+            },
+        },
+	34: {
+            title: "14",
+            description: "Boost Qc expo after 8",
+            cost: new Decimal("ee100"),
+            unlocked() {
+		    return hasUpgrade("a", 24)
+	    },
+              effect(){
+                return upgradeEffect("q",24).mul(1000).pow(0.5).sub(1000).div(120)
+            },
+            effectDisplay() {
                 return upgradeEffect("q",33) + "+Qc expo"
             },
         },
@@ -349,7 +363,7 @@ addLayer("A", {
         },
         24: {
             name: "Medium",
-            tooltip: "Get ee13Qt without Q,Qc upgrade. Reward: 1 AP,(WIP)",
+            tooltip: "Get ee13Qt without Q,Qc upgrade. Reward: 1 AP,add 1 Qt upgrade",
             done() {
                 return (player.q.points.gte("ee13") && !hasUpgrade("q",11) && !hasUpgrade("Qc",11) && !hasUpgrade("t",11))
             },
@@ -392,6 +406,7 @@ addLayer("Qc", {
 	    if (hasUpgrade('q', 22)) exp = exp.add(1)
 	    if (hasUpgrade('q', 31)) exp = exp.add(upgradeEffect("q",31))
 	    if (hasUpgrade('q', 33)) exp = exp.add(upgradeEffect("q",33))
+	    if (hasUpgrade('q', 34)) exp = exp.add(upgradeEffect("q",34))
         return exp
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
