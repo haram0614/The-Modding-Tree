@@ -979,7 +979,7 @@ update(diff) {
                 return player.q.points.add("e9e15").log10().div(500).log10()
             },
              effectDisplay() {
-				return upgradeEffect('Wb',13) + "x waves"
+				return upgradeEffect('Wb',12) + "x waves"
             }
 	},
         13: {
