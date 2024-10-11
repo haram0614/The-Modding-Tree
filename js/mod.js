@@ -45,6 +45,7 @@ function getPointGen() {
 	let gain = new Decimal("1.8e43")
 	if (hasUpgrade("q", 13)) gain = gain.mul(player.q.points.add(1000).div(1000).pow(0.05).min(1e15))
 	if (hasUpgrade("q", 23)) gain = gain.mul(upgradeEffect("q",23))
+	if (hasUpgrade("SP", 21)) gain = gain.mul(upgradeEffect("SP",21))
 	return gain
 }
 
