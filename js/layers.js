@@ -1065,7 +1065,7 @@ addLayer("S", {
 	    if (hasUpgrade('q', 31)) base = base.add(upgradeEffect("q",31).div(5))
 	    if (hasUpgrade('q', 33)) base = base.add(upgradeEffect("q",33).div(5))
 	    if (hasUpgrade('q', 34)) base = base.add(upgradeEffect("q",34).div(5))
-	    if (!hasUpgrade('a', 21)) base = base.exp(0).add(1)
+	    if (!hasUpgrade('a', 21)) base = base.pow(0).add(1)
 	    if (hasUpgrade('SP', 12)) db = db.add(upgradeEffect("SP",12))
 	    if (hasUpgrade("S", 13)) exp = exp.mul(upgradeEffect('S',13))
 	    if (true) exp = exp.mul(db.mul(db.add(1)).div(2).pow_base(base).pow(sbase))
