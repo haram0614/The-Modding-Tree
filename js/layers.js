@@ -1110,7 +1110,9 @@ addLayer("S", {
 		    return true
 	    },
             effect(){
-                return player.S.points.log10().mul(10).log10().mul(3.32).pow(0.375)
+		base = new Decimal(0.375)
+		    if (hasUpgrade("S",21)) base = base.mul(1.1)
+                return player.S.points.log10().mul(10).log10().mul(3.32).pow(base)
             },
              effectDisplay() {
 				return upgradeEffect('S',13) + "x Expo"
@@ -1179,9 +1181,11 @@ addLayer("SP", {
     exponent: 0, // Prestige currency exponent
     branches: ["Qc","Y","Wa","S"],
     gainMult() { // Calculate the multiplier for main currency from bonuses
+	base = new Decimal(0.375)
+	if (hasUpgrade('S', 21)) base = base.mul(1.1)
         mult = player.SL.points.pow(player.S.points.log10().mul(10).log10().mul(3.32))
-	if (mult.gte("1.79e308")) mult = mult.div("1.79e308").log10().pow(0.375).pow_base(10).mul(1.79e308)
-	if (mult.gte("1e1100")) mult = mult.div("1e1100").log10().pow(0.25).pow_base(10).mul("1e1100")
+	if (mult.gte("1.79e308")) mult = mult.div("1.79e308").log10().pow(base).pow_base(10).mul(1.79e308)
+	if (mult.gte("1e1100")) mult = mult.div("1e1100").log10().pow(base.sub(0.125)).pow_base(10).mul("1e1100")
 	if (mult.gte("1e1900")) mult = mult.div("1e1900").log10().pow(0.125).pow_base(10).mul("1e1900")
         return mult
     },
