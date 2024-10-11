@@ -1145,6 +1145,20 @@ addLayer("S", {
                 return upgradeEffect("S",15)+ "xPL"
             },
         },
+	21: {
+            title: "76",
+            description: "reduce S softcaps",
+            cost: new Decimal("ee11"),
+            unlocked() {
+		    return hasUpgrade("SP", 12)
+	    },
+              effect(){
+		return true
+            },
+            effectDisplay() {
+                return "^1.1 expo"
+            },
+        },
     },
     layerShown(){return hasUpgrade("a",14)}
 })
