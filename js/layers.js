@@ -25,7 +25,7 @@ addLayer("q", {
 	    if (hasUpgrade('q', 14)) exp = exp.add(1)
             if (hasUpgrade('q', 15)) exp = exp.add(8)
 	    if (hasUpgrade('q', 24)) exp = exp.add(player.q.points.add("1e2000").div("1e308").log10().log10().mul(10))
-	    if (hasUpgrade('f', 15)) exp = exp.mul(2)
+	    if (hasUpgrade('f', 31)) exp = exp.mul(2)
 	    if (hasUpgrade('t', 11)) exp = exp.mul(upgradeEffect("t",11))
 	    if (hasUpgrade('Qc', 11)) db = db.add(0.9)
 	    if (hasUpgrade('Qc', 12)) db = db.add(0.9)
@@ -339,7 +339,7 @@ addLayer("A", {
         },
         23: {
             name: "easy",
-            tooltip: "Get e4e11Qt without layer1~2 upgrade. Reward: 1 AP,Unlock 3 Acc upgrade(WIP)",
+            tooltip: "Get e4e11Qt without Q,Qc upgrade. Reward: 1 AP,Unlock 1 upgrade",
             done() {
                 return (player.q.points.gte("e4e11") && !hasUpgrade("q",11) && !hasUpgrade("Qc",11) && !hasUpgrade("t",11))
             },
@@ -538,7 +538,7 @@ addLayer("t", {
         if (hasUpgrade('f', 21)) mult = mult.mul(upgradeEffect('f',21))
         mult = mult.sub(player.t.points)
         mult = mult.max(0)
-	if (hasUpgrade('q', 25)) multb = multb.add(1)
+	if (hasUpgrade('q', 25) || hasUpgrade("f",32)) multb = multb.add(1)
         return mult.mul(multb)
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -1280,6 +1280,21 @@ update(diff) {
             cost: new Decimal("100"),
             unlocked() {
 		    return hasUpgrade("f",11)
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "nice"
+            }
+        },
+        31: {
+            title: "a2",
+            description: "theory doesn't need Up10",
+            
+            cost: new Decimal("7000"),
+            unlocked() {
+		    return hasUpgrade("f",31)
 	    },
             effect(){
                 return true
