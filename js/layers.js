@@ -234,7 +234,7 @@ update(diff) {
             description: "Boost Qc expo after 15",
             cost: new Decimal("ee100"),
             unlocked() {
-		    return hasUpgrade("a", 24)
+		    return hasAchievement("A", 24)
 	    },
               effect(){
                 return upgradeEffect("q",24).mul(1000).pow(0.5).sub(1000).div(120)
