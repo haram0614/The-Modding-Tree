@@ -1017,9 +1017,11 @@ addLayer("SL", {
     exponent: 0, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+	base = new Decimal(0.375)
+	if (hasUpgrade("S", 12)) base = base.mul(1.1)
 	if (hasUpgrade("S", 12)) mult = mult.mul(upgradeEffect('S',12))
 	if (hasUpgrade("S", 15)) mult = mult.mul(upgradeEffect('S',15))
-	if (true) mult = mult.log10().pow(0.375).pow_base(10)
+	if (true) mult = mult.log10().pow(base).pow_base(10)
 	if (true) mult = mult.mul(1.8e43)
         return mult
     },
@@ -1058,13 +1060,15 @@ addLayer("S", {
         exp = new Decimal(1)
 	db = new Decimal(0)
 	base = new Decimal(2)
+	sbase = new Decimal(0.375)
+	    if (hasUpgrade("S", 21)) sbase = sbase.mul(1.1)
 	    if (hasUpgrade('q', 31)) base = base.add(upgradeEffect("q",31).div(5))
 	    if (hasUpgrade('q', 33)) base = base.add(upgradeEffect("q",33).div(5))
 	    if (hasUpgrade('q', 34)) base = base.add(upgradeEffect("q",34).div(5))
 	    if (!hasUpgrade('a', 21)) base = base.exp(0).add(1)
 	    if (hasUpgrade('SP', 12)) db = db.add(upgradeEffect("SP",12))
 	    if (hasUpgrade("S", 13)) exp = exp.mul(upgradeEffect('S',13))
-	    if (true) exp = exp.mul(db.mul(db.add(1)).div(2).pow_base(base).pow(0.375))
+	    if (true) exp = exp.mul(db.mul(db.add(1)).div(2).pow_base(base).pow(sbase))
         return exp
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
