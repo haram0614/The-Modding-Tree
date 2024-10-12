@@ -373,6 +373,16 @@ addLayer("A", {
                 addPoints("A",1)
             }
         },
+        25: {
+            name: "Hard",
+            tooltip: "Get ee18Qt without Q,Qc upgrade. Reward: 1 AP,SP upgrade formula better (WIP)",
+            done() {
+                return (player.q.points.gte("ee18") && !hasUpgrade("q",11) && !hasUpgrade("Qc",11) && !hasUpgrade("t",11))
+            },
+            onComplete() {
+                addPoints("A",1)
+            }
+        },
     },
     tabFormat: {
         "Achievements" :{
