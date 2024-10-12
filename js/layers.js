@@ -1356,7 +1356,7 @@ update(diff) {
 				return true
             }
         },
-        12: {
+        15: {
             title: "205",
             description: "booster base +0.5",
             
