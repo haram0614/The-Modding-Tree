@@ -1173,10 +1173,10 @@ addLayer("S", {
 		    return hasUpgrade("SP", 12)
 	    },
               effect(){
-		return UpgradeEffect("SP",21)
+		return upgradeEffect("SP",21)
             },
             effectDisplay() {
-                return UpgradeEffect("SP",21) + "xPL"
+                return upgradeEffect("SP",21) + "xPL"
             },
         },
     },
