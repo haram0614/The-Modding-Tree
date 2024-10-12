@@ -1253,7 +1253,11 @@ addLayer("SP", {
 		    return true
 	    },
             effect(){
-                return player.SP.points.add("1e90").log10().div(3.2).log10().mul(3.321).add(1)
+		db = upgradeEffect('SP',11).add(4.8).add(upgradeEffect('Qc',23))
+		base = upgradeEffect('SP',11)
+		qe = upgradeEffect('Qc',23)
+		if (hasAchievement('A',25)) base =db.mul(db.add(1).div(2)).sub(qe.mul(qe.add(1).div(2))).pow(0.5)
+                return base
             },
              effectDisplay() {
 				return upgradeEffect("SP",11) + "+Booster"
