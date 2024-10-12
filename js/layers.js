@@ -22,6 +22,7 @@ addLayer("q", {
 	db = new Decimal(0)
 	base = new Decimal(2)
 	    if (hasUpgrade('f', 15)) base = base.add(0.5)
+	    if (hasAchievement('SL',11)) base = base.add(2.2).add(upgradeEffect('q',24).div(5))
 	    if (hasUpgrade('q', 11)) exp = exp.add(1)
 	    if (hasUpgrade('q', 12)) exp = exp.add(1)
 	    if (hasUpgrade('q', 14)) exp = exp.add(1)
@@ -375,9 +376,19 @@ addLayer("A", {
         },
         25: {
             name: "Hard",
-            tooltip: "Get ee18Qt without Q,Qc upgrade. Reward: 1 AP,SP upgrade formula better (WIP)",
+            tooltip: "Get ee18Qt without Q,Qc upgrade. Reward: 1 AP,SP upgrade formula better",
             done() {
                 return (player.q.points.gte("ee18") && !hasUpgrade("q",11) && !hasUpgrade("Qc",11) && !hasUpgrade("t",11))
+            },
+            onComplete() {
+                addPoints("A",1)
+            }
+        },
+        26: {
+            name: "Inf4",
+            tooltip: "Get 1.79e308SL",
+            done() {
+                return (player.SL.points.gte("1.79e308"))
             },
             onComplete() {
                 addPoints("A",1)
@@ -1045,6 +1056,22 @@ addLayer("SL", {
     hotkeys: [
         {key: "l", description: "L: Reset for Super PL", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+	 upgrades: {
+        rows: 5,
+        cols: 5,
+        11: {
+            title: "??",
+            description: "Qt boost Booster base and new layer(WIP)",
+            
+            cost: new Decimal("1.79e308"),
+            effect(){
+                return hasAchievement('A',26)
+            },
+             effectDisplay() {
+				return "nice!"
+            }
+	},
+    },
     layerShown(){return hasUpgrade("a",14)}
 })
 
