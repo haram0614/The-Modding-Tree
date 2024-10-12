@@ -20,6 +20,8 @@ addLayer("q", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         exp = new Decimal(1)
 	db = new Decimal(0)
+	base = new Decimal(2)
+	    if (hasUpgrade('f', 15)) base = base.add(0.5)
 	    if (hasUpgrade('q', 11)) exp = exp.add(1)
 	    if (hasUpgrade('q', 12)) exp = exp.add(1)
 	    if (hasUpgrade('q', 14)) exp = exp.add(1)
@@ -36,7 +38,7 @@ addLayer("q", {
 	    if (hasUpgrade('Qc', 22)) db = db.add(1)
 	    if (hasUpgrade('Qc', 23)) db = db.add(upgradeEffect("Qc",23))
 	    if (hasUpgrade('SP', 11)) db = db.add(upgradeEffect("SP",11))
-	    if (true) exp = exp.mul(db.mul(db.add(1)).div(2).pow_base(2))
+	    if (true) exp = exp.mul(db.mul(db.add(1)).div(2).pow_base(base))
         return exp
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
@@ -1346,6 +1348,21 @@ update(diff) {
             cost: new Decimal("1e10"),
             unlocked() {
 		    return hasUpgrade("f",11)
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return true
+            }
+        },
+        12: {
+            title: "205",
+            description: "booster base +0.5",
+            
+            cost: new Decimal("600000"),
+            unlocked() {
+		    return hasUpgrade("f",13)
 	    },
             effect(){
                 return true
