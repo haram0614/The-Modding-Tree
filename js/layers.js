@@ -1021,6 +1021,7 @@ addLayer("SL", {
 	if (hasUpgrade("S", 12)) base = base.mul(1.1)
 	if (hasUpgrade("S", 12)) mult = mult.mul(upgradeEffect('S',12))
 	if (hasUpgrade("S", 15)) mult = mult.mul(upgradeEffect('S',15))
+	if (hasUpgrade("S", 22)) mult = mult.mul(upgradeEffect('S',22))
 	if (true) mult = mult.log10().pow(base).pow_base(10)
 	if (true) mult = mult.mul(1.8e43)
         return mult
@@ -1164,6 +1165,20 @@ addLayer("S", {
                 return "^1.1 expo"
             },
         },
+	22: {
+            title: "77",
+            description: "SP boost PL",
+            cost: new Decimal("e1.1e11"),
+            unlocked() {
+		    return hasUpgrade("SP", 12)
+	    },
+              effect(){
+		return UpgradeEffect("SP",21)
+            },
+            effectDisplay() {
+                return UpgradeEffect("SP",21) + "xPL"
+            },
+        },
     },
     layerShown(){return hasUpgrade("a",14)}
 })
@@ -1241,7 +1256,7 @@ addLayer("SP", {
 		    return hasAchievement('A',23)
 	    },
             effect(){
-                return player.SP.points.pow(player.SP.points.log10())
+                return player.SP.points.add("1e308").pow(player.SP.points.add("1e308").log10())
             },
              effectDisplay() {
 				return upgradeEffect("SP",21) + "xPL"
