@@ -246,6 +246,18 @@ update(diff) {
                 return upgradeEffect("q",34) + "+Qc expo"
             },
         },
+        41: {
+            title: "??",
+            description: "+0.3to QF gen",
+            
+            cost: new Decimal("e250"),
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "nice"
+            }
+	},
     },
     layerShown(){return true}
 })
@@ -559,6 +571,18 @@ update(diff) {
 				return upgradeEffect("Qc",23) + "+Booster"
             }
         },
+        31: {
+            title: "???",
+            description: "add 2 to QF gen",
+            
+            cost: new Decimal("1"),
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "nice"
+            }
+	},
     },
     layerShown(){return true}
 })
@@ -1075,7 +1099,7 @@ addLayer("f", {
     },
     row: "side", // Row the layer is in on the tree (0 is the first row)
 update(diff) {
-	if (hasUpgrade('f', 11)) generatePoints('f',diff*27.7);
+	if (hasUpgrade('f', 11)) generatePoints('f',diff*upgradeEffect('f',11));
 },
 	 upgrades: {
         rows: 5,
@@ -1089,7 +1113,10 @@ update(diff) {
 		    return true
 	    },
             effect(){
-                return new Decimal(27.7)
+                base = new Decimal(27.7)
+		    if (hasUpgrade('q',41)) base = base.add(0.3)
+		    if (hasUpgrade('Qc',31)) base = base.add(2)
+		return base
             },
              effectDisplay() {
 				return upgradeEffect("f",11) + "/s"
