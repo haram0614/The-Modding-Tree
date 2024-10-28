@@ -1206,12 +1206,12 @@ addLayer("I", {
     requires: new Decimal(308.3), // Can be a function that takes requirement increases into account
     resource: "IP", // Name of prestige currency
     baseResource: "Qt expo^2", // Name of resource prestige is based on
-    baseAmount() {return player.q.points.add("ee100").log10().log10()}, // Get the current amount of baseResource
+    baseAmount() {return player.q.points.add("1.8e43").log10().log10()}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 1, // Prestige currency exponent
+    exponent: 0, // Prestige currency exponent
     branches: ["Qc","Wa","S"],
     gainMult() { // Calculate the multiplier for main currency from bonuses
-        mult = new Decimal(1)
+        mult = new Decimal(player.q.points.add(1.8e43).log10().log10().sub(308.3))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -1221,5 +1221,21 @@ addLayer("I", {
     hotkeys: [
         {key: "i", description: "I: Reset for IP", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+	 upgrades: {
+        rows: 5,
+        cols: 5,
+        11: {
+            title: "111",
+            description: "IP boost Waves(WIP)",
+            
+            cost: new Decimal("1"),
+            effect(){
+                return player.I.points.add(1)
+            },
+             effectDisplay() {
+				return upgradeEffect("I",11) + "x Waves"
+            }
+	},
+    },
     layerShown(){return hasUpgrade("SL",11) || player.I.points.gte(1)}
 })
