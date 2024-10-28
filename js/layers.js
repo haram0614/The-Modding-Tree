@@ -1206,7 +1206,7 @@ addLayer("I", {
     requires: new Decimal(308.3), // Can be a function that takes requirement increases into account
     resource: "IP", // Name of prestige currency
     baseResource: "Qt expo^2", // Name of resource prestige is based on
-    baseAmount() {return player.q.points.log10().log10()}, // Get the current amount of baseResource
+    baseAmount() {return player.q.points.add("ee100").log10().log10()}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 1, // Prestige currency exponent
     branches: ["Qc","Wa","S"],
