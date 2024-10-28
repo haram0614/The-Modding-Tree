@@ -791,6 +791,9 @@ addLayer("SL", {
     hotkeys: [
         {key: "l", description: "L: Reset for Super PL", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+update(diff) {
+	if (hasUpgrade('I', 12)) generatePoints('SL',diff);
+},
 	 upgrades: {
         rows: 5,
         cols: 5,
@@ -848,6 +851,9 @@ addLayer("S", {
     hotkeys: [
         {key: "S", description: "S: Reset for Super Quantum", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+update(diff) {
+	if (hasUpgrade('I', 12)) generatePoints('S',diff);
+},
 	 upgrades: {
         rows: 5,
         cols: 5,
@@ -987,6 +993,9 @@ addLayer("SP", {
     hotkeys: [
         {key: "p", description: "P: Reset for Spreon", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+update(diff) {
+	if (hasUpgrade('I', 12)) generatePoints('SP',diff);
+},
 	 upgrades: {
         rows: 5,
         cols: 5,
@@ -1236,6 +1245,18 @@ addLayer("I", {
 				return upgradeEffect("I",11) + "x Waves"
             }
 	},
+        12: {
+            title: "112",
+            description: "Auto SL,SQ,SP",
+            
+            cost: new Decimal("1"),
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "nice"
+            }
+	},
     },
-    layerShown(){return hasUpgrade("SL",11) || player.I.points.gte(1)}
+    layerShown(){return hasUpgrade("SL",11) || player.I.points.gte(1) || hasUpgrade("I",11)}
 })
