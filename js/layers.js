@@ -1221,5 +1221,5 @@ addLayer("I", {
     hotkeys: [
         {key: "i", description: "I: Reset for IP", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
+    layerShown(){return hasUpgrade("SL",11) || player.I.points.gte(1)}
 })
