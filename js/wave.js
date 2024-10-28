@@ -18,6 +18,7 @@ addLayer("W", {
 	if (hasUpgrade("a", 13)) multw = multw.add(1)
 	if (hasUpgrade("W", 13)) multw = multw.mul(upgradeEffect('W',13))
 	if (hasUpgrade("Wa", 14)) multw = multw.mul(upgradeEffect('Wa',14))
+	if (hasUpgrade("I", 11)) multw = multw.mul(upgradeEffect('I',11))
         return multw
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -114,6 +115,7 @@ addLayer("Wa", {
 	if (hasUpgrade("a", 13)) multw = multw.add(1)
 	if (hasUpgrade("Wa", 13)) multw = multw.mul(upgradeEffect('W',13))
 	if (hasUpgrade("Wb", 13)) multw = multw.mul(upgradeEffect('Wb',13))
+	if (hasUpgrade("I", 11)) multw = multw.mul(upgradeEffect('I',11))
         return multw
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -206,6 +208,7 @@ addLayer("Wb", {
         multw = new Decimal(0)
 	if (hasUpgrade("a", 13)) multw = multw.add(1)
 	if (hasUpgrade("Wb", 12)) multw = multw.mul(upgradeEffect('Wb',12))
+	if (hasUpgrade("I", 11)) multw = multw.mul(upgradeEffect('I',11))
         return multw
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
