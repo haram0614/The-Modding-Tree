@@ -1191,21 +1191,6 @@ update(diff) {
 				return "nice"
             }
         },
-        41: {
-            title: "d1",
-            description: "theory doesn't need Up10",
-            
-            cost: new Decimal("-5e9"),
-            unlocked() {
-		    return hasUpgrade("f",31)
-	    },
-            effect(){
-                return true
-            },
-             effectDisplay() {
-				return "nice"
-            }
-        },
     },
     layerShown(){return true}
 })
