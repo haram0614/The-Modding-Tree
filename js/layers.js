@@ -1257,6 +1257,18 @@ addLayer("I", {
 				return "nice"
             }
 	},
+        12: {
+            title: "113",
+            description: "IP boost Theory",
+            
+            cost: new Decimal("1"),
+            effect(){
+                return player.I.points.add(13).log10()
+            },
+             effectDisplay() {
+				return "nice"
+            }
+	},
     },
     layerShown(){return hasUpgrade("SL",11) || player.I.points.gte(1) || hasUpgrade("I",11)}
 })
