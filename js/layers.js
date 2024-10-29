@@ -785,6 +785,7 @@ addLayer("a", {
             cost: new Decimal("4e6"),
             unlocked() {
 		    return hasUpgrade("I",11)
+	    },
             effect(){
                 return true
             },
