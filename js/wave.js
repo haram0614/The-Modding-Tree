@@ -279,16 +279,16 @@ addLayer("Wc", {
     }},
     color: "#989898",
     requires: new Decimal(1.8e7), // Can be a function that takes requirement increases into account
-    resource: "Wave3", // Name of prestige currency
+    resource: "Wave4", // Name of prestige currency
     baseResource: "Theory", // Name of resource prestige is based on
     baseAmount() {return player.t.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 1, // Prestige currency exponent
-    branches: ["W"],
+    branches: ["Wa","Wb"],
     gainMult() { // Calculate the multiplier for main currency from bonuses
         multw = new Decimal(0)
 	if (hasUpgrade("a", 22)) multw = multw.add(0.01)
-	if (hasUpgrade("Wb", 12)) multw = multw.mul(upgradeEffect('Wb',12))
+	if (hasUpgrade("Wc", 12)) multw = multw.mul(upgradeEffect('Wc',12))
 	if (hasUpgrade("I", 11)) multw = multw.mul(upgradeEffect('I',11))
         return multw
     },
@@ -326,7 +326,7 @@ update(diff) {
                 return player.q.points.add("e9e15").log10().div(500).log10()
             },
              effectDisplay() {
-				return upgradeEffect('Wb',12) + "x waves"
+				return upgradeEffect('Wc',12) + "x waves"
             }
 	},
         13: {
@@ -338,7 +338,7 @@ update(diff) {
 		    return true
 	    },
             effect(){
-                return player.Wb.points.add("1")
+                return player.Wc.points.add("1")
             },
              effectDisplay() {
 				return "nice and OP"
