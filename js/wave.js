@@ -18,6 +18,7 @@ addLayer("W", {
 	if (hasUpgrade("a", 13)) multw = multw.add(1)
 	if (hasUpgrade("W", 13)) multw = multw.mul(upgradeEffect('W',13))
 	if (hasUpgrade("Wa", 14)) multw = multw.mul(upgradeEffect('Wa',14))
+	if (hasUpgrade("Wc", 13)) multw = multw.mul(upgradeEffect('Wc',13))
 	if (hasUpgrade("I", 11)) multw = multw.mul(upgradeEffect('I',11))
         return multw
     },
@@ -115,6 +116,7 @@ addLayer("Wa", {
 	if (hasUpgrade("a", 13)) multw = multw.add(1)
 	if (hasUpgrade("Wa", 13)) multw = multw.mul(upgradeEffect('W',13))
 	if (hasUpgrade("Wb", 13)) multw = multw.mul(upgradeEffect('Wb',13))
+	if (hasUpgrade("Wc", 13)) multw = multw.mul(upgradeEffect('Wc',13).pow(2))
 	if (hasUpgrade("I", 11)) multw = multw.mul(upgradeEffect('I',11))
         return multw
     },
@@ -208,6 +210,7 @@ addLayer("Wb", {
         multw = new Decimal(0)
 	if (hasUpgrade("a", 13)) multw = multw.add(1)
 	if (hasUpgrade("Wb", 12)) multw = multw.mul(upgradeEffect('Wb',12))
+	if (hasUpgrade("Wc", 13)) multw = multw.mul(upgradeEffect('Wc',13))
 	if (hasUpgrade("I", 11)) multw = multw.mul(upgradeEffect('I',11))
         return multw
     },
@@ -261,6 +264,84 @@ update(diff) {
             },
              effectDisplay() {
 				return upgradeEffect('Wb',13) + "x waves"
+            }
+	},
+    },
+    layerShown(){return hasUpgrade("a", 13)}
+})
+addLayer("Wc", {
+    name: "Wave4", // This is optional, only used in a few places, If absent it just uses the layer id.
+    symbol: "W4", // This appears on the layer's node. Default is the id with the first letter capitalized
+    position: 2, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
+    startData() { return {
+        unlocked: true,
+		points: new Decimal(0),
+    }},
+    color: "#989898",
+    requires: new Decimal(1.8e7), // Can be a function that takes requirement increases into account
+    resource: "Wave3", // Name of prestige currency
+    baseResource: "Theory", // Name of resource prestige is based on
+    baseAmount() {return player.t.points}, // Get the current amount of baseResource
+    type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+    exponent: 1, // Prestige currency exponent
+    branches: ["W"],
+    gainMult() { // Calculate the multiplier for main currency from bonuses
+        multw = new Decimal(0)
+	if (hasUpgrade("a", 22)) multw = multw.add(0.01)
+	if (hasUpgrade("Wb", 12)) multw = multw.mul(upgradeEffect('Wb',12))
+	if (hasUpgrade("I", 11)) multw = multw.mul(upgradeEffect('I',11))
+        return multw
+    },
+    gainExp() { // Calculate the exponent on main currency from bonuses
+        return new Decimal(1)
+    },
+    row: 1, // Row the layer is in on the tree (0 is the first row)
+update(diff) {
+	if (hasUpgrade('Wc', 11)) generatePoints('Wc',diff);
+},
+	 upgrades: {
+        rows: 5,
+        cols: 5,
+        11: {
+            title: "61",
+            description: "auto gain waves",
+            
+            cost: new Decimal(1),
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "nice"
+            }
+	},
+        12: {
+            title: "62",
+            description: "Qt boost wave3",
+            
+            cost: new Decimal(1),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return player.q.points.add("e9e15").log10().div(500).log10()
+            },
+             effectDisplay() {
+				return upgradeEffect('Wb',12) + "x waves"
+            }
+	},
+        13: {
+            title: "63",
+            description: "Wave4 Boost Wave1~3",
+            
+            cost: new Decimal(1),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return player.Wb.points.add("1")
+            },
+             effectDisplay() {
+				return "nice and OP"
             }
 	},
     },
