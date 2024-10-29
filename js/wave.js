@@ -316,7 +316,7 @@ update(diff) {
 	},
         12: {
             title: "62",
-            description: "Qt boost wave3",
+            description: "Qt boost wave4",
             
             cost: new Decimal(1),
             unlocked() {
