@@ -779,6 +779,19 @@ addLayer("a", {
 				return "nice2"
             }
 	},
+        22: {
+            title: "46",
+            description: "Unlock Wave 4 which is OP(INF req)",
+            cost: new Decimal("4e6"),
+            unlocked() {
+		    return hasUpgrade("I",11)
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "OP"
+            }
+	},
     },
     layerShown(){return hasUpgrade("q", 32) || hasUpgrade("t",13)}
 })
