@@ -368,7 +368,8 @@ addLayer("Qk", {
         return multw
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
-        return new Decimal(1)
+        exp = new Decimal(1)
+	return exp
     },
     row: 2, // Row the layer is in on the tree (0 is the first row)
 update(diff) {
@@ -402,5 +403,5 @@ update(diff) {
             }
 	},
     },
-    layerShown(){return hasUpgrade("a", 13)}
+    layerShown(){return hasUpgrade("w", 15)}
 })
