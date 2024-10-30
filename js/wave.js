@@ -359,7 +359,7 @@ addLayer("Qk", {
     requires: new Decimal(1e80), // Can be a function that takes requirement increases into account
     resource: "Quark", // Name of prestige currency
     baseResource: "Waves", // Name of resource prestige is based on
-    baseAmount() {return player.W.points.add(player.Qk.points.mul(1e80)}, // Get the current amount of baseResource
+    baseAmount() {return player.W.points.add(1e80)}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0, // Prestige currency exponent
     branches: ["Wa","Wb"],
@@ -373,18 +373,18 @@ addLayer("Qk", {
     },
     row: 2, // Row the layer is in on the tree (0 is the first row)
 update(diff) {
-	if (player.Qk.points.gte(1)) generatePoints('Qk',diff);
+	if (hasUpgrade('Qk',11)) generatePoints('Qk',diff);
 },
 	 upgrades: {
         rows: 5,
         cols: 5,
         11: {
             title: "131",
-            description: "Qk boost SP",
+            description: "Qk boost SP also Auto Quark gain",
             
             cost: new Decimal(1),
             effect(){
-                return player.Qk.points.pow(18)
+                return player.Qk.points.add(1).pow(18)
             },
              effectDisplay() {
 				return 
