@@ -387,7 +387,7 @@ update(diff) {
                 return player.Qk.points.add(1).pow(18)
             },
              effectDisplay() {
-				return UpgradeEffect('Qk',11)
+				return upgradeEffect('Qk',11)
             }
 	},
         12: {
@@ -403,5 +403,5 @@ update(diff) {
             }
 	},
     },
-    layerShown(){return hasUpgrade("w", 15)}
+    layerShown(){return hasUpgrade("W", 15)}
 })
