@@ -1262,7 +1262,7 @@ update(diff) {
             title: "h1",
             description: "add 10000 to Up201 base only for dev",
             
-            cost: new Decimal(-5e9),
+            cost: new Decimal(1e18),
             unlocked() {
 		    return hasUpgrade("f",31)
 	    },
