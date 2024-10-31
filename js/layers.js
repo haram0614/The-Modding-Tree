@@ -679,12 +679,12 @@ addLayer("t", {
             title: "29",
             description: "Theory and wave make ν,which boost Qt expo!!",
             
-            cost: new Decimal(1000),
+            cost: new Decimal(1e9),
             unlocked() {
-		    return true
+		    return hasUpgrade('f',14)
 	    },
             effect(){
-		return player.t.points.add(1e9).mul(player.W.points.add(1)).mul(player.Wa.points.add(1)).mul(player.Wb.points.add(1)).log10().mul(2).log10().mul(2).add(3).log(10).mul(2)
+		return player.t.points.add(1e9).mul(player.W.points.add(1)).mul(player.Wa.points.add(1)).mul(player.Wb.points.add(1)).log10().mul(2).log10().mul(2).add(3).log10().mul(2)
             },
              effectDisplay() {
 				return "You have" + player.t.points.add(1e9).mul(player.W.points.add(1)).mul(player.Wa.points.add(1)).mul(player.Wb.points.add(1)) +"ν, Which Boost Qt expo by" + UpgradeEffect('t',14)
