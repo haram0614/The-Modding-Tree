@@ -92,6 +92,21 @@ update(diff) {
 				return upgradeEffect('W',14) + "x Up26base"
             }
 	},
+        15: {
+            title: "55",
+            description: "Unlock new layer!(WIP)",
+            
+            cost: new Decimal(1000),
+            unlocked() {
+		    return hasUpgrade("f",12)
+	    },
+            effect(){
+                return player.W.points.add(1000)
+            },
+             effectDisplay() {
+				return upgradeEffect('W',14) + "x Up26base"
+            }
+	},
     },
     layerShown(){return hasUpgrade("a", 13)}
 })
