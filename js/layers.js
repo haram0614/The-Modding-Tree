@@ -188,7 +188,7 @@ update(diff) {
                 return player.q.points.mul("1e6160").log10().div(6161).log10().mul(3.32)
             },
             effectDisplay() {
-                return upgradeEffect('q',25)+ "T Base (formula:(base^2+base)/2)"
+                return upgradeEffect('q',25) + "T Base (formula:(base^2+base)/2)"
             },
         },
 	31: {
@@ -196,7 +196,7 @@ update(diff) {
             description: "Qt slightly boost Qc expo",
             cost: new Decimal("1e200000"),
             unlocked() {
-		    return hasUpgrade("q", 25)
+		    return hasUpgrade("q", 24)
 	    },
               effect(){
                 return upgradeEffect("q",24).sub(48).min(100).div(20)
