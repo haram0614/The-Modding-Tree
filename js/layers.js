@@ -1130,6 +1130,7 @@ update(diff) {
                 base = new Decimal(27.7)
 		    if (hasUpgrade('q',41)) base = base.add(0.3)
 		    if (hasUpgrade('Qc',31)) base = base.add(2)
+		    if (hasUpgrade('f',41)) base = base.add(10000)
 		return base
             },
              effectDisplay() {
@@ -1243,9 +1244,9 @@ update(diff) {
         },
         41: {
             title: "h1",
-            description: "Dev lost his game file",
+            description: "add 10000 to Up201 base",
             
-            cost: new Decimal(-5e9),
+            cost: new Decimal(1e8),
             unlocked() {
 		    return hasUpgrade("f",31)
 	    },
