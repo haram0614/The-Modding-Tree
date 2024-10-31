@@ -40,6 +40,7 @@ addLayer("q", {
 	    if (hasUpgrade('Qc', 23)) db = db.add(upgradeEffect("Qc",23))
 	    if (hasUpgrade('SP', 11)) db = db.add(upgradeEffect("SP",11))
 	    if (true) exp = exp.mul(db.mul(db.add(1)).div(2).pow_base(base))
+	    if (hasUpgrade('t', 14)) exp = exp.pow(upgradeEffect("t",14))
         return exp
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
@@ -184,10 +185,10 @@ update(diff) {
 		    return hasUpgrade("q", 24)
 	    },
               effect(){
-                return true
+                return player.q.points.mul("1e6160").log10().div(6161).log10().mul(3.32)
             },
             effectDisplay() {
-                return player.q.points.mul("1e6160").log10().div(6161).log10().mul(3.32) + "T CAP (WIP)"
+                return UpgradeEffect('q',25)+ "T Base (formula:(base^2+base)/2)"
             },
         },
 	31: {
@@ -672,6 +673,21 @@ addLayer("t", {
             },
              effectDisplay() {
 				return "nice"
+            }
+	},
+        13: {
+            title: "29",
+            description: "Theory and wave make ν,which boost Qt expo!!",
+            
+            cost: new Decimal(1000),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+		return player.t.points.add(1e9).mul(player.W.point.add(1)).mul(player.Wa.points.add(1)).mul(player.Wb.points.add(1)).log10().mul(2).log10().mul(2).add(3).log(10).mul(2)
+            },
+             effectDisplay() {
+				return "You have" + player.t.points.add(1e9).mul(player.W.point.add(1)).mul(player.Wa.points.add(1)).mul(player.Wb.points.add(1)) +"ν, Which Boost Qt expo by" + UpgradeEffect('t',14)
             }
 	},
     },
@@ -1169,9 +1185,9 @@ update(diff) {
         },
         14: {
             title: "204",
-            description: "unlock new layer (WIP)",
+            description: "add 1 theory Upgrade",
             
-            cost: new Decimal("1e10"),
+            cost: new Decimal("2700000"),
             unlocked() {
 		    return hasUpgrade("f",11)
 	    },
@@ -1244,9 +1260,9 @@ update(diff) {
         },
         41: {
             title: "h1",
-            description: "add 10000 to Up201 base",
+            description: "add 10000 to Up201 base only for dev",
             
-            cost: new Decimal(1e8),
+            cost: new Decimal(1e18),
             unlocked() {
 		    return hasUpgrade("f",31)
 	    },
