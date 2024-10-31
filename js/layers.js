@@ -188,7 +188,7 @@ update(diff) {
                 return player.q.points.mul("1e6160").log10().div(6161).log10().mul(3.32)
             },
             effectDisplay() {
-                return UpgradeEffect('q',25)+ "T Base (formula:(base^2+base)/2)"
+                return upgradeEffect('q',25)+ "T Base (formula:(base^2+base)/2)"
             },
         },
 	31: {
@@ -675,7 +675,7 @@ addLayer("t", {
 				return "nice"
             }
 	},
-        13: {
+        14: {
             title: "29",
             description: "Theory and wave make ν,which boost Qt expo!!",
             
