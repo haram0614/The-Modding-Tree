@@ -418,5 +418,5 @@ update(diff) {
             }
 	},
     },
-    layerShown(){return hasUpgrade("W", 15)}
+    layerShown(){return hasUpgrade("W", 15) || hasUpgrade('Qk',11)}
 })
