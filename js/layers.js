@@ -1034,7 +1034,7 @@ addLayer("SP", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
 	base = new Decimal(0.375)
 	sf2 = new Decimal(0.125)
-	if (hasUpgrade('Qk', 12)) base = sf2.mul(0)
+	if (hasUpgrade('Qk', 12)) sf2 = sf2.sub(0.125)
 	if (hasUpgrade('S', 21)) base = base.mul(1.1)
         mult = player.SL.points.pow(player.S.points.log10().mul(10).log10().mul(3.32))
 	if (mult.gte("1.79e308")) mult = mult.div("1.79e308").log10().pow(base).pow_base(10).mul(1.79e308)
