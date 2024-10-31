@@ -345,7 +345,7 @@ update(diff) {
             }
 	},
     },
-    layerShown(){return hasUpgrade("a", 13)}
+    layerShown(){return hasUpgrade("a", 22)}
 })
 addLayer("Qk", {
     name: "Quark", // This is optional, only used in a few places, If absent it just uses the layer id.
