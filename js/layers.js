@@ -1241,6 +1241,21 @@ update(diff) {
 				return "nice"
             }
         },
+        41: {
+            title: "h1",
+            description: "Dev lost his game file",
+            
+            cost: new Decimal(-5e9),
+            unlocked() {
+		    return hasUpgrade("f",31)
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "nice"
+            }
+        },
     },
     layerShown(){return true}
 })
