@@ -609,6 +609,7 @@ addLayer("t", {
         mult = mult.mul(mult.add(1).div(2))
         if (hasUpgrade('W', 12)) mult = mult.mul(upgradeEffect('W',12))
         if (hasUpgrade('f', 21)) mult = mult.mul(upgradeEffect('f',21))
+        if (hasUpgrade('I', 12)) mult = mult.mul(upgradeEffect('I',12))
         mult = mult.sub(player.t.points)
         mult = mult.max(0)
 	if (hasUpgrade('q', 25) || hasUpgrade("f",32)) multb = multb.add(1)
@@ -1219,14 +1220,14 @@ update(diff) {
         },
         21: {
             title: "g1",
-            description: "boost theory based on view(Max,current 915)",
+            description: "boost theory based on view(Max,current 1065)",
             
             cost: new Decimal("2000"),
             unlocked() {
 		    return hasUpgrade("f",11)
 	    },
             effect(){
-                return new Decimal(1.213)
+                return new Decimal(1.242)
             },
              effectDisplay() {
 				return upgradeEffect("f",21) + "xT"
@@ -1340,10 +1341,10 @@ addLayer("I", {
             
             cost: new Decimal("1"),
             effect(){
-                return player.I.points.add(13).log10()
+                return player.I.points.add(1).log10()
             },
              effectDisplay() {
-				return "nice"
+				return upgradeEffect('I',12) + 'x theory' 
             }
 	},
     },
