@@ -399,7 +399,7 @@ update(diff) {
             
             cost: new Decimal(1),
             effect(){
-                return player.Qk.points.add(1).pow(18)
+                return player.Qk.points.add(1).pow(9)
             },
              effectDisplay() {
 				return upgradeEffect('Qk',11)
