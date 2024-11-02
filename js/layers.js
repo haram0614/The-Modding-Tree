@@ -691,6 +691,21 @@ addLayer("t", {
 				return "You have e" + player.t.points.add(1e9).mul(player.W.points.add(1)).mul(player.Wa.points.add(1)).mul(player.Wb.points.add(1)).log10() +"ν, Which Boost Qt expo by" + upgradeEffect('t',14)
             }
 	},
+        21: {
+            title: "??",
+            description: "Add 10 to QF gen",
+            
+            cost: new Decimal(2),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+		return true
+            },
+             effectDisplay() {
+				return "+10 QF gen"
+            }
+	},
     },
     layerShown(){return true}
 })
@@ -1107,6 +1122,21 @@ update(diff) {
 				return upgradeEffect("SP",21) + "xPL"
             }
         },
+        22: {
+            title: "???",
+            description: "Add 100 to QF gen!!",
+            
+            cost: new Decimal("1"),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "add 100 to QF gen!!"
+            }
+        },
     },
     layerShown(){return true}
 })
@@ -1151,7 +1181,10 @@ update(diff) {
                 base = new Decimal(27.7)
 		    if (hasUpgrade('q',41)) base = base.add(0.3)
 		    if (hasUpgrade('Qc',31)) base = base.add(2)
+		    if (hasUpgrade('t',21)) base = base.add(10)
+		    if (hasUpgrade('SP',22)) base = base.add(100)
 		    if (hasUpgrade('f',41)) base = base.add(10000)
+		    if (hasUpgrade('f',22)) base = base.mul(1.1)
 		return base
             },
              effectDisplay() {
@@ -1231,6 +1264,21 @@ update(diff) {
             },
              effectDisplay() {
 				return upgradeEffect("f",21) + "xT"
+            }
+        },
+        22: {
+            title: "206",
+            description: "+10% to QF gen but expensive",
+            
+            cost: new Decimal("99999"),
+            unlocked() {
+		    return hasUpgrade("f",21)
+	    },
+            effect(){
+                return new Decimal(1.1)
+            },
+             effectDisplay() {
+				return "1.1x QF"
             }
         },
         31: {
