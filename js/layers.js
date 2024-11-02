@@ -1184,6 +1184,7 @@ update(diff) {
 		    if (hasUpgrade('t',21)) base = base.add(10)
 		    if (hasUpgrade('SP',22)) base = base.add(100)
 		    if (hasUpgrade('f',41)) base = base.add(10000)
+		    if (hasUpgrade('I',21)) base = base.add(100)
 		    if (hasUpgrade('f',22)) base = base.mul(1.1)
 		return base
             },
@@ -1393,6 +1394,18 @@ addLayer("I", {
             },
              effectDisplay() {
 				return upgradeEffect('I',12) + 'x theory' 
+            }
+	},
+        21: {
+            title: "???",
+            description: "Add 100 to QF gen",
+            
+            cost: new Decimal("1"),
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return 'OP' 
             }
 	},
     },
