@@ -688,7 +688,7 @@ addLayer("t", {
 		return player.t.points.add(1e9).mul(player.W.points.add(1)).mul(player.Wa.points.add(1)).mul(player.Wb.points.add(1)).log10().mul(2).log10().mul(2).add(3).log10().mul(2)
             },
              effectDisplay() {
-				return "You have" + player.t.points.add(1e9).mul(player.W.points.add(1)).mul(player.Wa.points.add(1)).mul(player.Wb.points.add(1)) +"ν, Which Boost Qt expo by" + upgradeEffect('t',14)
+				return "You have e" + player.t.points.add(1e9).mul(player.W.points.add(1)).mul(player.Wa.points.add(1)).mul(player.Wb.points.add(1)).log10() +"ν, Which Boost Qt expo by" + upgradeEffect('t',14)
             }
 	},
     },
