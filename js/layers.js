@@ -1107,6 +1107,21 @@ update(diff) {
 				return upgradeEffect("SP",11) + "+Booster"
             }
         },
+        13: {
+            title: "103",
+            description: "Keep Up8 effect on Row 3",
+            
+            cost: new Decimal("1e1300"),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "for achievement"
+            }
+        },
         21: {
             title: "?",
             description: "SP boost PL",
