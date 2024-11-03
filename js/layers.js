@@ -408,6 +408,26 @@ addLayer("A", {
                 addPoints("A",1)
             }
         },
+        31: {
+            name: "Quark",
+            tooltip: "Get Quark",
+            done() {
+                return (player.Qk.points.gte("1"))
+            },
+            onComplete() {
+                addPoints("A",1)
+            }
+        },
+        32: {
+            name: "Extreme",
+            tooltip: "Get ee100Qt without Q,Qc upgrade. Reward: 1 AP",
+            done() {
+                return (player.q.points.gte("ee18") && !hasUpgrade("q",11) && !hasUpgrade("Qc",11) && !hasUpgrade("t",11))
+            },
+            onComplete() {
+                addPoints("A",1)
+            }
+        },
     },
     tabFormat: {
         "Achievements" :{
