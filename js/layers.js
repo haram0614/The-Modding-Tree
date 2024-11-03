@@ -422,7 +422,7 @@ addLayer("A", {
             name: "Extreme",
             tooltip: "Get ee100Qt without Q,Qc upgrade. Reward: 1 AP",
             done() {
-                return (player.q.points.gte("ee18") && !hasUpgrade("q",11) && !hasUpgrade("Qc",11) && !hasUpgrade("t",11))
+                return (player.q.points.gte("ee100") && !hasUpgrade("q",11) && !hasUpgrade("Qc",11) && !hasUpgrade("t",11))
             },
             onComplete() {
                 addPoints("A",1)
