@@ -420,7 +420,7 @@ addLayer("A", {
         },
         32: {
             name: "Extreme",
-            tooltip: "Get ee100Qt without Q,Qc upgrade. Reward: 1 AP",
+            tooltip: "Get ee100Qt without Q,Qc upgrade. Reward: 1 AP, Auto IP,A, Unlock ID",
             done() {
                 return (player.q.points.gte("ee100") && !hasUpgrade("q",11) && !hasUpgrade("Qc",11) && !hasUpgrade("t",11))
             },
@@ -757,6 +757,9 @@ addLayer("a", {
     hotkeys: [
         {key: "a", description: "A: Reset for accelerons", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+update(diff) {
+	if (hasAchievement('A', 32)) generatePoints('a',diff);
+},
 	 upgrades: {
         rows: 5,
         cols: 5,
@@ -1393,6 +1396,9 @@ addLayer("I", {
     hotkeys: [
         {key: "i", description: "I: Reset for IP", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+update(diff) {
+	if (hasAchievement('A', 32)) generatePoints('I',diff);
+},
 	 upgrades: {
         rows: 5,
         cols: 5,
@@ -1460,4 +1466,29 @@ addLayer("I", {
 	},
     },
     layerShown(){return hasUpgrade("SL",11) || player.I.points.gte(1) || hasUpgrade("I",11)}
+})
+addLayer("ID", {
+    name: "Infinity Dimension", // This is optional, only used in a few places, If absent it just uses the layer id.
+    symbol: "ID", // This appears on the layer's node. Default is the id with the first letter capitalized
+    position: 2, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
+    startData() { return {
+        unlocked: true,
+		points: new Decimal(0),
+    }},
+    color: "#4BDC13",
+    requires: new Decimal(10), // Can be a function that takes requirement increases into account
+    resource: "ID", // Name of prestige currency
+    baseResource: "IP", // Name of resource prestige is based on
+    baseAmount() {return player.I.points}, // Get the current amount of baseResource
+    type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+    exponent: 0, // Prestige currency exponent
+    gainMult() { // Calculate the multiplier for main currency from bonuses
+        mult = new Decimal(1)
+        return mult
+    },
+    gainExp() { // Calculate the exponent on main currency from bonuses
+        return new Decimal(1)
+    },
+    row: "side", // Row the layer is in on the tree (0 is the first row)
+    layerShown(){return true}
 })
