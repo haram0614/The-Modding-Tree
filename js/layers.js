@@ -1470,12 +1470,12 @@ update(diff) {
 addLayer("ID", {
     name: "Infinity Dimension", // This is optional, only used in a few places, If absent it just uses the layer id.
     symbol: "ID", // This appears on the layer's node. Default is the id with the first letter capitalized
-    position: 2, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
+    position: 3, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
 		points: new Decimal(0),
     }},
-    color: "#4BDC13",
+    color: "#FFFF00",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
     resource: "ID", // Name of prestige currency
     baseResource: "IP", // Name of resource prestige is based on
@@ -1509,10 +1509,10 @@ addLayer("ID", {
 	            if (hasUpgrade('Qc', 22)) db = db.add(1)
 	            if (hasUpgrade('Qc', 23)) db = db.add(upgradeEffect("Qc",23))
 	            if (hasUpgrade('SP', 11)) db = db.add(upgradeEffect("SP",11))
-                return db.mul(7).mul(player.ID.points.add(1).log(10))
+                return db.mul(7).mul(player.ID.points.add(1).log(10)).pow_base(10)
             },
              effectDisplay() {
-				return "nice!"
+				return "^" + upgradeEffect("ID",11) + "Qt(WIP,OP)"
             }
 	},
     },
