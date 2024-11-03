@@ -1423,6 +1423,20 @@ addLayer("I", {
 				return 'OP' 
             }
 	},
+        22: {
+            title: "???",
+            description: "Booster base can't lower than 10",
+            cost: new Decimal("1"),
+            unlocked() {
+		    return upgradeEffect("q",34).gte(36)
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return 'OP' 
+            }
+	},
     },
     layerShown(){return hasUpgrade("SL",11) || player.I.points.gte(1) || hasUpgrade("I",11)}
 })
