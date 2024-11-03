@@ -23,6 +23,7 @@ addLayer("q", {
 	base = new Decimal(2)
 	    if (hasUpgrade('f', 15)) base = base.add(0.5)
 	    if (hasUpgrade('SL',11)) base = base.add(2.2).add(upgradeEffect('q',24).div(5))
+	    if (hasUpgrade('I', 22)) base = base.max(10)
 	    if (hasUpgrade('q', 11)) exp = exp.add(1)
 	    if (hasUpgrade('q', 12)) exp = exp.add(1)
 	    if (hasUpgrade('q', 14)) exp = exp.add(1)
