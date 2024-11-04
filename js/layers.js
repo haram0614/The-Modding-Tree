@@ -1436,7 +1436,7 @@ update(diff) {
                 return player.I.points.add(1).log10()
             },
              effectDisplay() {
-				return upgradeEffect('I',12) + 'x theory' 
+				return upgradeEffect('I',13) + 'x theory' 
             }
 	},
         14: {
