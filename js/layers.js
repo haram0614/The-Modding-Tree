@@ -1427,7 +1427,7 @@ update(diff) {
 				return "nice"
             }
 	},
-        12: {
+        13: {
             title: "113",
             description: "IP boost Theory",
             
@@ -1437,6 +1437,18 @@ update(diff) {
             },
              effectDisplay() {
 				return upgradeEffect('I',12) + 'x theory' 
+            }
+	},
+        14: {
+            title: "114",
+            description: "30ID/s",
+            
+            cost: new Decimal("1e8"),
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return 'OP' 
             }
 	},
         21: {
@@ -1517,5 +1529,8 @@ addLayer("ID", {
             }
 	},
     },
+update(diff) {
+	if (hasUpgrade('I', 14)) generatePoints('ID',diff*30);
+},
     layerShown(){return hasAchievement('A',32)}
 })
