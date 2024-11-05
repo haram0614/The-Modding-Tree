@@ -399,7 +399,9 @@ update(diff) {
             
             cost: new Decimal(1),
             effect(){
-                return player.Qk.points.add(1).pow(9)
+		base = new Decimal(9)
+		if hasAchievement("A",32) base = base.add(41)
+                return player.Qk.points.add(1).pow(base)
             },
              effectDisplay() {
 				return upgradeEffect('Qk',11)
