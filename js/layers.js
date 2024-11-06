@@ -249,6 +249,20 @@ update(diff) {
                 return upgradeEffect("q",34) + "+Qc expo"
             },
         },
+	35: {
+            title: "15",
+            description: "Add new layer(WIP)",
+            cost: new Decimal("ee10000"),
+            unlocked() {
+		    return hasAchievement("A", 32)
+	    },
+              effect(){
+                return true
+            },
+            effectDisplay() {
+                return "Nice"
+            },
+        },
         41: {
             title: "??",
             description: "+0.3to QF gen",
@@ -711,6 +725,21 @@ addLayer("t", {
             },
              effectDisplay() {
 				return "You have e" + player.t.points.add(1e9).mul(player.W.points.add(1)).mul(player.Wa.points.add(1)).mul(player.Wb.points.add(1)).log10() +"ν, Which Boost Qt expo by" + upgradeEffect('t',14)
+            }
+	},
+        15: {
+            title: "30",
+            description: "Add new layer(WIP)",
+            
+            cost: new Decimal(2),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+		return true
+            },
+             effectDisplay() {
+				return "+10 QF gen"
             }
 	},
         21: {
@@ -1370,7 +1399,7 @@ update(diff) {
         },
         32: {
             title: "a3",
-            description: "Unlock new layer",
+            description: "Unlock new layer(WIP)",
             
             cost: new Decimal("1000000"),
             unlocked() {
