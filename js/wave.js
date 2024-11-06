@@ -318,7 +318,7 @@ update(diff) {
         rows: 5,
         cols: 5,
         11: {
-            title: "61",
+            title: "71",
             description: "auto gain waves",
             
             cost: new Decimal(1),
@@ -330,7 +330,7 @@ update(diff) {
             }
 	},
         12: {
-            title: "62",
+            title: "72",
             description: "Qt boost wave4",
             
             cost: new Decimal(1),
@@ -345,7 +345,7 @@ update(diff) {
             }
 	},
         13: {
-            title: "63",
+            title: "73",
             description: "Wave4 Boost Wave1~3",
             
             cost: new Decimal(1),
@@ -380,6 +380,8 @@ addLayer("Qk", {
     branches: ["Wa","Wb"],
     gainMult() { // Calculate the multiplier for main currency from bonuses
         multw = new Decimal(1)
+	if (hasUpgrade("f", 22)) multw = multw.mul(1.1)
+        if (hasUpgrade("f", 23)) multw = multw.mul(1.7)
         return multw
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
