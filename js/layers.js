@@ -1309,7 +1309,7 @@ update(diff) {
         },
         22: {
             title: "206",
-            description: "+10% to QF gen but expensive",
+            description: "+10% to QF,Qk gen but expensive",
             
             cost: new Decimal("99999"),
             unlocked() {
@@ -1319,7 +1319,22 @@ update(diff) {
                 return new Decimal(1.1)
             },
              effectDisplay() {
-				return "1.1x QF"
+				return "1.1x Qk"
+            }
+        },
+        23: {
+            title: "207",
+            description: "+70% to Qk gen",
+            
+            cost: new Decimal("22222"),
+            unlocked() {
+		    return hasUpgrade("f",21)
+	    },
+            effect(){
+                return new Decimal(1.7)
+            },
+             effectDisplay() {
+				return "1.7x Qk"
             }
         },
         31: {
