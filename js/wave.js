@@ -400,7 +400,7 @@ update(diff) {
             cost: new Decimal(1),
             effect(){
 		base = new Decimal(9)
-		if hasAchievement("A",32) base = base.add(41)
+		if (hasAchievement("A",32)) base = base.add(41)
                 return player.Qk.points.add(1).pow(base)
             },
              effectDisplay() {
