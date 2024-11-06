@@ -707,7 +707,7 @@ addLayer("t", {
 		    return hasUpgrade('f',14)
 	    },
             effect(){
-		return player.t.points.add(1e9).mul(player.W.points.add(1)).mul(player.Wa.points.add(1)).mul(player.Wb.points.add(1)).log10().mul(2).log10().mul(2).add(3).log10().mul(2)
+		return player.t.points.add(1e9).mul(player.W.points.add(1)).mul(player.Wa.points.add(1)).mul(player.Wb.points.add(1)).log10().mul(2.0959).log10().mul(2.0959).add(3).log10().mul(2.0959)
             },
              effectDisplay() {
 				return "You have e" + player.t.points.add(1e9).mul(player.W.points.add(1)).mul(player.Wa.points.add(1)).mul(player.Wb.points.add(1)).log10() +"ν, Which Boost Qt expo by" + upgradeEffect('t',14)
@@ -1225,6 +1225,7 @@ update(diff) {
 		    if (hasUpgrade('SP',22)) base = base.add(100)
 		    if (hasUpgrade('f',41)) base = base.add(10000)
 		    if (hasUpgrade('I',21)) base = base.add(100)
+		    if (hasUpgrade('ID',12)) base = base.add(100)
 		    if (hasUpgrade('f',22)) base = base.mul(1.1)
 		return base
             },
@@ -1543,6 +1544,21 @@ addLayer("ID", {
 				return "^" + upgradeEffect("ID",11) + "Qt(WIP,OP)"
             }
 	},
+        12: {
+            title: "???",
+            description: "Add 100 to QF gen!!",
+            
+            cost: new Decimal("1"),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "add 100 to QF gen!!"
+            }
+        },
     },
 update(diff) {
 	if (hasUpgrade('I', 14)) generatePoints('ID',diff*30);
