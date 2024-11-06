@@ -421,7 +421,7 @@ addLayer("A", {
         },
         32: {
             name: "Extreme",
-            tooltip: "Get ee100Qt without Q,Qc upgrade. Reward: 1 AP, Auto IP,A, Unlock ID",
+            tooltip: "Get ee100Qt without Q,Qc upgrade. Reward: 1 AP, Auto IP,A, Unlock ID, Add new QF upgrade",
             done() {
                 return (player.q.points.gte("ee100") && !hasUpgrade("q",11) && !hasUpgrade("Qc",11) && !hasUpgrade("t",11))
             },
@@ -1360,6 +1360,21 @@ update(diff) {
             cost: new Decimal("7000"),
             unlocked() {
 		    return hasUpgrade("f",31)
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "nice"
+            }
+        },
+        32: {
+            title: "a3",
+            description: "Unlock new layer",
+            
+            cost: new Decimal("1000000"),
+            unlocked() {
+		    return hasAchievement("A",32)
 	    },
             effect(){
                 return true
