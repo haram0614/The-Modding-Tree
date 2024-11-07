@@ -202,6 +202,21 @@ update(diff) {
 				return upgradeEffect('Wa',14) + "x waves"
             }
 	},
+        15: {
+            title: "60",
+            description: "Unlock new layer WIP",
+            
+            cost: new Decimal(1e80),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "OP"
+            }
+	},
     },
     layerShown(){return hasUpgrade("a", 13)}
 })
