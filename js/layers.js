@@ -443,6 +443,16 @@ addLayer("A", {
                 addPoints("A",1)
             }
         },
+        33: {
+            name: "Row 4!!!",
+            tooltip: "Reward: 1 AP, WIP",
+            done() {
+                return (false)
+            },
+            onComplete() {
+                addPoints("A",1)
+            }
+        },
     },
     tabFormat: {
         "Achievements" :{
@@ -721,17 +731,17 @@ addLayer("t", {
 		    return hasUpgrade('f',14)
 	    },
             effect(){
-		return player.t.points.add(1e9).mul(player.W.points.add(1)).mul(player.Wa.points.add(1)).mul(player.Wb.points.add(1)).log10().mul(2.0959).log10().mul(2.0959).add(3).log10().mul(2.0959)
+		return player.t.points.add(1e9).mul(player.W.points.add(1)).mul(player.Wa.points.add(1)).mul(player.Wb.points.add(1)).mul(player.Wc.points.add(1)).log10().mul(2.0959).log10().mul(2.0959).add(3).log10().mul(2.0959)
             },
              effectDisplay() {
-				return "You have e" + player.t.points.add(1e9).mul(player.W.points.add(1)).mul(player.Wa.points.add(1)).mul(player.Wb.points.add(1)).log10() +"ν, Which Boost Qt expo by" + upgradeEffect('t',14)
+				return "You have e" + player.t.points.add(1e9).mul(player.W.points.add(1)).mul(player.Wa.points.add(1)).mul(player.Wb.points.add(1)).mul(player.Wc.points.add(1)).log10() +"ν, Which Boost Qt expo by" + upgradeEffect('t',14)
             }
 	},
         15: {
             title: "30",
             description: "Add new layer(WIP)",
             
-            cost: new Decimal(2),
+            cost: new Decimal(1e12),
             unlocked() {
 		    return true
 	    },
@@ -739,7 +749,7 @@ addLayer("t", {
 		return true
             },
              effectDisplay() {
-				return "+10 QF gen"
+				return "???"
             }
 	},
         21: {
