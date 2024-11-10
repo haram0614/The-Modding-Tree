@@ -471,5 +471,22 @@ addLayer("e", {
     hotkeys: [
         {key: "e", description: "e: Reset for electron", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+	 upgrades: {
+        rows: 5,
+        cols: 5,
+        11: {
+            title: "231",
+            description: "e mult qc",
+            
+            cost: new Decimal("1"),
+            effect(){
+		dim = new Decimal(1)
+		if hasUpgrade('q',24) dim.add(upgradeEffect("q",24))
+                   return dim.pow_base(player.e.points.mul(1e43))
+            },
+             effectDisplay() {
+				return upgradeEffect('e',11) + "x Qc"
+            }
+	},
     layerShown(){return hasUpgrade("Wa",15)}
 })
