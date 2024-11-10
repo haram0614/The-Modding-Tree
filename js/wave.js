@@ -208,7 +208,7 @@ update(diff) {
             
             cost: new Decimal(1e80),
             unlocked() {
-		    return true
+		    return hasUpgrade("f",23)
 	    },
             effect(){
                 return true
@@ -455,7 +455,7 @@ addLayer("e", {
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
-        mult = new Decimal(1)
+        mult = (player.q.points.log10().log10().add(player.W.points.add(1e80).log10()).mul(dc.add(3)).div(100000).pow_base(10).div(10))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -465,5 +465,5 @@ addLayer("e", {
     hotkeys: [
         {key: "e", description: "e: Reset for electron", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return false}
+    layerShown(){return hasUpgrade("Wa",15)}
 })
