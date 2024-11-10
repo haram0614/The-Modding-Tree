@@ -447,7 +447,7 @@ addLayer("A", {
             name: "Row 4!!!",
             tooltip: "Reward: 1 AP, WIP",
             done() {
-                return (false)
+                return (player.e.points.gte(1))
             },
             onComplete() {
                 addPoints("A",1)
