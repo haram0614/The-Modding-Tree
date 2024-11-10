@@ -455,7 +455,12 @@ addLayer("e", {
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
-	dc = upgradeEffect('q',34).max(0)
+	dc = new Decimal(1)
+	    if (hasUpgrade('q', 21)) dc = dc.add(1)
+	    if (hasUpgrade('q', 22)) dc = dc.add(1)
+	    if (hasUpgrade('q', 31)) dc = dc.add(upgradeEffect("q",31))
+	    if (hasUpgrade('q', 33)) dc = dc.add(upgradeEffect("q",33))
+	    if (hasUpgrade('q', 34)) dc = dc.add(upgradeEffect("q",34))
         mult = (player.q.points.add("ee100").log10().log10().add(player.W.points.add(1e80).log10()).mul(dc.add(3)).div(100000).pow_base(10).div(10))
         return mult
     },
