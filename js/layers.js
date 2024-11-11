@@ -1627,3 +1627,71 @@ update(diff) {
 },
     layerShown(){return hasAchievement('A',32)}
 })
+addLayer("dp", {
+    name: "proton", // This is optional, only used in a few places, If absent it just uses the layer id.
+    symbol: "γ", // This appears on the layer's node. Default is the id with the first letter capitalized
+    position: 1, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
+    startData() { return {
+        unlocked: true,
+		points: new Decimal(0),
+    }},
+    color: "#FF00FF",
+    requires: new Decimal(1e12), // Can be a function that takes requirement increases into account
+    resource: "proton", // Name of prestige currency
+    baseResource: "Theory", // Name of resource prestige is based on
+    baseAmount() {return player.t.points.max(1e12)}, // Get the current amount of baseResource
+    type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+    exponent: 0, // Prestige currency exponent
+    gainMult() { // Calculate the multiplier for main currency from bonuses
+        mult = new Decimal(1)
+        return mult
+    },
+    gainExp() { // Calculate the exponent on main currency from bonuses
+        return new Decimal(1)
+    },
+    row: 3, // Row the layer is in on the tree (0 is the first row)
+update(diff) {
+	if (hasUpgrade('dp', 11)) generatePoints('dp',diff);
+},
+	 upgrades: {
+        rows: 5,
+        cols: 5,
+        11: {
+            title: "241",
+            description: "auto γ and γ boost PL",
+            cost: new Decimal("1"),
+            effect(){
+		exp = new Decimal(1)
+	        db = new Decimal(0)
+	        base = new Decimal(2)
+	         if (hasUpgrade('f', 15)) base = base.add(0.5)
+	         if (hasUpgrade('SL',11)) base = base.add(2.2).add(upgradeEffect('q',24).div(5))
+	         if (hasUpgrade('I', 22)) base = base.max(10)
+	         if (hasUpgrade('q', 11)) exp = exp.add(1)
+	         if (hasUpgrade('q', 12)) exp = exp.add(1)
+	         if (hasUpgrade('q', 14)) exp = exp.add(1)
+                 if (hasUpgrade('q', 15)) exp = exp.add(8)
+	         if (hasUpgrade('q', 24)) exp = exp.add(player.q.points.add("1e2000").div("1e308").log10().log10().mul(10))
+	         if (hasUpgrade('f', 31)) exp = exp.mul(2)
+	         if (hasUpgrade('t', 11)) exp = exp.mul(upgradeEffect("t",11))
+	         if (hasUpgrade('Qc', 11)) db = db.add(0.9)
+	         if (hasUpgrade('Qc', 12)) db = db.add(0.9)
+	         if (hasUpgrade('Qc', 13)) db = db.add(0.1)
+	         if (hasUpgrade('Qc', 14)) db = db.add(0.9)
+	         if (hasUpgrade('Qc', 15)) db = db.add(0.1)
+	         if (hasUpgrade('Qc', 21)) db = db.add(0.9)
+    	         if (hasUpgrade('Qc', 22)) db = db.add(1)
+	         if (hasUpgrade('Qc', 23)) db = db.add(upgradeEffect("Qc",23))
+	         if (hasUpgrade('SP', 11)) db = db.add(upgradeEffect("SP",11))
+	         if (true) exp = exp.mul(db.mul(db.add(1)).div(2).pow_base(base))
+     	         if (hasUpgrade("ID",11)) exp = exp.mul(upgradeEffect('ID',11))
+    	         if (hasUpgrade('t', 14)) exp = exp.pow(upgradeEffect("t",14))
+                return player.dp.points.add(1).log10().div(1.3011).mul(exp.log10()).mul(upgradeEffect("ID",11).log10()).pow_base(10).pow_base(10)
+            },
+             effectDisplay() {
+				return upgradeEffect("dp",11) + "x PL(WIP)"
+            }
+	},
+    },
+    layerShown(){return hasUpgrade("a",14)}
+})
