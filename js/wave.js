@@ -481,7 +481,7 @@ addLayer("e", {
             cost: new Decimal("1"),
             effect(){
 		dim = new Decimal(1)
-		if hasUpgrade('q',24) dim.add(upgradeEffect("q",24))
+		if (hasUpgrade('q',24)) dim.add(upgradeEffect("q",24))
                    return dim.pow_base(player.e.points.mul(1e43))
             },
              effectDisplay() {
