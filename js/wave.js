@@ -488,5 +488,6 @@ addLayer("e", {
 				return upgradeEffect('e',11) + "x Qc"
             }
 	},
+    },
     layerShown(){return hasUpgrade("Wa",15)}
 })
