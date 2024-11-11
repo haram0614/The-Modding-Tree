@@ -497,6 +497,7 @@ addLayer("Qc", {
     ],
 update(diff) {
 	if (hasAchievement('A', 22)) generatePoints('Qc',diff);
+	if (hasUpgrade('e', 11)) generatePoints('Qc',diff*upgradeEffect("e",11))
 },
 	 upgrades: {
         rows: 5,
