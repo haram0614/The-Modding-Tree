@@ -479,7 +479,15 @@ addLayer("Qc", {
     branches: ["q"],
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        exp = new Decimal(1)
+	one = new Decimal(1)
+	    if (hasUpgrade('q', 21)) exp = exp.add(1)
+	    if (hasUpgrade('q', 22)) exp = exp.add(1)
+	    if (hasUpgrade('q', 31)) exp = exp.add(upgradeEffect("q",31))
+	    if (hasUpgrade('q', 33)) exp = exp.add(upgradeEffect("q",33))
+	    if (hasUpgrade('q', 34)) exp = exp.add(upgradeEffect("q",34))
 	    if (hasUpgrade('Wa', 12)) mult = mult.mul(upgradeEffect('Wa',12))
+            if (hasUpgrade("e",11)) mult = mult.mul(upgradeEffect('e',11).pow(one.div(exp)))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -497,7 +505,6 @@ addLayer("Qc", {
     ],
 update(diff) {
 	if (hasAchievement('A', 22)) generatePoints('Qc',diff);
-	if (hasUpgrade('e', 11)) generatePoints('Qc',diff*upgradeEffect("e",11))
 },
 	 upgrades: {
         rows: 5,
