@@ -500,7 +500,7 @@ addLayer("SQ", {
 		points: new Decimal(0),
     }},
     color: "#00FF7F",
-    requires: new Decimal("1.8e308"), // Can be a function that takes requirement increases into account
+    requires: new Decimal("1.8e3080000"), // Can be a function that takes requirement increases into account
     resource: "SQuark", // Name of prestige currency
     baseResource: "Spreon", // Name of resource prestige is based on
     baseAmount() {return player.SP.points}, // Get the current amount of baseResource
