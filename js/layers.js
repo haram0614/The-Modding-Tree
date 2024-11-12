@@ -1686,7 +1686,7 @@ update(diff) {
 	         if (true) exp = exp.mul(db.mul(db.add(1)).div(2).pow_base(base))
      	         if (hasUpgrade("ID",11)) exp = exp.mul(upgradeEffect('ID',11))
     	         if (hasUpgrade('t', 14)) exp = exp.pow(upgradeEffect("t",14))
-                return player.dp.points.add(1).log10().div(1.3011).mul(exp.log10()).mul(upgradeEffect("ID",11).log10()).pow_base(10).pow_base(10)
+                return player.dp.points.add(1).log10().div(1.3011).mul(exp.log10().add(upgradeEffect("ID",11).log10())).pow_base(10).pow_base(10)
             },
              effectDisplay() {
 				return upgradeEffect("dp",11) + "x PL(WIP)"
