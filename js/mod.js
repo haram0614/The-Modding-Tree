@@ -46,6 +46,7 @@ function getPointGen() {
 	if (hasUpgrade("q", 13)) gain = gain.mul(player.q.points.add(1000).div(1000).pow(0.05).min(1e15))
 	if (hasUpgrade("q", 23) || hasUpgrade('SP',13)) gain = gain.mul(upgradeEffect("q",23))
 	if (hasUpgrade("SP", 21)) gain = gain.mul(upgradeEffect("SP",21))
+	if (hasUpgrade("dp", 11)) gain = gain.mul(upgradeEffect("dp",11))
 	return gain
 }
 
