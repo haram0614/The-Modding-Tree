@@ -500,7 +500,7 @@ addLayer("SQ", {
 		points: new Decimal(0),
     }},
     color: "#00FF7F",
-    requires: new Decimal("1.8e3080000"), // Can be a function that takes requirement increases into account
+    requires: new Decimal("1.8e308"), // Can be a function that takes requirement increases into account
     resource: "SQuark", // Name of prestige currency
     baseResource: "Spreon", // Name of resource prestige is based on
     baseAmount() {return player.SP.points}, // Get the current amount of baseResource
@@ -525,16 +525,14 @@ update(diff) {
         cols: 5,
         11: {
             title: "131",
-            description: "Qk boost SP also Auto Quark gain",
+            description: "SQk boost Qk also Auto SQuark gain",
             
             cost: new Decimal(1),
             effect(){
-		base = new Decimal(9)
-		if (hasAchievement("A",32)) base = base.add(41)
-                return player.Qk.points.add(1).pow(base)
+                return player.SQ.points.add(1).pow(3)
             },
              effectDisplay() {
-				return upgradeEffect('Qk',11)
+				return upgradeEffect('SQ',11) + "×Qk"
             }
 	},
     },
