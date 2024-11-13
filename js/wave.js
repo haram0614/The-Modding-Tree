@@ -18,7 +18,7 @@ addLayer("W", {
 	if (hasUpgrade("a", 13)) multw = multw.add(1)
 	if (hasUpgrade("W", 13)) multw = multw.mul(upgradeEffect('W',13))
 	if (hasUpgrade("Wa", 14)) multw = multw.mul(upgradeEffect('Wa',14))
-	if (hasUpgrade("Wc", 13)) multw = multw.mul(upgradeEffect('Wc',13))
+	if (hasUpgrade("Wc", 13)) multw = multw.mul(upgradeEffect('Wc',13).pow(3))
 	if (hasUpgrade("I", 11)) multw = multw.mul(upgradeEffect('I',11))
         return multw
     },
@@ -547,17 +547,16 @@ addLayer("g", {
         unlocked: true,
 		points: new Decimal(0),
     }},
-    color: "#00FF7F",
+    color: "#FFFFFF",
     requires: new Decimal("1.8e308"), // Can be a function that takes requirement increases into account
     resource: "glueon", // Name of prestige currency
     baseResource: "Wave", // Name of resource prestige is based on
     baseAmount() {return player.W.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0, // Prestige currency exponent
-    branches: ["W4"],
+    branches: ["Wc"],
     gainMult() { // Calculate the multiplier for main currency from bonuses
         multw = new Decimal(1)
-	if (true) multw = multw.mul(player.SP.points.add(1).log10().div(308.26).pow(0.1875).sub(1).pow_base(10))
         return multw
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -572,15 +571,15 @@ update(diff) {
         rows: 5,
         cols: 5,
         11: {
-            title: "131",
-            description: "SQk boost Qk also Auto SQuark gain",
+            title: "The end",
+            description: "WIP",
             
-            cost: new Decimal(1),
+            cost: new Decimal(1.79e308),
             effect(){
                 return player.SQ.points.add(1).pow(3)
             },
              effectDisplay() {
-				return upgradeEffect('SQ',11) + "×Qk"
+				return "WIP you can't get it"
             }
 	},
     },
