@@ -397,6 +397,7 @@ addLayer("Qk", {
         multw = new Decimal(1)
 	if (hasUpgrade("f", 22)) multw = multw.mul(1.1)
         if (hasUpgrade("f", 23)) multw = multw.mul(1.7)
+	if (hasUpgrade('SQ',11)) multw = multw.mul(upgradeEffect("SQ",11))
         return multw
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -482,7 +483,7 @@ addLayer("e", {
             effect(){
 		dim = new Decimal(1)
 		if (hasUpgrade('q',24)) dim.add(upgradeEffect("q",24))
-                   return dim.pow_base(player.e.points.mul(1e43))
+                   return player.e.points.mul(1e43).pow(dim)
             },
              effectDisplay() {
 				return upgradeEffect('e',11) + "x Qc"
