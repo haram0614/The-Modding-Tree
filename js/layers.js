@@ -1273,6 +1273,7 @@ update(diff) {
 		    if (hasUpgrade('f',41)) base = base.add(10000)
 		    if (hasUpgrade('I',21)) base = base.add(100)
 		    if (hasUpgrade('ID',12)) base = base.add(100)
+		    if (hasAchievement('A',33)) base = base.add(500)
 		    if (hasUpgrade('f',22)) base = base.mul(1.1)
 		return base
             },
