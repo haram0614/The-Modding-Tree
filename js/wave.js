@@ -482,11 +482,11 @@ addLayer("e", {
             cost: new Decimal("1"),
             effect(){
 		dim = new Decimal(1)
-		if (hasUpgrade('q',24)) dim.add(upgradeEffect("q",24))
+		if (hasUpgrade('q',24)) dim = dim.add(upgradeEffect("q",24))
                    return player.e.points.mul(1e43).pow(dim).log10()
             },
              effectDisplay() {
-				return upgradeEffect('e',11) + "x Qc"
+				return "e" + upgradeEffect('e',11) + "x Qc"
             }
 	},
     },
