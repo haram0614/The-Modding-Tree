@@ -487,7 +487,7 @@ addLayer("Qc", {
 	    if (hasUpgrade('q', 33)) exp = exp.add(upgradeEffect("q",33))
 	    if (hasUpgrade('q', 34)) exp = exp.add(upgradeEffect("q",34))
 	    if (hasUpgrade('Wa', 12)) mult = mult.mul(upgradeEffect('Wa',12))
-            if (hasUpgrade("e",11)) mult = mult.mul(upgradeEffect('e',11))
+            if (hasUpgrade("e",11)) mult = mult.mul(upgradeEffect('e',11).pow_base(10))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
