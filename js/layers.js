@@ -1702,7 +1702,7 @@ addLayer("ID", {
 	            if (hasUpgrade('Qc', 23)) db = db.add(upgradeEffect("Qc",23))
 	            if (hasUpgrade('SP', 11)) db = db.add(upgradeEffect("SP",11))
 		    if (true) base = db.mul(7).mul(player.ID.points.add(1).log(10)).pow_base(10)
-		    if hasUpgrade('a',24) base = base.pow(2)
+		    if (hasUpgrade('a',24)) base = base.pow(2)
                 return base
             },
              effectDisplay() {
