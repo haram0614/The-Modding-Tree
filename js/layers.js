@@ -464,6 +464,26 @@ addLayer("A", {
                 addPoints("A",1)
             }
         },
+        41: {
+            name: "Gas",
+            tooltip: "get 1e30 Acceleron Reward: 1 AP, add 1000 to QF gen",
+            done() {
+                return (player.a.points.gte(1e30))
+            },
+            onComplete() {
+                addPoints("A",1)
+            }
+        },
+        42: {
+            name: "New theory",
+            tooltip: "Reward: 1 AP, add 1000 to QF gen(WIP)",
+            done() {
+                return (player.t.points.gte(1e12) && player.Li.points.gte(1e9))
+            },
+            onComplete() {
+                addPoints("A",1)
+            }
+        },
     },
     tabFormat: {
         "Achievements" :{
@@ -1802,4 +1822,51 @@ update(diff) {
 	},
     },
     layerShown(){return hasUpgrade("t",15)}
+})
+addLayer("DT", {
+    name: "Bosonic Theory", // This is optional, only used in a few places, If absent it just uses the layer id.
+    symbol: "BT", // This appears on the layer's node. Default is the id with the first letter capitalized
+    position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
+    startData() { return {
+        unlocked: true,
+		points: new Decimal(0),
+    }},
+    color: "#FF00FF",
+    requires: new Decimal(10), // Can be a function that takes requirement increases into account
+    resource: "DT", // Name of prestige currency
+    baseResource: "points", // Name of resource prestige is based on
+    baseAmount() {return player.points}, // Get the current amount of baseResource
+    type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+    exponent: 0, // Prestige currency exponent
+    gainMult() { // Calculate the multiplier for main currency from bonuses
+        mult = new Decimal(1)
+	if (true) mult = mult.mul(player.SP.points.add(1).log10().div(100))
+	if (true) mult = mult.mul(player.q.points.add(1.8e43).log10().log10().div(20000))
+	if (true) mult = mult.mul(player.I.points.add(1e8).log10().sub(8))
+        return mult
+    },
+    gainExp() { // Calculate the exponent on main currency from bonuses
+        return new Decimal(1)
+    },
+    row: 4, // Row the layer is in on the tree (0 is the first row)
+update(diff) {
+	if (hasUpgrade('I', 12)) generatePoints('SL',diff);
+},
+	 upgrades: {
+        rows: 5,
+        cols: 5,
+        11: {
+            title: "??",
+            description: "Qt boost Booster base and new layer(WIP)",
+            
+            cost: new Decimal("1.79e308"),
+            effect(){
+                return hasAchievement('A',26)
+            },
+             effectDisplay() {
+				return "nice!"
+            }
+	},
+    },
+    layerShown(){return hasUpgrade("g",11)}
 })
