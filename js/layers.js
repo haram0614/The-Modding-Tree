@@ -822,7 +822,8 @@ addLayer("a", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         multb = new Decimal(0)
 	if (hasUpgrade("q", 32) || hasUpgrade("t",13)) multb = multb.add(1)
-	if (hasUpgrade("q", 32) || hasUpgrade("t",13)) multb = multb.mul(player.t.points)
+	if (hasUpgrade("a", 23)) multb = multb.mul(player.t.points)
+	if (hasUpgrade("a", 32)) multb = multb.mul(30)
         return multb
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -930,6 +931,62 @@ update(diff) {
             cost: new Decimal("1e10"),
             unlocked() {
 		    return hasAchievement("A",33)
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "OP"
+            }
+	},
+        24: {
+            title: "48",
+            description: "^2 ID effect",
+            cost: new Decimal("1e20"),
+            unlocked() {
+		    return hasAchievement("A",34)
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "OP"
+            }
+	},
+        25: {
+            title: "49",
+            description: "Booster base formula better",
+            cost: new Decimal("1e25"),
+            unlocked() {
+		    return hasAchievement("A",34)
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "OP"
+            }
+	},
+        31: {
+            title: "50",
+            description: "Unlock new layer(WIP)",
+            cost: new Decimal("1e30"),
+            unlocked() {
+		    return hasAchievement("A",34)
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "OP"
+            }
+	},
+        32: {
+            title: "??",
+            description: "Boost A gain",
+            cost: new Decimal("1e25"),
+            unlocked() {
+		    return hasAchievement("A",34)
 	    },
             effect(){
                 return true
@@ -1634,6 +1691,7 @@ addLayer("ID", {
             cost: new Decimal("1"),
             effect(){
 		    db = new Decimal(0)
+		    base = new Decimal(0)
 	            if (hasUpgrade('Qc', 11)) db = db.add(0.9)
 	            if (hasUpgrade('Qc', 12)) db = db.add(0.9)
 	            if (hasUpgrade('Qc', 13)) db = db.add(0.1)
@@ -1643,7 +1701,9 @@ addLayer("ID", {
 	            if (hasUpgrade('Qc', 22)) db = db.add(1)
 	            if (hasUpgrade('Qc', 23)) db = db.add(upgradeEffect("Qc",23))
 	            if (hasUpgrade('SP', 11)) db = db.add(upgradeEffect("SP",11))
-                return db.mul(7).mul(player.ID.points.add(1).log(10)).pow_base(10)
+		    if (true) base = db.mul(7).mul(player.ID.points.add(1).log(10)).pow_base(10)
+		    if hasUpgrade('a',24) base = base.pow(2)
+                return base
             },
              effectDisplay() {
 				return "^" + upgradeEffect("ID",11) + "Qt(WIP,OP)"
