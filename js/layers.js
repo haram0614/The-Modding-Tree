@@ -487,7 +487,7 @@ addLayer("Qc", {
 	    if (hasUpgrade('q', 33)) exp = exp.add(upgradeEffect("q",33))
 	    if (hasUpgrade('q', 34)) exp = exp.add(upgradeEffect("q",34))
 	    if (hasUpgrade('Wa', 12)) mult = mult.mul(upgradeEffect('Wa',12))
-            if (hasUpgrade("e",11)) mult = mult.mul(upgradeEffect('e',11).pow(one.div(exp)))
+            if (hasUpgrade("e",11)) mult = mult.mul(upgradeEffect('e',11))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -497,6 +497,7 @@ addLayer("Qc", {
 	    if (hasUpgrade('q', 31)) exp = exp.add(upgradeEffect("q",31))
 	    if (hasUpgrade('q', 33)) exp = exp.add(upgradeEffect("q",33))
 	    if (hasUpgrade('q', 34)) exp = exp.add(upgradeEffect("q",34))
+	    if (hasUpgrade('e', 11)) exp = exp.pow(0)
         return exp
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
