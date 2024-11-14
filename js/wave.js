@@ -618,3 +618,48 @@ update(diff) {
     },
     layerShown(){return hasUpgrade("q", 35) && player.e.points.gte(1e70)}
 })
+addLayer("Li", {
+    name: "light", // This is optional, only used in a few places, If absent it just uses the layer id.
+    symbol: "L", // This appears on the layer's node. Default is the id with the first letter capitalized
+    position: 4, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
+    startData() { return {
+        unlocked: true,
+		points: new Decimal(0),
+    }},
+    color: "#FFFFFF",
+    requires: new Decimal("1.8e308"), // Can be a function that takes requirement increases into account
+    resource: "light", // Name of prestige currency
+    baseResource: "γ", // Name of resource prestige is based on
+    baseAmount() {return player.dp.points}, // Get the current amount of baseResource
+    type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+    exponent: 0, // Prestige currency exponent
+    gainMult() { // Calculate the multiplier for main currency from bonuses
+        multw = new Decimal(21.76)
+        return multw
+    },
+    gainExp() { // Calculate the exponent on main currency from bonuses
+        exp = new Decimal(1)
+	return exp
+    },
+    row: "side", // Row the layer is in on the tree (0 is the first row)
+update(diff) {
+	if (hasUpgrade('SQ',11)) generatePoints('SQ',diff);
+},
+	 upgrades: {
+        rows: 5,
+        cols: 5,
+        11: {
+            title: "???",
+            description: "Boost IP",
+            
+            cost: new Decimal(1),
+            effect(){
+                return player.Li.points.add(1e9).div(1e9)
+            },
+             effectDisplay() {
+				return "So low"
+            }
+	},
+    },
+    layerShown(){return hasUpgrade("q", 35) && player.e.points.gte(1e70)}
+})
