@@ -445,9 +445,19 @@ addLayer("A", {
         },
         33: {
             name: "Row 4!!!",
-            tooltip: "Reward: 1 AP, WIP",
+            tooltip: "Reward: 1 AP, add 500 to QF gen",
             done() {
-                return (player.e.points.gte(1))
+                return (player.e.points.gte(1) || player.dp.points.gte(1) || player.SQ.points.gte(1))
+            },
+            onComplete() {
+                addPoints("A",1)
+            }
+        },
+        34: {
+            name: "(Row 4)*3",
+            tooltip: "Reward: 1 AP, add 1000 to QF gen",
+            done() {
+                return (player.e.points.gte(1) && player.dp.points.gte(1) && player.SQ.points.gte(1))
             },
             onComplete() {
                 addPoints("A",1)
@@ -776,6 +786,21 @@ addLayer("t", {
 				return "+10 QF gen"
             }
 	},
+        22: {
+            title: "31",
+            description: "Unlock New upgrade in row 4",
+            
+            cost: new Decimal(2e12),
+            unlocked() {
+		    return hasUpgrade('t',15)
+	    },
+            effect(){
+		return true
+            },
+             effectDisplay() {
+				return "???"
+            }
+	},
     },
     layerShown(){return true}
 })
@@ -797,6 +822,7 @@ addLayer("a", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         multb = new Decimal(0)
 	if (hasUpgrade("q", 32) || hasUpgrade("t",13)) multb = multb.add(1)
+	if (hasUpgrade("q", 32) || hasUpgrade("t",13)) multb = multb.mul(player.t.points)
         return multb
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -890,6 +916,20 @@ update(diff) {
             cost: new Decimal("4e6"),
             unlocked() {
 		    return hasUpgrade("I",11)
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "OP"
+            }
+	},
+        23: {
+            title: "47",
+            description: "T boost Acceleron gain",
+            cost: new Decimal("1e10"),
+            unlocked() {
+		    return hasAchievement("A",33)
 	    },
             effect(){
                 return true
@@ -1275,6 +1315,7 @@ update(diff) {
 		    if (hasUpgrade('I',21)) base = base.add(100)
 		    if (hasUpgrade('ID',12)) base = base.add(100)
 		    if (hasAchievement('A',33)) base = base.add(500)
+		    if (hasAchievement('A',34)) base = base.add(1000)
 		    if (hasUpgrade('f',22)) base = base.mul(1.1)
 		return base
             },
