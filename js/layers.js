@@ -1570,6 +1570,7 @@ addLayer("I", {
     branches: ["Qc","Wa","S"],
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(player.q.points.add(1.8e43).log10().log10().sub(308.3))
+	if (hasUpgrade('Li',11)) mult = mult.mul(upgradeEffect('Li',11))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
