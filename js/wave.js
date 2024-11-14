@@ -419,6 +419,7 @@ update(diff) {
             effect(){
 		base = new Decimal(9)
 		if (hasAchievement("A",32)) base = base.add(41)
+		if (hasUpgrade("Qk",13)) base = base.mul(1.5)
                 return player.Qk.points.add(1).pow(base)
             },
              effectDisplay() {
@@ -430,6 +431,18 @@ update(diff) {
             description: "Reduce 2th Spreon Softcap",
             
             cost: new Decimal(1),
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return true
+            }
+	},
+        13: {
+            title: "133",
+            description: "^1.5 up131effect",
+            
+            cost: new Decimal(1e10),
             effect(){
                 return true
             },
@@ -463,6 +476,7 @@ addLayer("e", {
 	    if (hasUpgrade('q', 33)) dc = dc.add(upgradeEffect("q",33))
 	    if (hasUpgrade('q', 34)) dc = dc.add(upgradeEffect("q",34))
         mult = (player.q.points.add("ee100").log10().log10().add(player.W.points.add(1e80).log10()).mul(dc.add(3)).div(100000).pow_base(10).div(10))
+	    if (hasUpgrade('e', 12)) mult = mult.mul(10000)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -487,6 +501,21 @@ addLayer("e", {
             },
              effectDisplay() {
 				return "e" + upgradeEffect('e',11) + "x Qc"
+            }
+	},
+        12: {
+            title: "232",
+            description: "10000x e",
+            
+            cost: new Decimal("1e30"),
+            unlocked() {
+		    return hasUpgrade('t',22) || hasUpgrade('e',12)
+	    },
+            effect(){
+                   return true
+            },
+             effectDisplay() {
+				return "1e4x e"
             }
 	},
     },
