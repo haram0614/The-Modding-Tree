@@ -643,7 +643,7 @@ addLayer("Li", {
     },
     row: "side", // Row the layer is in on the tree (0 is the first row)
 update(diff) {
-	if (hasUpgrade('g',11)) generatePoints('Li',diff);
+	if (hasUpgrade('a',31)) generatePoints('Li',diff);
 },
 	 upgrades: {
         rows: 5,
@@ -661,5 +661,5 @@ update(diff) {
             }
 	},
     },
-    layerShown(){return hasUpgrade("a", 24)}
+    layerShown(){return hasUpgrade("a", 31)}
 })
