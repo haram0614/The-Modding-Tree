@@ -632,7 +632,7 @@ addLayer("Li", {
     baseResource: "γ", // Name of resource prestige is based on
     baseAmount() {return player.dp.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0, // Prestige currency exponent
+    exponent: 1, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         multw = new Decimal(21.76)
         return multw
@@ -643,7 +643,7 @@ addLayer("Li", {
     },
     row: "side", // Row the layer is in on the tree (0 is the first row)
 update(diff) {
-	if (hasUpgrade('SQ',11)) generatePoints('SQ',diff);
+	if (hasUpgrade('g',11)) generatePoints('Li',diff);
 },
 	 upgrades: {
         rows: 5,
@@ -661,5 +661,5 @@ update(diff) {
             }
 	},
     },
-    layerShown(){return hasUpgrade("q", 35) && player.e.points.gte(1e70)}
+    layerShown(){return hasUpgrade("a", 24)}
 })
