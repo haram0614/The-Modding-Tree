@@ -464,6 +464,26 @@ addLayer("A", {
                 addPoints("A",1)
             }
         },
+        35: {
+            name: "INF5",
+            tooltip: "Reward: 1 AP, add 1000 to QF gen",
+            done() {
+                return (player.e.points.gte(1.79e308))
+            },
+            onComplete() {
+                addPoints("A",1)
+            }
+        },
+        36: {
+            name: "INF6",
+            tooltip: "Reward: 1 AP, add 1000 to QF gen",
+            done() {
+                return (player.W.points.gte(1.79e308))
+            },
+            onComplete() {
+                addPoints("A",1)
+            }
+        },
         41: {
             name: "Gas",
             tooltip: "get 1e30 Acceleron Reward: 1 AP, add 1000 to QF gen",
@@ -1397,6 +1417,10 @@ update(diff) {
 		    if (hasUpgrade('ID',12)) base = base.add(100)
 		    if (hasAchievement('A',33)) base = base.add(500)
 		    if (hasAchievement('A',34)) base = base.add(1000)
+		    if (hasAchievement('A',35)) base = base.add(1000)
+		    if (hasAchievement('A',36)) base = base.add(1000)
+		    if (hasAchievement('A',41)) base = base.add(1000)
+		    if (hasAchievement('A',42)) base = base.add(1000)
 		    if (hasUpgrade('f',22)) base = base.mul(1.1)
 		return base
             },
@@ -1500,7 +1524,22 @@ update(diff) {
             
             cost: new Decimal("22222"),
             unlocked() {
-		    return hasUpgrade("f",21)
+		    return hasUpgrade("f",22)
+	    },
+            effect(){
+                return new Decimal(1.7)
+            },
+             effectDisplay() {
+				return "1.7x Qk"
+            }
+        },
+        23: {
+            title: "208",
+            description: "^1.04 Qk so small",
+            
+            cost: new Decimal("22222222"),
+            unlocked() {
+		    return hasUpgrade("f",23)
 	    },
             effect(){
                 return new Decimal(1.7)
