@@ -481,6 +481,7 @@ addLayer("e", {
 	    if (hasUpgrade('q', 34)) dc = dc.add(upgradeEffect("q",34))
         mult = (player.q.points.add("ee100").log10().log10().add(player.W.points.add(1e80).log10()).mul(dc.add(3)).div(100000).pow_base(10).div(10))
 	    if (hasUpgrade('e', 12)) mult = mult.mul(10000)
+            if (hasUpgrade('e', 12)) mult = mult.mul(1e15)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -513,13 +514,28 @@ addLayer("e", {
             
             cost: new Decimal("1e30"),
             unlocked() {
-		    return hasUpgrade('t',22) || hasUpgrade('e',12)
+		    return (hasUpgrade('t',22) || hasUpgrade('e',12))
 	    },
             effect(){
                    return true
             },
              effectDisplay() {
 				return "1e4x e"
+            }
+	},
+        13: {
+            title: "233",
+            description: "1e15 e",
+            
+            cost: new Decimal("1e180"),
+            unlocked() {
+		    return (hasUpgrade('t',23) || hasUpgrade('e',12))
+	    },
+            effect(){
+                   return true
+            },
+             effectDisplay() {
+				return "1e15x e"
             }
 	},
     },
