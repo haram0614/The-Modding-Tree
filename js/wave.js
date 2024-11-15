@@ -335,7 +335,7 @@ addLayer("Wc", {
     row: 2, // Row the layer is in on the tree (0 is the first row)
 update(diff) {
 	if (hasUpgrade('Wc', 11)) generatePoints('Wc',diff);
-	if (hasUpgrade('DT', 11)) generatePoints('Wc*900',diff);
+	if (hasUpgrade('DT', 11)) generatePoints('Wc',diff*900);
 },
 	 upgrades: {
         rows: 5,
