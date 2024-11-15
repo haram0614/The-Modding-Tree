@@ -32,6 +32,7 @@ addLayer("W", {
     ],
 update(diff) {
 	if (hasUpgrade('W', 11)) generatePoints('W',diff);
+	if (hasUpgrade('DT', 11)) generatePoints('W',diff*900);
 },
 	 upgrades: {
         rows: 5,
@@ -143,6 +144,7 @@ addLayer("Wa", {
     row: 1, // Row the layer is in on the tree (0 is the first row)
 update(diff) {
 	if (hasUpgrade('Wa', 11)) generatePoints('Wa',diff);
+	if (hasUpgrade('DT', 11)) generatePoints('Wa',diff*900);
 },
 	 upgrades: {
         rows: 5,
@@ -253,6 +255,7 @@ addLayer("Wb", {
     row: 1, // Row the layer is in on the tree (0 is the first row)
 update(diff) {
 	if (hasUpgrade('Wb', 11)) generatePoints('Wb',diff);
+	if (hasUpgrade('DT', 11)) generatePoints('Wb',diff*900);
 },
 	 upgrades: {
         rows: 5,
@@ -332,6 +335,7 @@ addLayer("Wc", {
     row: 2, // Row the layer is in on the tree (0 is the first row)
 update(diff) {
 	if (hasUpgrade('Wc', 11)) generatePoints('Wc',diff);
+	if (hasUpgrade('DT', 11)) generatePoints('Wc*900',diff);
 },
 	 upgrades: {
         rows: 5,
@@ -411,6 +415,7 @@ addLayer("Qk", {
     row: 2, // Row the layer is in on the tree (0 is the first row)
 update(diff) {
 	if (hasUpgrade('Qk',11)) generatePoints('Qk',diff);
+	if (hasUpgrade('DT', 11)) generatePoints('Qk',diff);
 },
 	 upgrades: {
         rows: 5,
