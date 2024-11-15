@@ -1828,6 +1828,7 @@ addLayer("dp", {
         mult = new Decimal(1)
 	if (hasUpgrade('dp',12)) mult = mult.mul(2)
 	if (hasUpgrade('dp',13)) mult = mult.mul(6)
+	if (hasUpgrade('DT',13)) mult = mult.mul(upgradeEffect("DT",13))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -1913,7 +1914,7 @@ addLayer("DT", {
     }},
     color: "#FF00FF",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
-    resource: "DT", // Name of prestige currency
+    resource: "BT", // Name of prestige currency
     baseResource: "points", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
@@ -1930,16 +1931,16 @@ addLayer("DT", {
     },
     row: 4, // Row the layer is in on the tree (0 is the first row)
 update(diff) {
-	if (hasUpgrade('I', 12)) generatePoints('SL',diff);
+	if (hasUpgrade('g', 11)) generatePoints('BT',diff);
 },
 	 upgrades: {
         rows: 5,
         cols: 5,
         11: {
-            title: "??",
-            description: "Qt boost Booster base and new layer(WIP)",
+            title: "301",
+            description: "Auto W1~4 with Boost",
             
-            cost: new Decimal("1.79e308"),
+            cost: new Decimal("1"),
             effect(){
                 return hasAchievement('A',26)
             },
@@ -1947,6 +1948,54 @@ update(diff) {
 				return "nice!"
             }
 	},
+        12: {
+            title: "302",
+            description: "Auto Qk",
+            
+            cost: new Decimal("1"),
+            effect(){
+                return hasAchievement('A',26)
+            },
+             effectDisplay() {
+				return "nice!"
+            }
+	},
+        13: {
+            title: "303",
+            description: "Boost γ gain",
+            
+            cost: new Decimal("8"),
+            effect(){
+                return player.DT.points.add(8).div(8)
+            },
+             effectDisplay() {
+				return UpgradeEffect('DT',13) + "xγ"
+            }
+	},
+        14: {
+            title: "304",
+            description: "Boost Waves gain",
+            
+            cost: new Decimal("100"),
+            effect(){
+                return player.DT.points.add(100)
+            },
+             effectDisplay() {
+				return UpgradeEffect('DT',14) + "xWaves"
+            }
+	},
+        15: {
+            title: "305",
+            description: "Boost IP gain",
+            
+            cost: new Decimal("309"),
+            effect(){
+                return player.DT.points.add(308).div(10)
+            },
+             effectDisplay() {
+				return UpgradeEffect('DT',15) + "xIP"
+            }
+	},
     },
-    layerShown(){return hasUpgrade("g",11)}
+    layerShown(){return hasAchievement("A",42)}
 })
