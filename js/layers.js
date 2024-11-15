@@ -1969,7 +1969,7 @@ update(diff) {
                 return player.DT.points.add(8).div(8)
             },
              effectDisplay() {
-				return UpgradeEffect('DT',13) + "xγ"
+				return upgradeEffect('DT',13) + "xγ"
             }
 	},
         14: {
