@@ -1981,7 +1981,7 @@ update(diff) {
                 return player.DT.points.add(100)
             },
              effectDisplay() {
-				return UpgradeEffect('DT',14) + "xWaves"
+				return upgradeEffect('DT',14) + "xWaves"
             }
 	},
         15: {
@@ -1993,7 +1993,7 @@ update(diff) {
                 return player.DT.points.add(308).div(10)
             },
              effectDisplay() {
-				return UpgradeEffect('DT',15) + "xIP"
+				return upgradeEffect('DT',15) + "xIP"
             }
 	},
     },
