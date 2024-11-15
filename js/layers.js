@@ -842,6 +842,21 @@ addLayer("t", {
 				return "???"
             }
 	},
+        23: {
+            title: "32",
+            description: "Unlock New upgrade in row 4",
+            
+            cost: new Decimal(2e13),
+            unlocked() {
+		    return hasUpgrade('t',15)
+	    },
+            effect(){
+		return true
+            },
+             effectDisplay() {
+				return "???"
+            }
+	},
     },
     layerShown(){return true}
 })
@@ -1811,6 +1826,8 @@ addLayer("dp", {
     exponent: 0, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+	if (hasUpgrade('dp',12)) mult = mult.mul(2)
+	if (hasUpgrade('dp',13)) mult = mult.mul(6)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -1857,6 +1874,30 @@ update(diff) {
             },
              effectDisplay() {
 				return upgradeEffect("dp",11) + "x PL(WIP)"
+            }
+	},
+      12: {
+            title: "242",
+            description: "2x Proton",
+            
+            cost: new Decimal("1500"),
+            effect(){
+                return hasUpgrade('t',22)
+            },
+             effectDisplay() {
+				return "nice!"
+            }
+	},
+      13: {
+            title: "243",
+            description: "6x Proton",
+            
+            cost: new Decimal("20000"),
+            effect(){
+                return hasUpgrade('t',23)
+            },
+             effectDisplay() {
+				return "nice!"
             }
 	},
     },
