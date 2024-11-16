@@ -504,6 +504,16 @@ addLayer("A", {
                 addPoints("A",1)
             }
         },
+        43: {
+            name: "Many theory",
+            tooltip: "req:1000BT Reward: 1 AP, Unlock new upgrades",
+            done() {
+                return (player.DT.points.gte(1e12))
+            },
+            onComplete() {
+                addPoints("A",1)
+            }
+        },
     },
     tabFormat: {
         "Achievements" :{
@@ -1994,6 +2004,34 @@ update(diff) {
             },
              effectDisplay() {
 				return upgradeEffect('DT',15) + "xIP"
+            }
+	},
+        21: {
+            title: "306",
+            description: "Auto SQk gain with Boost",
+            cost: new Decimal("1"),
+            unlocked() {
+		    return hasAchievement("A",43)
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "1000xSQk"
+            }
+	},
+        22: {
+            title: "307",
+            description: "1kx light",
+            cost: new Decimal("1"),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "1000xLight"
             }
 	},
     },
