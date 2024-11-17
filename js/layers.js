@@ -1934,6 +1934,8 @@ addLayer("DT", {
 	if (true) mult = mult.mul(player.SP.points.add(1).log10().div(100))
 	if (true) mult = mult.mul(player.q.points.add(1.8e43).log10().log10().div(20000))
 	if (true) mult = mult.mul(player.I.points.add(1e8).log10().sub(8))
+        mult = mult.sub(player.DT.points)
+        mult = mult.max(0)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
