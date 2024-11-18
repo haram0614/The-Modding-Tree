@@ -508,7 +508,7 @@ addLayer("A", {
             name: "Many theory",
             tooltip: "req:1000BT Reward: 1 AP, Unlock new upgrades",
             done() {
-                return (player.DT.points.gte(1e12))
+                return (player.DT.points.gte(1000))
             },
             onComplete() {
                 addPoints("A",1)
