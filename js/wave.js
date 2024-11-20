@@ -620,12 +620,25 @@ addLayer("g", {
     },
     row: 3, // Row the layer is in on the tree (0 is the first row)
 update(diff) {
-	if (hasUpgrade('SQ',11)) generatePoints('SQ',diff);
+	if (hasUpgrade('DT',23)) generatePoints('g',diff);
 },
 	 upgrades: {
         rows: 5,
         cols: 5,
         11: {
+            title: "311",
+            description: "Unlock first glueon effect",
+            
+            cost: new Decimal(1),
+            effect(){
+		three = new Decimal(3)
+                return three.div(player.g.points.add(1).log10().pow(0.375)).pow_base(player.g.points)
+            },
+             effectDisplay() {
+				return upgradeEffect('g',11) + "x waves"
+            }
+	},
+        51: {
             title: "The end",
             description: "WIP",
             
