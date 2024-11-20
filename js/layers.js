@@ -1655,6 +1655,8 @@ addLayer("I", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(player.q.points.add(1.8e43).log10().log10().sub(308.3))
 	if (hasUpgrade('Li',11)) mult = mult.mul(upgradeEffect('Li',11))
+	if (hasUpgrade('DT',15)) mult = mult.mul(upgradeEffect('DT',15))
+        if (hasUpgrade('DT',24)) mult = mult.mul(10)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -1943,7 +1945,7 @@ addLayer("DT", {
     },
     row: 4, // Row the layer is in on the tree (0 is the first row)
 update(diff) {
-	if (hasUpgrade('g', 11)) generatePoints('BT',diff);
+	if (hasUpgrade('g', 51)) generatePoints('BT',diff);
 },
 	 upgrades: {
         rows: 5,
@@ -2034,6 +2036,48 @@ update(diff) {
             },
              effectDisplay() {
 				return "1000xLight"
+            }
+	},
+        22: {
+            title: "307",
+            description: "1kx light",
+            cost: new Decimal("1"),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "1000xLight"
+            }
+	},
+        23: {
+            title: "308",
+            description: "Auto glueon with Boost",
+            cost: new Decimal("1000"),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "OP"
+            }
+	},
+        25: {
+            title: "309",
+            description: "10x IP",
+            cost: new Decimal("2000"),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "???"
             }
 	},
     },
