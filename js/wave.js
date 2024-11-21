@@ -620,7 +620,7 @@ addLayer("g", {
     },
     row: 3, // Row the layer is in on the tree (0 is the first row)
 update(diff) {
-	if (hasUpgrade('DT',23)) generatePoints('g',diff);
+	if (hasUpgrade('DT',23)) generatePoints('g',diff*1000);
 },
 	 upgrades: {
         rows: 5,
