@@ -638,6 +638,30 @@ update(diff) {
 				return upgradeEffect('g',11) + "x waves"
             }
 	},
+        12: {
+            title: "312",
+            description: "Unlock Second effect",
+            
+            cost: new Decimal(1),
+            effect(){
+                return player.Li.points.add(1e9).div(1e9)
+            },
+             effectDisplay() {
+				return "So low"
+            }
+	},
+        41: {
+            title: "Wave Boost glueon effect",
+            description: "WIP",
+            
+            cost: new Decimal(1),
+            effect(){
+                return player.W.points.add(1.79e308).log10().div(308.26).ln().add(1)
+            },
+             effectDisplay() {
+				return player.g.points.pow(upgradeEffect("g",41)) + "eff glueon WIP"
+            }
+	},
         51: {
             title: "The end",
             description: "WIP",
