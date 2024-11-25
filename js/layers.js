@@ -277,12 +277,11 @@ update(diff) {
             }
 	},
     },
-    layerShown(){return true}
 		doReset(resettingLayer) {
 			let keep = [];
 			if (hasAchievement("A", 41)) keep.push("upgrades")
-			if (layers[resettingLayer].row > this.row) layerDataReset("p", keep)
 		},
+    layerShown(){return true}
 })
 addLayer("A", {
     name: "Achievements", // This is optional, only used in a few places, If absent it just uses the layer id.
