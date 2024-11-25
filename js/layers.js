@@ -279,7 +279,7 @@ update(diff) {
     },
 		doReset(resettingLayer) {
 			let keep = [];
-			if (hasAchievement("A", 41)) keep.push("upgrades")
+			if (hasAchievement("A", 34)) keep.push("upgrades")
 		},
     layerShown(){return true}
 })
@@ -440,7 +440,7 @@ addLayer("A", {
         },
         32: {
             name: "Extreme",
-            tooltip: "Get ee100Qt without Q,Qc upgrade. Reward: 1 AP, Auto IP,A, Unlock ID, Add new QF upgrade",
+            tooltip: "Get ee100Qt without Q,Qc upgrade. Reward: 1 AP, Auto IP,A, Unlock ID, Add new QF upgrade,Keep Qc Upgrade",
             done() {
                 return (player.q.points.gte("ee100") && !hasUpgrade("q",11) && !hasUpgrade("Qc",11) && !hasUpgrade("t",11))
             },
@@ -460,7 +460,7 @@ addLayer("A", {
         },
         34: {
             name: "(Row 4)*3",
-            tooltip: "Reward: 1 AP, add 1000 to QF gen",
+            tooltip: "Reward: 1 AP, add 1000 to QF gen,Keep SP,SL,S,Q upgrade",
             done() {
                 return (player.e.points.gte(1) && player.dp.points.gte(1) && player.SQ.points.gte(1))
             },
@@ -705,6 +705,10 @@ update(diff) {
             }
 	},
     },
+		doReset(resettingLayer) {
+			let keep = [];
+			if (hasAchievement("A", 32)) keep.push("upgrades")
+		},
     layerShown(){return true}
 })
 addLayer("t", {
@@ -1120,6 +1124,10 @@ update(diff) {
             }
 	},
     },
+		doReset(resettingLayer) {
+			let keep = [];
+			if (hasAchievement("A", 34)) keep.push("upgrades")
+		},
     layerShown(){return hasUpgrade("a",14)}
 })
 addLayer("S", {
@@ -1270,6 +1278,10 @@ update(diff) {
             },
         },
     },
+		doReset(resettingLayer) {
+			let keep = [];
+			if (hasAchievement("A", 34)) keep.push("upgrades")
+		},
     layerShown(){return hasUpgrade("a",14)}
 })
 addLayer("SP", {
@@ -1396,6 +1408,10 @@ update(diff) {
             }
         },
     },
+		doReset(resettingLayer) {
+			let keep = [];
+			if (hasAchievement("A", 34)) keep.push("upgrades")
+		},
     layerShown(){return true}
 })
 addLayer("f", {
