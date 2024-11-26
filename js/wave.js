@@ -743,7 +743,7 @@ addLayer("Wd", {
     branches: ["Wa","Wb"],
     gainMult() { // Calculate the multiplier for main currency from bonuses
         multw = new Decimal(0)
-	if (hasUpgrade("A", 34)) multw = multw.add(0.01)
+	if (hasAchievement("A", 34)) multw = multw.add(0.01)
 	if (hasUpgrade("Wd", 12)) multw = multw.mul(upgradeEffect('Wc',12))
 	if (hasUpgrade("I", 11)) multw = multw.mul(upgradeEffect('I',11))
 	if (hasUpgrade("a", 31)) multw = multw.mul(player.dp.points)
