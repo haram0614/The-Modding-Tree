@@ -111,6 +111,10 @@ update(diff) {
             }
 	},
     },
+		doReset(resettingLayer) {
+			let keep = [];
+			if (hasAchievement("A", 34)) keep.push("upgrades")
+		},
     layerShown(){return hasUpgrade("a", 13)}
 })
 addLayer("Wa", {
@@ -224,6 +228,10 @@ update(diff) {
             }
 	},
     },
+		doReset(resettingLayer) {
+			let keep = [];
+			if (hasAchievement("A", 34)) keep.push("upgrades")
+		},
     layerShown(){return hasUpgrade("a", 13)}
 })
 addLayer("Wb", {
@@ -385,6 +393,10 @@ update(diff) {
             }
 	},
     },
+		doReset(resettingLayer) {
+			let keep = [];
+			if (hasAchievement("A", 34)) keep.push("upgrades")
+		},
     layerShown(){return hasUpgrade("a", 22)}
 })
 addLayer("Qk", {
