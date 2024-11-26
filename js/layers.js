@@ -490,7 +490,7 @@ addLayer("A", {
         },
         41: {
             name: "Gas",
-            tooltip: "get 1e30 Acceleron Reward: 1 AP, add 1000 to QF gen",
+            tooltip: "get 1e30 Acceleron Reward: 1 AP, add 1000 to QF gen Keep Acc upgrade on reset",
             done() {
                 return (player.a.points.gte(1e30))
             },
@@ -1070,6 +1070,10 @@ update(diff) {
             }
 	},
     },
+		doReset(resettingLayer) {
+			let keep = [];
+			if (hasAchievement("A", 41)) keep.push("upgrades")
+		},
     layerShown(){return hasUpgrade("q", 32) || hasUpgrade("t",13)}
 })
 addLayer("SL", {
