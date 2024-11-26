@@ -634,7 +634,7 @@ update(diff) {
             cost: new Decimal(1),
             effect(){
 		three = new Decimal(3)
-                return three.div(upgradeEffect('g',41).add(1).log10().pow(0.375)).pow_base(player.g.points)
+                return three.div(upgradeEffect('g',41).add(1).log10().pow(0.375)).pow_base(upgradeEffect('g',41))
             },
              effectDisplay() {
 				return upgradeEffect('g',11) + "x waves"
