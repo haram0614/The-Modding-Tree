@@ -2090,10 +2090,24 @@ update(diff) {
 				return "OP"
             }
 	},
-        25: {
+        24: {
             title: "309",
             description: "10x IP",
             cost: new Decimal("2000"),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "???"
+            }
+	},
+        25: {
+            title: "310",
+            description: "Boost Waves a lot",
+            cost: new Decimal("4000"),
             unlocked() {
 		    return true
 	    },
