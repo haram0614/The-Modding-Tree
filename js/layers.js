@@ -460,7 +460,7 @@ addLayer("A", {
         },
         34: {
             name: "(Row 4)*3",
-            tooltip: "Reward: 1 AP, add 1000 to QF gen,Keep SP,SL,S,Q upgrade",
+            tooltip: "Reward: 1 AP, add 1000 to QF gen,Keep SP,SL,S,Q,W2~W4 upgrade",
             done() {
                 return (player.e.points.gte(1) && player.dp.points.gte(1) && player.SQ.points.gte(1))
             },
@@ -470,7 +470,7 @@ addLayer("A", {
         },
         35: {
             name: "INF5",
-            tooltip: "Reward: 1 AP, add 1000 to QF gen",
+            tooltip: "Reward: 1 AP, add 1000 to QF gen Keep W upgrade",
             done() {
                 return (player.e.points.gte(1.79e308))
             },
