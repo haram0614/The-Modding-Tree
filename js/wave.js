@@ -658,7 +658,7 @@ update(diff) {
             
             cost: new Decimal(1),
             effect(){
-                return player.Li.points.add(1e9).div(1e9)
+                return player.g.points.add(1).log10().div(130.11).add(1)
             },
              effectDisplay() {
 				return "So low"
