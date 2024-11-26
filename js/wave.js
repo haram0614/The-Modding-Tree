@@ -634,7 +634,7 @@ update(diff) {
             cost: new Decimal(1),
             effect(){
 		three = new Decimal(3)
-                return three.div(player.g.points.add(1).log10().pow(0.375)).pow_base(player.g.points)
+                return three.div(upgradeEffect('g',41).add(1).log10().pow(0.375)).pow_base(player.g.points)
             },
              effectDisplay() {
 				return upgradeEffect('g',11) + "x waves"
@@ -658,10 +658,12 @@ update(diff) {
             
             cost: new Decimal(1),
             effect(){
-                return player.W.points.add(1.79e308).log10().div(308.26).ln().add(1)
+		base = player.g.points
+		    if (hasUpgrade('g',41)) base = base.pow(player.W.points.add(1.79e308).log10().div(308.26).ln().add(1))
+                return base
             },
              effectDisplay() {
-				return player.g.points.pow(upgradeEffect("g",41)) + "eff glueon WIP"
+				return upgradeEffect("g",41) + "eff glueon WIP"
             }
 	},
         51: {
