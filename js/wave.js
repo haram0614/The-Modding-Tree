@@ -63,7 +63,7 @@ update(diff) {
 	    },
             effect(){
 		base = player.W.points.add(100).log10().mul(1.107)
-		    if hasUpgrade('g',14) base = base.pow(upgradeEffect('g',14))
+		    if (hasUpgrade('g',14)) base = base.pow(upgradeEffect('g',14))
                 return base
             },
              effectDisplay() {
@@ -674,10 +674,10 @@ update(diff) {
             
             cost: new Decimal(1),
             effect(){
-                return player.g.points.add(1).log10().div(130.11).add(1)
+                return upgradeEffect('g',41).add(1).log10().div(130.11).add(1)
             },
              effectDisplay() {
-				return upgradeEffect('g',12) + "xBooster Expo!!"
+				return upgradeEffect('g',13) + "xBooster Expo!!"
             }
 	},
         13: {
@@ -689,7 +689,7 @@ update(diff) {
                 return player.g.points.add(1).log10().div(130.11).add(1)
             },
              effectDisplay() {
-				return upgradeEffect('g',12) + "Waves Expo!!"
+				return upgradeEffect('g',14) + "Waves Expo!!"
             }
 	},
         14: {
