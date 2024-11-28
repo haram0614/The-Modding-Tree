@@ -41,6 +41,7 @@ addLayer("q", {
 	    if (hasUpgrade('Qc', 22)) db = db.add(1)
 	    if (hasUpgrade('Qc', 23)) db = db.add(upgradeEffect("Qc",23))
 	    if (hasUpgrade('SP', 11)) db = db.add(upgradeEffect("SP",11))
+	    if (hasUpgrade('g',13)) db = db.pow(upgradeEffect('g',13))
 	    if (true) exp = exp.mul(db.mul(db.add(1)).div(2).pow_base(base))
 	    if (hasUpgrade("ID",11)) exp = exp.mul(upgradeEffect('ID',11))
 	    if (hasUpgrade('t', 14)) exp = exp.pow(upgradeEffect("t",14))
@@ -1166,6 +1167,7 @@ addLayer("S", {
 	    if (hasUpgrade('a', 21) && hasUpgrade('q', 34)) base = base.add(upgradeEffect("q",34).div(5))
 	    if (hasUpgrade('SL',11) && hasUpgrade('a',25)) base.max(upgradeEffect('q',24).div(5).pow(2))
 	    if (hasUpgrade('SP', 12)) db = db.add(upgradeEffect("SP",12))
+	    if (hasUpgrade('g',13)) db = db.pow(upgradeEffect('g',13))
 	    if (hasUpgrade("S", 13)) exp = exp.mul(upgradeEffect('S',13))
 	    if (true) exp = exp.mul(db.mul(db.add(1)).div(2).pow_base(base).pow(sbase))
         return exp
@@ -1816,6 +1818,7 @@ addLayer("ID", {
 	            if (hasUpgrade('Qc', 22)) db = db.add(1)
 	            if (hasUpgrade('Qc', 23)) db = db.add(upgradeEffect("Qc",23))
 	            if (hasUpgrade('SP', 11)) db = db.add(upgradeEffect("SP",11))
+		    if (hasUpgrade('g',13)) db = db.pow(upgradeEffect('g',13))
 		    if (true) base = db.mul(7).mul(player.ID.points.add(1).log(10)).pow_base(10)
 		    if (hasUpgrade('a',24)) base = base.pow(2)
                 return base
@@ -1904,6 +1907,7 @@ update(diff) {
     	         if (hasUpgrade('Qc', 22)) db = db.add(1)
 	         if (hasUpgrade('Qc', 23)) db = db.add(upgradeEffect("Qc",23))
 	         if (hasUpgrade('SP', 11)) db = db.add(upgradeEffect("SP",11))
+		 if (hasUpgrade('g',13)) db = db.pow(upgradeEffect('g',13))
 	         if (true) exp = exp.mul(db.mul(db.add(1)).div(2).pow_base(base))
      	         if (hasUpgrade("ID",11)) exp = exp.mul(upgradeEffect('ID',11))
     	         if (hasUpgrade('t', 14)) exp = exp.pow(upgradeEffect("t",14))
