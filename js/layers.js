@@ -1910,7 +1910,7 @@ update(diff) {
                 return player.dp.points.add(1).log10().div(1.3011).mul(exp.log10().add(upgradeEffect("ID",11).log10())).pow_base(10).pow_base(10)
             },
              effectDisplay() {
-				return upgradeEffect("dp",11) + "x PL(WIP)"
+				return upgradeEffect("dp",11) + "x PL"
             }
 	},
       12: {
