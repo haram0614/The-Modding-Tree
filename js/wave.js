@@ -25,7 +25,9 @@ addLayer("W", {
         return multw
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
-        return new Decimal(1)
+        exp = new Decimal(1)
+	    if (hasUpgrade('g',13)) exp.mul(upgradeEffect('g',13))
+	return exp
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
@@ -60,7 +62,9 @@ update(diff) {
 		    return true
 	    },
             effect(){
-                return player.W.points.add(100).log10().mul(1.107)
+		base = player.W.points.add(100).log10().mul(1.107)
+		    if hasUpgrade('g',14) base = base.pow(upgradeEffect('g',14))
+                return base
             },
              effectDisplay() {
 				return upgradeEffect('W',12) + "x theory"
@@ -146,7 +150,9 @@ addLayer("Wa", {
         return multw
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
-        return new Decimal(1)
+        exp = new Decimal(1)
+	    if (hasUpgrade('g',13)) exp.mul(upgradeEffect('g',13))
+	return exp
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
 update(diff) {
@@ -262,7 +268,9 @@ addLayer("Wb", {
         return multw
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
-        return new Decimal(1)
+        exp = new Decimal(1)
+	    if (hasUpgrade('g',13)) exp.mul(upgradeEffect('g',13))
+	return exp
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
 update(diff) {
@@ -343,7 +351,9 @@ addLayer("Wc", {
         return multw
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
-        return new Decimal(1)
+        exp = new Decimal(1)
+	    if (hasUpgrade('g',13)) exp.mul(upgradeEffect('g',13))
+	return exp
     },
     row: 2, // Row the layer is in on the tree (0 is the first row)
 update(diff) {
@@ -428,6 +438,7 @@ addLayer("Qk", {
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         exp = new Decimal(1)
+	    if (hasUpgrade('g',13)) exp.mul(upgradeEffect('g',13))
 	return exp
     },
     row: 2, // Row the layer is in on the tree (0 is the first row)
@@ -634,6 +645,7 @@ addLayer("g", {
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         exp = new Decimal(1)
+	    if (hasUpgrade('g',13)) exp.mul(upgradeEffect('g',13))
 	return exp
     },
     row: 3, // Row the layer is in on the tree (0 is the first row)
@@ -666,6 +678,30 @@ update(diff) {
             },
              effectDisplay() {
 				return upgradeEffect('g',12) + "xBooster Expo!!"
+            }
+	},
+        13: {
+            title: "313",
+            description: "Unlock Third effect",
+            
+            cost: new Decimal(1),
+            effect(){
+                return player.g.points.add(1).log10().div(130.11).add(1)
+            },
+             effectDisplay() {
+				return upgradeEffect('g',12) + "Waves Expo!!"
+            }
+	},
+        14: {
+            title: "314",
+            description: "Unlock fourth effect",
+            
+            cost: new Decimal(1),
+            effect(){
+                return player.g.points.add(1).log10().div(130.11).add(1)
+            },
+             effectDisplay() {
+				return upgradeEffect('g',12) + "to Upg52 Expo!!"
             }
 	},
         41: {
