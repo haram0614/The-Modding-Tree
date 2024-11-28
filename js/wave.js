@@ -34,6 +34,7 @@ addLayer("W", {
 update(diff) {
 	if (hasUpgrade('W', 11)) generatePoints('W',diff);
 	if (hasUpgrade('DT', 11)) generatePoints('W',diff*900);
+	if (hasUpgrade('DT', 25)) generatePoints('W',diff*1e43);
 },
 	 upgrades: {
         rows: 5,
@@ -151,6 +152,7 @@ addLayer("Wa", {
 update(diff) {
 	if (hasUpgrade('Wa', 11)) generatePoints('Wa',diff);
 	if (hasUpgrade('DT', 11)) generatePoints('Wa',diff*900);
+	if (hasUpgrade('DT', 25)) generatePoints('Wa',diff*1e43);
 },
 	 upgrades: {
         rows: 5,
@@ -266,6 +268,7 @@ addLayer("Wb", {
 update(diff) {
 	if (hasUpgrade('Wb', 11)) generatePoints('Wb',diff);
 	if (hasUpgrade('DT', 11)) generatePoints('Wb',diff*900);
+	if (hasUpgrade('DT', 25)) generatePoints('Wb',diff*1e43);
 },
 	 upgrades: {
         rows: 5,
@@ -346,6 +349,7 @@ addLayer("Wc", {
 update(diff) {
 	if (hasUpgrade('Wc', 11)) generatePoints('Wc',diff);
 	if (hasUpgrade('DT', 11)) generatePoints('Wc',diff*900);
+	if (hasUpgrade('DT', 25)) generatePoints('W',diff*1e43);
 },
 	 upgrades: {
         rows: 5,
@@ -661,7 +665,7 @@ update(diff) {
                 return player.g.points.add(1).log10().div(130.11).add(1)
             },
              effectDisplay() {
-				return "So low"
+				return upgradeEffect('g',12)"So low"
             }
 	},
         41: {
@@ -770,6 +774,7 @@ addLayer("Wd", {
 update(diff) {
 	if (hasUpgrade('Wd', 11)) generatePoints('Wd',diff);
 	if (hasUpgrade('DT', 11)) generatePoints('Wd',diff*900);
+	if (hasUpgrade('DT', 25)) generatePoints('W',diff*1e43);
 },
 	 upgrades: {
         rows: 5,
@@ -803,7 +808,7 @@ update(diff) {
 	},
         13: {
             title: "83",
-            description: "Wave4 Boost Wave1~4",
+            description: "Wave5 Boost Wave1~4",
             
             cost: new Decimal(1),
             unlocked() {
