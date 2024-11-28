@@ -349,7 +349,7 @@ addLayer("Wc", {
 update(diff) {
 	if (hasUpgrade('Wc', 11)) generatePoints('Wc',diff);
 	if (hasUpgrade('DT', 11)) generatePoints('Wc',diff*900);
-	if (hasUpgrade('DT', 25)) generatePoints('W',diff*1e43);
+	if (hasUpgrade('DT', 25)) generatePoints('Wc',diff*1e43);
 },
 	 upgrades: {
         rows: 5,
@@ -665,7 +665,7 @@ update(diff) {
                 return player.g.points.add(1).log10().div(130.11).add(1)
             },
              effectDisplay() {
-				return upgradeEffect('g',12)"So low"
+				return upgradeEffect('g',12) + "xBooster Expo!!"
             }
 	},
         41: {
