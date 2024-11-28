@@ -438,7 +438,7 @@ addLayer("Qk", {
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         exp = new Decimal(1)
-	    if (hasUpgrade('g',13)) exp.mul(upgradeEffect('g',13))
+	    if (hasUpgrade('g',21)) exp.mul(upgradeEffect('g',21))
 	return exp
     },
     row: 2, // Row the layer is in on the tree (0 is the first row)
@@ -704,6 +704,18 @@ update(diff) {
 				return upgradeEffect('g',12) + "to Upg52 Expo!!"
             }
 	},
+        21: {
+            title: "??1",
+            description: "Unlock new glueon effect(didn'tboosted by g upg41)",
+            
+            cost: new Decimal(1),
+            effect(){
+                return player.g.points.add(1).log10().div(1.3223).add(1)
+            },
+             effectDisplay() {
+				return upgradeEffect('g',21) + "to Qk Expo!!"
+            }
+	},
         41: {
             title: "Wave Boost glueon effect",
             description: "WIP",
@@ -810,7 +822,7 @@ addLayer("Wd", {
 update(diff) {
 	if (hasUpgrade('Wd', 11)) generatePoints('Wd',diff);
 	if (hasUpgrade('DT', 11)) generatePoints('Wd',diff*900);
-	if (hasUpgrade('DT', 25)) generatePoints('W',diff*1e43);
+	if (hasUpgrade('DT', 25)) generatePoints('Wd',diff*1e43);
 },
 	 upgrades: {
         rows: 5,
