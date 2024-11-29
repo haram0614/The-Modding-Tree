@@ -687,10 +687,27 @@ update(diff) {
 		    return hasUpgrade("Qc", 22)
 	    },
             effect(){
-                return player.Qc.points.add("1e90").log10().div(3.2).log10().mul(3.321).sub(3.8)
+                base = player.Qc.points.add("1e90").log10().div(3.2).log10().mul(3.321).sub(3.8)
+		if (hasUpgrade('Qc',24)) base = base.mul(2).add(0.4)
+		return base
             },
              effectDisplay() {
 				return upgradeEffect("Qc",23) + "+Booster"
+            }
+        },
+        23: {
+            title: "24",
+            description: "You entered softcapped Upg23 formula better",
+            
+            cost: new Decimal("ee7"),
+            unlocked() {
+		    return hasUpgrade("Qc", 23)
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return " More Booster"
             }
         },
         31: {
@@ -1310,6 +1327,7 @@ addLayer("SP", {
 	base = new Decimal(0.375)
 	sf2 = new Decimal(0.125)
 	sf3 = new Decimal("1e2400")
+	if (hasUpgrade('SP', 15)) sf3 = sf3.mul("1e800")
 	if (hasUpgrade('Qk', 12)) sf2 = sf2.sub(0.125)
 	if (hasUpgrade('S', 21)) base = base.mul(1.1)
         mult = player.SL.points.pow(player.S.points.log10().mul(10).log10().mul(3.32))
@@ -1388,7 +1406,7 @@ update(diff) {
             title: "104",
             description: "SP Softcap 3 start e800 later",
             
-            cost: new Decimal("1e1300"),
+            cost: new Decimal("1e5350"),
             unlocked() {
 		    return true
 	    },
@@ -1396,7 +1414,7 @@ update(diff) {
                 return true
             },
              effectDisplay() {
-				return "for achievement"
+				return "OP"
             }
         },
         21: {
