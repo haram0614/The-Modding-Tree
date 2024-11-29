@@ -695,7 +695,7 @@ update(diff) {
 				return upgradeEffect("Qc",23) + "+Booster"
             }
         },
-        23: {
+        24: {
             title: "24",
             description: "You entered softcapped Upg23 formula better",
             
