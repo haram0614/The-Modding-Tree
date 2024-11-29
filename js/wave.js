@@ -687,7 +687,7 @@ update(diff) {
             
             cost: new Decimal(1),
             effect(){
-                return player.g.points.add(1).log10().div(130.11).add(1)
+                return upgradeEffect('g',41).add(1).log10().div(130.11).add(1)
             },
              effectDisplay() {
 				return upgradeEffect('g',14) + "Waves Expo!!"
@@ -699,7 +699,7 @@ update(diff) {
             
             cost: new Decimal(1),
             effect(){
-                return player.g.points.add(1).log10().div(130.11).add(1)
+                return upgradeEffect('g',41).add(1).log10().div(130.11).add(1)
             },
              effectDisplay() {
 				return upgradeEffect('g',12) + "to Upg52 Expo!!"
@@ -718,6 +718,21 @@ update(diff) {
             },
              effectDisplay() {
 				return upgradeEffect('g',21) + "to Qk Expo!!"
+            }
+	},
+        22: {
+            title: "??2",
+            description: "Unlock more new glueon effect(didn'tboosted by g upg41)",
+            
+            cost: new Decimal(1),
+            unlocked() {
+		    return (hasUpgrade('g',21))
+	    },
+            effect(){
+                return player.g.points.add(1).log10().div(132.23).add(1)
+            },
+             effectDisplay() {
+				return "^" + upgradeEffect('g',21) + "to QC Expo!!(WIP)"
             }
 	},
         41: {
