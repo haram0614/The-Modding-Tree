@@ -688,7 +688,7 @@ update(diff) {
 	    },
             effect(){
                 base = player.Qc.points.add("1e90").log10().div(3.2).log10().mul(3.321).sub(3.8)
-		if (hasUpgrade('Qc',24)) base = base.mul(2).add(0.4)
+		      if (hasUpgrade('Qc',24)) base = base.mul(2).add(0.4)
 		return base
             },
              effectDisplay() {
@@ -699,7 +699,7 @@ update(diff) {
             title: "24",
             description: "You entered softcapped Upg23 formula better",
             
-            cost: new Decimal("ee7"),
+            cost: new Decimal("1e1e7"),
             unlocked() {
 		    return hasUpgrade("Qc", 23)
 	    },
@@ -707,7 +707,7 @@ update(diff) {
                 return true
             },
              effectDisplay() {
-				return " More Booster"
+				return "More Booster"
             }
         },
         31: {
