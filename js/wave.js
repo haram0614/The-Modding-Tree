@@ -519,7 +519,9 @@ addLayer("e", {
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
-        return new Decimal(1)
+        exp = new Decimal(1)
+	    if (hasUpgrade('g',21)) exp = exp.mul(upgradeEffect('g',21))
+	return new Decimal(1)
     },
     row: 3, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
@@ -645,7 +647,6 @@ addLayer("g", {
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         exp = new Decimal(1)
-	    if (hasUpgrade('g',13)) exp.mul(upgradeEffect('g',13))
 	return exp
     },
     row: 3, // Row the layer is in on the tree (0 is the first row)
@@ -709,6 +710,9 @@ update(diff) {
             description: "Unlock new glueon effect(didn'tboosted by g upg41)",
             
             cost: new Decimal(1),
+            unlocked() {
+		    return (hasUpgrade('g',21) || player.Wa.points.gte("1.8e308"))
+	    },
             effect(){
                 return player.g.points.add(1).log10().div(1.3223).add(1)
             },
