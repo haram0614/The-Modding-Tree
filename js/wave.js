@@ -26,7 +26,6 @@ addLayer("W", {
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         exp = new Decimal(1)
-	    if (hasUpgrade('g',13)) exp.mul(upgradeEffect('g',13))
 	return exp
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
@@ -438,7 +437,7 @@ addLayer("Qk", {
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         exp = new Decimal(1)
-	    if (hasUpgrade('g',21)) exp.mul(upgradeEffect('g',21))
+	        if (hasUpgrade('g',13)) exp = exp.mul(upgradeEffect('g',13))
 	return exp
     },
     row: 2, // Row the layer is in on the tree (0 is the first row)
