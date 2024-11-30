@@ -393,7 +393,7 @@ addLayer("A", {
             name: "easy",
             tooltip: "Get e4e11Qt without Q,Qc upgrade. Reward: 1 AP,Unlock 1 upgrade",
             done() {
-                return (player.q.points.gte("e4e11") && !hasUpgrade("q",11) && !hasUpgrade("Qc",11) && !hasUpgrade("t",11))
+                return ((player.q.points.gte("e4e11") && !hasUpgrade("q",11) && !hasUpgrade("Qc",11) && !hasUpgrade("t",11)) || (hasUpgrade('SP',51)))
             },
             onComplete() {
                 addPoints("A",1)
@@ -403,7 +403,7 @@ addLayer("A", {
             name: "Medium",
             tooltip: "Get ee13Qt without Q,Qc upgrade. Reward: 1 AP,add 1 Qt upgrade also boost SP boost based on Qt",
             done() {
-                return (player.q.points.gte("ee13") && !hasUpgrade("q",11) && !hasUpgrade("Qc",11) && !hasUpgrade("t",11))
+                return ((player.q.points.gte("ee13") && !hasUpgrade("q",11) && !hasUpgrade("Qc",11) && !hasUpgrade("t",11)) || (hasUpgrade('SP',51)))
             },
             onComplete() {
                 addPoints("A",1)
@@ -413,7 +413,7 @@ addLayer("A", {
             name: "Hard",
             tooltip: "Get ee18Qt without Q,Qc upgrade. Reward: 1 AP,SP upgrade formula better",
             done() {
-                return (player.q.points.gte("ee18") && !hasUpgrade("q",11) && !hasUpgrade("Qc",11) && !hasUpgrade("t",11))
+                return ((player.q.points.gte("ee18") && !hasUpgrade("q",11) && !hasUpgrade("Qc",11) && !hasUpgrade("t",11)) || (hasUpgrade('SP',51)))
             },
             onComplete() {
                 addPoints("A",1)
@@ -1439,6 +1439,21 @@ update(diff) {
             cost: new Decimal("1"),
             unlocked() {
 		    return true
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "add 100 to QF gen!!"
+            }
+        },
+        51: {
+            title: "???",
+            description: "Bugged so free achievement",
+            
+            cost: new Decimal("1"),
+            unlocked() {
+		    return (hasAchievement('A',22))
 	    },
             effect(){
                 return true
