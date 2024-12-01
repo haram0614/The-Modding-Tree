@@ -226,7 +226,7 @@ update(diff) {
             
             cost: new Decimal(1e80),
             unlocked() {
-		    return hasUpgrade("f",23)
+		    return hasUpgrade("f",32)
 	    },
             effect(){
                 return true
