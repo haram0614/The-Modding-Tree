@@ -443,7 +443,7 @@ addLayer("A", {
             name: "Extreme",
             tooltip: "Get ee100Qt without Q,Qc upgrade. Reward: 1 AP, Auto IP,A, Unlock ID, Add new QF upgrade,Keep Qc Upgrade",
             done() {
-                return (player.q.points.gte("ee100") && !hasUpgrade("q",11) && !hasUpgrade("Qc",11) && !hasUpgrade("t",11))
+                return ((player.q.points.gte("ee100") && !hasUpgrade("q",11) && !hasUpgrade("Qc",11) && !hasUpgrade("t",11)) || hasUpgrade("Qk",21))
             },
             onComplete() {
                 addPoints("A",1)
