@@ -2171,6 +2171,20 @@ update(diff) {
 				return "???"
             }
 	},
+        31: {
+            title: "??1",
+            description: "Auto e",
+            cost: new Decimal("5000"),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "???"
+            }
+	},
     },
     layerShown(){return hasAchievement("A",42)}
 })
