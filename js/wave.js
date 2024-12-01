@@ -488,6 +488,21 @@ update(diff) {
 				return true
             }
 	},
+        21: {
+            title: "???",
+            description: "Bugged get achievement32",
+            
+            cost: new Decimal(1),
+            unlocked() {
+		    return (hasAchievement('A',31))
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return true
+            }
+	},
     },
     layerShown(){return hasUpgrade("W", 15) || hasUpgrade('Qk',11)}
 })
