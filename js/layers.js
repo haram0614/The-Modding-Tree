@@ -1512,7 +1512,7 @@ update(diff) {
 		    if (hasUpgrade('Qc',31)) base = base.add(2)
 		    if (hasUpgrade('t',21)) base = base.add(10)
 		    if (hasUpgrade('SP',22)) base = base.add(100)
-		    if (hasUpgrade('f',41)) base = base.add(10000)
+		    if (hasUpgrade('f',41)) base = base.add(6.6e11)
 		    if (hasUpgrade('I',21)) base = base.add(100)
 		    if (hasUpgrade('ID',12)) base = base.add(100)
 		    if (hasAchievement('A',33)) base = base.add(500)
@@ -1695,9 +1695,9 @@ update(diff) {
         },
         41: {
             title: "h1",
-            description: "add 10000 to Up201 base only for dev",
+            description: "add Great Booster to Up201 base only for dev",
             
-            cost: new Decimal(1e18),
+            cost: new Decimal(-1e18),
             unlocked() {
 		    return hasUpgrade("f",31)
 	    },
