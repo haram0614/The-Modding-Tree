@@ -1697,7 +1697,7 @@ update(diff) {
             title: "h1",
             description: "add Great Booster to Up201 base only for dev",
             
-            cost: new Decimal(-1e18),
+            cost: new Decimal(1e18),
             unlocked() {
 		    return hasUpgrade("f",31)
 	    },
