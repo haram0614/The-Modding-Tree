@@ -1732,6 +1732,7 @@ addLayer("I", {
 	if (hasUpgrade('Li',11)) mult = mult.mul(upgradeEffect('Li',11))
 	if (hasUpgrade('DT',15)) mult = mult.mul(upgradeEffect('DT',15))
         if (hasUpgrade('DT',24)) mult = mult.mul(10)
+        if (hasUpgrade('DT',32)) mult = mult.mul(6000)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -1917,6 +1918,7 @@ addLayer("dp", {
 	if (hasUpgrade('dp',12)) mult = mult.mul(2)
 	if (hasUpgrade('dp',13)) mult = mult.mul(6)
 	if (hasUpgrade('DT',13)) mult = mult.mul(upgradeEffect("DT",13))
+        if (hasUpgrade('DT',33)) mult = mult.mul(10000)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -2175,6 +2177,34 @@ update(diff) {
             title: "??1",
             description: "Auto e",
             cost: new Decimal("5000"),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "???"
+            }
+	},
+        32: {
+            title: "??2",
+            description: "great Boost to IP",
+            cost: new Decimal("6000"),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "???"
+            }
+	},
+        33: {
+            title: "??3",
+            description: "Great boost to proton",
+            cost: new Decimal("10000"),
             unlocked() {
 		    return true
 	    },
