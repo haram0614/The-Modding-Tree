@@ -1343,7 +1343,9 @@ addLayer("SP", {
 	if (mult.gte("1e75000")) mult = mult.div("1e75000").log10().pow(0.01).pow_base(10).mul("1e75000")
 	if (mult.gte("1e225000")) mult = mult.div("1e225000").log10().pow(0.005).pow_base(10).mul("1e225000")
 	if (mult.gte("1e600000")) mult = mult.log10().log10().pow(0.005).pow_base(10).pow_base(10).mul("1e600000")
+	if (mult.gte("1e1000000")) mult = mult.log10().log10().div(1000000).pow_base("1e1000000")
 	if (hasUpgrade('Qk', 11)) mult = mult.mul(upgradeEffect('Qk',11))
+	if (mult.gte("1e3000000")) mult = mult.log10().log10().div(3000000).pow_base("1e3000000")
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
