@@ -1822,6 +1822,34 @@ update(diff) {
 				return 'OP' 
             }
 	},
+        23: {
+            title: "115",
+            description: "9x ID gain",
+            cost: new Decimal("1e10"),
+            unlocked() {
+		    return upgradeEffect("q",34).gte(36)
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return 'OP' 
+            }
+	},
+        31: {
+            title: "116",
+            description: "IP boost ID gain",
+            cost: new Decimal("1e11"),
+            unlocked() {
+		    return (hasUpgrade('I',23))
+	    },
+            effect(){
+                return player.I.points.add(1e11).pow(0.15)
+            },
+             effectDisplay() {
+				return upgradeEffect('I',31) + "xID"
+            }
+	},
     },
     layerShown(){return hasUpgrade("SL",11) || player.I.points.gte(1) || hasUpgrade("I",11)}
 })
@@ -1842,6 +1870,8 @@ addLayer("ID", {
     exponent: 0, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        if (hasUpgrade('I',23)) mult = mult.mul(9)
+	if (hasUpgrade('I',31)) mult = mult.mul(upgradeEffect('I',31))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
