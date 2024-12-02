@@ -613,7 +613,9 @@ addLayer("SQ", {
     branches: ["Wc"],
     gainMult() { // Calculate the multiplier for main currency from bonuses
         multw = new Decimal(1)
-	if (true) multw = multw.mul(player.SP.points.add(1).log10().div(308.26).pow(0.1875).sub(1).pow_base(10))
+	exp = new Decimal(0.1875)
+        if (hasUpgrade('DT',34)) exp = exp.mul(2.2)
+	if (true) multw = multw.mul(player.SP.points.add(1).log10().div(308.26).pow(exp).sub(1).pow_base(10))
         return multw
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
