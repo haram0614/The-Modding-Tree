@@ -590,6 +590,9 @@ addLayer("e", {
             }
 	},
     },
+update(diff) {
+	if (hasUpgrade('DT', 31)) generatePoints('e',diff*900);
+},
     layerShown(){return hasUpgrade("Wa",15)}
 })
 addLayer("SQ", {
