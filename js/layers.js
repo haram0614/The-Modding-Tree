@@ -1171,6 +1171,7 @@ addLayer("S", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = player.SL.points.add(1).log10().pow(0.375).pow_base(10)
 	if (hasUpgrade("S", 11)) mult = mult.mul(upgradeEffect('S',11))
+	if (hasUpgrade("DT", 35)) mult = mult.mul(upgradeEffect("dp",11))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -2235,6 +2236,34 @@ update(diff) {
             title: "??3",
             description: "Great boost to proton",
             cost: new Decimal("10000"),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "???"
+            }
+	},
+        34: {
+            title: "??4",
+            description: "Great boost to SQk",
+            cost: new Decimal("12000"),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "???"
+            }
+	},
+        35: {
+            title: "??5",
+            description: "Great boost to SL",
+            cost: new Decimal("15000"),
             unlocked() {
 		    return true
 	    },
