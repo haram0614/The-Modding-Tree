@@ -1340,7 +1340,9 @@ addLayer("SP", {
 	if (mult.gte("1e30000")) mult = mult.div("1e30000").log10().pow(0.05).pow_base(10).mul("1e30000")
 	if (mult.gte("1e45000")) mult = mult.div("1e45000").log10().pow(0.025).pow_base(10).mul("1e45000")
 	if (mult.gte("1e60000")) mult = mult.div("1e60000").log10().pow(0.015).pow_base(10).mul("1e60000")
-	if (mult.gte("1e75000")) mult = mult.div("1e75000").log10().pow(0.01).pow_base(10).mul("1e75000")	
+	if (mult.gte("1e75000")) mult = mult.div("1e75000").log10().pow(0.01).pow_base(10).mul("1e75000")
+	if (mult.gte("1e225000")) mult = mult.div("1e225000").log10().pow(0.005).pow_base(10).mul("1e225000")
+	if (mult.gte("1e600000")) mult = mult.log10().log10().pow(0.005).pow_base(10).pow_base(10).mul("1e600000")
 	if (hasUpgrade('Qk', 11)) mult = mult.mul(upgradeEffect('Qk',11))
         return mult
     },
