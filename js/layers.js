@@ -1338,14 +1338,10 @@ addLayer("SP", {
 	if (mult.gte("1e2400")) mult = mult.div("1e2400").log10().pow(0.37).pow_base(10).mul("1e2400")
 	if (mult.gte("1e10500")) mult = mult.div("1e10500").log10().pow(0.37).pow_base(10).mul("1e10500")
 	if (mult.gte("1e30000")) mult = mult.div("1e30000").log10().pow(0.05).pow_base(10).mul("1e30000")
-	if (mult.gte("1e45000")) mult = mult.div("1e45000").log10().pow(0.025).pow_base(10).mul("1e45000")
-	if (mult.gte("1e60000")) mult = mult.div("1e60000").log10().pow(0.015).pow_base(10).mul("1e60000")
-	if (mult.gte("1e75000")) mult = mult.div("1e75000").log10().pow(0.01).pow_base(10).mul("1e75000")
-	if (mult.gte("1e225000")) mult = mult.div("1e225000").log10().pow(0.005).pow_base(10).mul("1e225000")
-	if (mult.gte("1e600000")) mult = mult.log10().log10().pow(0.005).pow_base(10).pow_base(10).mul("1e600000")
-	if (mult.gte("1e1000000")) mult = mult.log10().log10().div(1000000).pow_base("1e1000000")
+	if (mult.gte("1e45000")) mult = mult.div("1e45000").log10().pow(0.025).pow_base(10).mul("1e45000").min("1e60000")
+	if (hasUpgrade('BT', 35)) mult = mult.add(upgradeEffect('BT',35).sub(4).pow_base("1e15000"))
 	if (hasUpgrade('Qk', 11)) mult = mult.mul(upgradeEffect('Qk',11))
-	if (mult.gte("1e3000000")) mult = mult.log10().log10().div(3000000).pow_base("1e3000000")
+
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -1909,6 +1905,7 @@ addLayer("ID", {
 		    if (hasUpgrade('g',13)) db = db.pow(upgradeEffect('g',13))
 		    if (true) base = db.mul(7).mul(player.ID.points.add(1).log(10)).pow_base(10)
 		    if (hasUpgrade('a',24)) base = base.pow(2)
+		    if (hasUpgrade('BT', 35)) base = base.pow(upgradeEffect('BT',35).add(1).div(2))
                 return base
             },
              effectDisplay() {
@@ -2269,13 +2266,13 @@ update(diff) {
 	},
         35: {
             title: "??5",
-            description: "Great boost to SL",
+            description: "Great boost to SP also Boost ID",
             cost: new Decimal("15000"),
             unlocked() {
 		    return true
 	    },
             effect(){
-                return true
+                return player.q.points.add("ee20000").log10().log10().div(13).log10().mul(3.321)
             },
              effectDisplay() {
 				return "???"
