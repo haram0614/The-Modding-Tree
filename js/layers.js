@@ -2047,9 +2047,15 @@ addLayer("DT", {
     exponent: 0, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
-	if (true) mult = mult.mul(player.SP.points.add(1).log10().div(100))
-	if (true) mult = mult.mul(player.q.points.add(1.8e43).log10().log10().div(20000))
-	if (true) mult = mult.mul(player.I.points.add(1e8).log10().sub(8))
+        multa = new Decimal(1)
+        multb = new Decimal(1)
+        multc = new Decimal(1)
+	if (true) multa = multa.mul(player.SP.points.add(1).log10().div(100))
+	if (multa.gte(1000)) multa = multa.div(1000).pow(0.4).mul(1000))
+	if (true) multb = multb.mul(player.q.points.add(1.8e43).log10().log10().div(20000))
+	if (multb.gte(500)) multb = multb.div(500).pow(0.25).mul(500)
+	if (true) multc = multc.mul(player.I.points.add(1e8).log10().sub(8))
+	mult = multa.mul(multb).mul(multc)
         mult = mult.sub(player.DT.points)
         mult = mult.max(0)
         return mult
