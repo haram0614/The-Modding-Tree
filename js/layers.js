@@ -1954,6 +1954,7 @@ addLayer("dp", {
 	if (hasUpgrade('dp',13)) mult = mult.mul(6)
 	if (hasUpgrade('DT',13)) mult = mult.mul(upgradeEffect("DT",13))
         if (hasUpgrade('DT',33)) mult = mult.mul(10000)
+        if (hasUpgrade('DT',41)) mult = mult.mul(1000)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -2274,6 +2275,34 @@ update(diff) {
 	    },
             effect(){
                 return player.q.points.add("ee20000").log10().log10().div(13).log10().mul(3.321)
+            },
+             effectDisplay() {
+				return "???"
+            }
+	},
+        41: {
+            title: "??6",
+            description: "Great boost to proton,glueon",
+            cost: new Decimal("1000000"),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "???"
+            }
+	},
+        42: {
+            title: "??7",
+            description: "Great boost to glueon",
+            cost: new Decimal("10000000"),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return true
             },
              effectDisplay() {
 				return "???"
