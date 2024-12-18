@@ -663,6 +663,8 @@ addLayer("g", {
     branches: ["Wc"],
     gainMult() { // Calculate the multiplier for main currency from bonuses
         multw = new Decimal(1)
+        if (hasUpgrade('DT',41)) multw = multw.mul(1000)
+        if (hasUpgrade('DT',42)) multw = multw.mul(10000000)
         return multw
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
