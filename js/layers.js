@@ -1517,6 +1517,7 @@ update(diff) {
 		    if (hasUpgrade('t',21)) base = base.add(10)
 		    if (hasUpgrade('SP',22)) base = base.add(100)
 		    if (hasUpgrade('f',41)) base = base.add(6.6e11)
+		    if (hasUpgrade('f',25)) base = base.add(1000)
 		    if (hasUpgrade('I',21)) base = base.add(100)
 		    if (hasUpgrade('ID',12)) base = base.add(100)
 		    if (hasAchievement('A',33)) base = base.add(500)
@@ -1525,6 +1526,7 @@ update(diff) {
 		    if (hasAchievement('A',36)) base = base.add(1000)
 		    if (hasAchievement('A',41)) base = base.add(1000)
 		    if (hasAchievement('A',42)) base = base.add(1000)
+		    if (hasUpgrade('DT',43)) base = base.add(9000).mul(1.1)
 		    if (hasUpgrade('f',22)) base = base.mul(1.1)
 		return base
             },
@@ -1637,13 +1639,28 @@ update(diff) {
 				return "1.7x Qk"
             }
         },
-        23: {
+        24: {
             title: "208",
             description: "^1.04 Qk so small",
             
             cost: new Decimal("22222222"),
             unlocked() {
 		    return hasUpgrade("f",23)
+	    },
+            effect(){
+                return new Decimal(1.7)
+            },
+             effectDisplay() {
+				return "1.7x Qk"
+            }
+        },
+        25: {
+            title: "209",
+            description: "add 1000 to QF gen(?)",
+            
+            cost: new Decimal("1"),
+            unlocked() {
+		    return hasUpgrade("f",11)
 	    },
             effect(){
                 return new Decimal(1.7)
@@ -2298,6 +2315,20 @@ update(diff) {
             title: "??7",
             description: "Great boost to glueon",
             cost: new Decimal("10000000"),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "???"
+            }
+	},
+        43: {
+            title: "??8",
+            description: "Greater boost to glueon and unlock new upgrade",
+            cost: new Decimal("100000000"),
             unlocked() {
 		    return true
 	    },
