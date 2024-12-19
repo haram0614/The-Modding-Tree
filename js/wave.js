@@ -665,6 +665,7 @@ addLayer("g", {
         multw = new Decimal(1)
         if (hasUpgrade('DT',41)) multw = multw.mul(1000)
         if (hasUpgrade('DT',42)) multw = multw.mul(10000000)
+        if (hasUpgrade('DT',43)) multw = multw.mul(100000000)
         return multw
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -755,6 +756,21 @@ update(diff) {
             },
              effectDisplay() {
 				return "^" + upgradeEffect('g',21) + "to QC Expo!!(WIP)"
+            }
+	},
+        22: {
+            title: "??3",
+            description: "Unlock more new glueon effect(didn'tboosted by g upg41)",
+            
+            cost: new Decimal(1),
+            unlocked() {
+		    return (hasUpgrade('g',22))
+	    },
+            effect(){
+                return player.g.points.pow(0).add(1)
+            },
+             effectDisplay() {
+				return "*" + upgradeEffect('g',21) + "to accelatron!!(WIP)"
             }
 	},
         41: {
