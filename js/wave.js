@@ -759,7 +759,7 @@ update(diff) {
 				return "^" + upgradeEffect('g',21) + "to QC Expo!!(WIP)"
             }
 	},
-        22: {
+        23: {
             title: "??3",
             description: "Unlock more new glueon effect(didn'tboosted by g upg41)",
             
