@@ -591,6 +591,7 @@ addLayer("e", {
 	},
     },
 update(diff) {
+	if (player.e.points.gte(1.79e308)) generatePoints('e',diff*0.01);	
 	if (hasUpgrade('DT', 31)) generatePoints('e',diff*900);
 },
     layerShown(){return hasUpgrade("Wa",15)}
