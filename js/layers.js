@@ -932,6 +932,15 @@ addLayer("a", {
 	if (hasUpgrade("q", 32) || hasUpgrade("t",13)) multb = multb.add(1)
 	if (hasUpgrade("a", 23)) multb = multb.mul(player.t.points)
 	if (hasUpgrade("a", 32)) multb = multb.mul(30)
+	if (hasUpgrade("DT", 25)) multb = multb.mul(4000)
+	if (hasUpgrade("DT", 25)) multb = multb.mul(5000)
+	if (hasUpgrade("DT", 25)) multb = multb.mul(6000)
+	if (hasUpgrade("DT", 25)) multb = multb.mul(10000)
+	if (hasUpgrade("DT", 25)) multb = multb.mul(12000)
+	if (hasUpgrade("DT", 25)) multb = multb.mul(15000)
+	if (hasUpgrade("DT", 25)) multb = multb.mul(100000)
+	if (hasUpgrade("DT", 25)) multb = multb.mul(1000000)
+	if (hasUpgrade("DT", 25)) multb = multb.mul(10000000)
         return multb
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -1093,6 +1102,20 @@ update(diff) {
             title: "??",
             description: "Boost A gain",
             cost: new Decimal("1e25"),
+            unlocked() {
+		    return hasAchievement("A",34)
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "OP"
+            }
+	},
+        32: {
+            title: "???",
+            description: "???",
+            cost: new Decimal("1e100"),
             unlocked() {
 		    return hasAchievement("A",34)
 	    },
@@ -2231,7 +2254,7 @@ update(diff) {
 	},
         25: {
             title: "310",
-            description: "Boost Waves a lot",
+            description: "Boost Waves a lot, Also Boost Acceleron gain",
             cost: new Decimal("4000"),
             unlocked() {
 		    return true
@@ -2245,7 +2268,7 @@ update(diff) {
 	},
         31: {
             title: "??1",
-            description: "Auto e",
+            description: "Auto e Also Boost Acceleron gain",
             cost: new Decimal("5000"),
             unlocked() {
 		    return true
@@ -2259,7 +2282,7 @@ update(diff) {
 	},
         32: {
             title: "??2",
-            description: "great Boost to IP",
+            description: "great Boost to IP Also Boost Acceleron gain",
             cost: new Decimal("6000"),
             unlocked() {
 		    return true
@@ -2273,7 +2296,7 @@ update(diff) {
 	},
         33: {
             title: "??3",
-            description: "Great boost to proton",
+            description: "Great boost to proton Also Boost Acceleron gain",
             cost: new Decimal("10000"),
             unlocked() {
 		    return true
@@ -2287,7 +2310,7 @@ update(diff) {
 	},
         34: {
             title: "??4",
-            description: "Great boost to SQk",
+            description: "Great boost to SQk Also Boost Acceleron gain",
             cost: new Decimal("12000"),
             unlocked() {
 		    return true
@@ -2301,7 +2324,7 @@ update(diff) {
 	},
         35: {
             title: "??5",
-            description: "Great boost to SP also Boost ID",
+            description: "Great boost to SP also Boost ID Also Boost Acceleron gain",
             cost: new Decimal("15000"),
             unlocked() {
 		    return true
@@ -2315,7 +2338,7 @@ update(diff) {
 	},
         41: {
             title: "??6",
-            description: "Great boost to proton,glueon",
+            description: "Great boost to proton,glueon Also Boost Acceleron gain",
             cost: new Decimal("1000000"),
             unlocked() {
 		    return true
@@ -2329,7 +2352,7 @@ update(diff) {
 	},
         42: {
             title: "??7",
-            description: "Great boost to glueon",
+            description: "Great boost to glueon Also Boost Acceleron gain",
             cost: new Decimal("10000000"),
             unlocked() {
 		    return true
@@ -2343,7 +2366,7 @@ update(diff) {
 	},
         43: {
             title: "??8",
-            description: "Greater boost to glueon and unlock new upgrade",
+            description: "Greater boost to glueon and unlock new upgrade Also Boost Acceleron gain",
             cost: new Decimal("100000000"),
             unlocked() {
 		    return true
