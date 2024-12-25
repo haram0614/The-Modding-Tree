@@ -46,6 +46,7 @@ addLayer("q", {
 	    if (true) exp = exp.mul(db.mul(db.add(1)).div(2).pow_base(base))
 	    if (hasUpgrade("ID",11)) exp = exp.mul(upgradeEffect('ID',11))
 	    if (hasUpgrade('t', 14)) exp = exp.pow(upgradeEffect("t",14))
+	    if (hasUpgrade('f', 42)) exp = exp.add(1e15)
         return exp
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
@@ -1767,6 +1768,21 @@ update(diff) {
             },
              effectDisplay() {
 				return "nice"
+            }
+        },
+        42: {
+            title: "h2",
+            description: "add Great boost to Qt",
+            
+            cost: new Decimal(1),
+            unlocked() {
+		    return hasUpgrade("f",11)
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "OP if noob"
             }
         },
     },
