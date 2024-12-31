@@ -24,7 +24,7 @@ addLayer("q", {
 	    if (hasUpgrade('f', 15)) base = base.add(0.5)
 	    if (hasUpgrade('SL',11)) base = base.add(2.2).add(upgradeEffect('q',24).div(5))
 	    if (hasUpgrade('SL',11) && hasUpgrade('a',25)) base.max(upgradeEffect('q',24).div(5).pow(2))
-	    if (hasUpgrade('a',33)) base = base.max(upgradeEffect('q',34).div(5).pow_base(2))
+	    if (hasUpgrade('a', 33)) base = base.max(upgradeEffect('q',34).div(5).pow_base(2))
 	    if (hasUpgrade('I', 22)) base = base.max(10)
 	    if (hasUpgrade('q', 11)) exp = exp.add(1)
 	    if (hasUpgrade('q', 12)) exp = exp.add(1)
@@ -1119,7 +1119,7 @@ update(diff) {
             description: "???",
             cost: new Decimal("1e100"),
             unlocked() {
-		    return hasAchievement("A",34)
+		    return hasAchievement("A",43)
 	    },
             effect(){
                 return true
