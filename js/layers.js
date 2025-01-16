@@ -1205,7 +1205,7 @@ update(diff) {
 			let keep = [];
 			if (hasAchievement("A", 34)) keep.push("upgrades")
 		},
-    layerShown(){return hasUpgrade("a",14)}
+    layerShown(){return hasUpgrade("a",14) && hasUpgrade("e",14)}
 })
 addLayer("S", {
     name: "Super Quantum", // This is optional, only used in a few places, If absent it just uses the layer id.
@@ -1361,7 +1361,7 @@ update(diff) {
 			let keep = [];
 			if (hasAchievement("A", 34)) keep.push("upgrades")
 		},
-    layerShown(){return hasUpgrade("a",14)}
+    layerShown(){return hasUpgrade("a",14) && hasUpgrade("e",14)}
 })
 addLayer("SP", {
     name: "Spreon", // This is optional, only used in a few places, If absent it just uses the layer id.
@@ -1816,7 +1816,7 @@ update(diff) {
 				return "OP if noob"
             }
         },
-        42: {
+        43: {
             title: "h3",
             description: "2x IP",
             
@@ -1857,6 +1857,7 @@ addLayer("I", {
         if (hasUpgrade('DT',24)) mult = mult.mul(10)
         if (hasUpgrade('DT',32)) mult = mult.mul(6000)
 	if (hasUpgrade('f',43)) mult = mult.mul(2)
+	if (hasUpgrade('I',24)) mult = mult.mul(2)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -1960,6 +1961,20 @@ update(diff) {
 				return 'OP' 
             }
 	},
+        24: {
+            title: "???",
+            description: "2x IP",
+            cost: new Decimal("1"),
+            unlocked() {
+		    return upgradeEffect("q",34).gte(36)
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return 'OP' 
+            }
+	},
         31: {
             title: "116",
             description: "IP boost ID gain",
@@ -2000,6 +2015,7 @@ addLayer("ID", {
         mult = new Decimal(1)
         if (hasUpgrade('I',23)) mult = mult.mul(9)
 	if (hasUpgrade('I',31)) mult = mult.mul(upgradeEffect('I',31))
+	if (hasUpgrade('ID',21)) mult = mult.mul(2)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -2051,6 +2067,20 @@ addLayer("ID", {
 				return "add 100 to QF gen!!"
             }
         },
+        21: {
+            title: "???",
+            description: "2x ID",
+            cost: new Decimal("1"),
+            unlocked() {
+		    return upgradeEffect("q",34).gte(36)
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return 'OP' 
+            }
+	},
     },
 update(diff) {
 	if (hasUpgrade('I', 14)) generatePoints('ID',diff*30);
