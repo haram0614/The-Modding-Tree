@@ -120,7 +120,7 @@ update(diff) {
 			let keep = [];
 			if (hasAchievement("A", 34)) keep.push("upgrades")
 		},
-    layerShown(){return hasUpgrade("a", 13) && !hasUpgrade("e", 14)}}
+    layerShown(){return hasUpgrade("a", 13) && !hasUpgrade("e", 14)}
 })
 addLayer("Wa", {
     name: "Wave2", // This is optional, only used in a few places, If absent it just uses the layer id.
@@ -240,7 +240,7 @@ update(diff) {
 			let keep = [];
 			if (hasAchievement("A", 34)) keep.push("upgrades")
 		},
-    layerShown(){return hasUpgrade("a", 13) && !hasUpgrade("e", 14)}}
+    layerShown(){return hasUpgrade("a", 13) && !hasUpgrade("e", 14)}
 })
 addLayer("Wb", {
     name: "Wave3", // This is optional, only used in a few places, If absent it just uses the layer id.
@@ -328,7 +328,7 @@ update(diff) {
 			let keep = [];
 			if (hasAchievement("A", 34)) keep.push("upgrades")
 		},
-    layerShown(){return hasUpgrade("a", 13) && !hasUpgrade("e", 14)}}
+    layerShown(){return hasUpgrade("a", 13) && !hasUpgrade("e", 14)}
 })
 addLayer("Wc", {
     name: "Wave4", // This is optional, only used in a few places, If absent it just uses the layer id.
