@@ -2395,6 +2395,20 @@ update(diff) {
 				return "???"
             }
 	},
+        44: {
+            title: "??9",
+            description: "Unlock new Upgrade",
+            cost: new Decimal("500000000"),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "???"
+            }
+	},
     },
     layerShown(){return hasAchievement("A",42)}
 })
