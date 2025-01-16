@@ -977,7 +977,7 @@ addLayer("We", {
     }},
     color: "#989898",
     requires: new Decimal(2.4e99), // Can be a function that takes requirement increases into account
-    resource: "Wave5", // Name of prestige currency
+    resource: "Wave6", // Name of prestige currency
     baseResource: "Theory", // Name of resource prestige is based on
     baseAmount() {return player.t.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
@@ -986,7 +986,7 @@ addLayer("We", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         multw = new Decimal(0)
 	if (hasAchievement("A", 34)) multw = multw.add(0.01)
-	if (hasUpgrade("Wd", 12)) multw = multw.mul(upgradeEffect('Wc',12))
+	if (hasUpgrade("We", 12)) multw = multw.mul(upgradeEffect('We',12))
 	if (hasUpgrade("I", 11)) multw = multw.mul(upgradeEffect('I',11))
 	if (hasUpgrade("a", 31)) multw = multw.mul(player.dp.points)
         return multw
