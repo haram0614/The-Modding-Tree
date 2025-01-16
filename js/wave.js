@@ -458,6 +458,7 @@ update(diff) {
 		base = new Decimal(9)
 		if (hasAchievement("A",32)) base = base.add(41)
 		if (hasUpgrade("Qk",13)) base = base.mul(1.5)
+		if (hasUpgrade("Qk",14)) base = base.add(25)
                 return player.Qk.points.add(1).pow(base)
             },
              effectDisplay() {
@@ -481,6 +482,18 @@ update(diff) {
             description: "^1.5 up131effect",
             
             cost: new Decimal(1e10),
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return true
+            }
+	},
+        14: {
+            title: "134",
+            description: "^(4/3) up131effect",
+            
+            cost: new Decimal("1.8e308"),
             effect(){
                 return true
             },
