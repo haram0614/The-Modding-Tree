@@ -922,6 +922,10 @@ addLayer("t", {
             }
 	},
     },
+		doReset(resettingLayer) {
+			let keep = [];
+			if (hasAchievement("A", 34)) keep.push("upgrades")
+		},
     layerShown(){return true}
 })
 addLayer("a", {
@@ -1786,7 +1790,7 @@ update(diff) {
             title: "h1",
             description: "add Great Booster to Up201 base only for dev",
             
-            cost: new Decimal(1),
+            cost: new Decimal(1e18),
             unlocked() {
 		    return hasUpgrade("f",31)
 	    },
@@ -1810,6 +1814,21 @@ update(diff) {
             },
              effectDisplay() {
 				return "OP if noob"
+            }
+        },
+        42: {
+            title: "h3",
+            description: "2x IP",
+            
+            cost: new Decimal(1),
+            unlocked() {
+		    return hasUpgrade("f",11)
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "OP"
             }
         },
     },
@@ -1837,6 +1856,7 @@ addLayer("I", {
 	if (hasUpgrade('DT',15)) mult = mult.mul(upgradeEffect('DT',15))
         if (hasUpgrade('DT',24)) mult = mult.mul(10)
         if (hasUpgrade('DT',32)) mult = mult.mul(6000)
+	if (hasUpgrade('f',43)) mult = mult.mul(2)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -1955,6 +1975,10 @@ update(diff) {
             }
 	},
     },
+		doReset(resettingLayer) {
+			let keep = [];
+			if (hasAchievement("A", 34)) keep.push("upgrades")
+		},
     layerShown(){return hasUpgrade("SL",11) || player.I.points.gte(1) || hasUpgrade("I",11)}
 })
 addLayer("ID", {
@@ -2437,5 +2461,5 @@ update(diff) {
             }
 	},
     },
-    layerShown(){return hasAchievement("A",42)}
+    layerShown(){return true}
 })
