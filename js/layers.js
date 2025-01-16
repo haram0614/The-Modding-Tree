@@ -1205,7 +1205,7 @@ update(diff) {
 			let keep = [];
 			if (hasAchievement("A", 34)) keep.push("upgrades")
 		},
-    layerShown(){return hasUpgrade("a",14) && hasUpgrade("e",14)}
+    layerShown(){return hasUpgrade("a",14) && !hasUpgrade("e",14)}
 })
 addLayer("S", {
     name: "Super Quantum", // This is optional, only used in a few places, If absent it just uses the layer id.
@@ -1361,7 +1361,7 @@ update(diff) {
 			let keep = [];
 			if (hasAchievement("A", 34)) keep.push("upgrades")
 		},
-    layerShown(){return hasUpgrade("a",14) && hasUpgrade("e",14)}
+    layerShown(){return hasUpgrade("a",14) && !hasUpgrade("e",14)}
 })
 addLayer("SP", {
     name: "Spreon", // This is optional, only used in a few places, If absent it just uses the layer id.
