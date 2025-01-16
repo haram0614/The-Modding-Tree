@@ -120,7 +120,7 @@ update(diff) {
 			let keep = [];
 			if (hasAchievement("A", 34)) keep.push("upgrades")
 		},
-    layerShown(){return hasUpgrade("a", 13)}
+    layerShown(){return hasUpgrade("a", 13) && !hasUpgrade("e", 14)}}
 })
 addLayer("Wa", {
     name: "Wave2", // This is optional, only used in a few places, If absent it just uses the layer id.
@@ -240,7 +240,7 @@ update(diff) {
 			let keep = [];
 			if (hasAchievement("A", 34)) keep.push("upgrades")
 		},
-    layerShown(){return hasUpgrade("a", 13)}
+    layerShown(){return hasUpgrade("a", 13) && !hasUpgrade("e", 14)}}
 })
 addLayer("Wb", {
     name: "Wave3", // This is optional, only used in a few places, If absent it just uses the layer id.
@@ -324,7 +324,11 @@ update(diff) {
             }
 	},
     },
-    layerShown(){return hasUpgrade("a", 13)}
+		doReset(resettingLayer) {
+			let keep = [];
+			if (hasAchievement("A", 34)) keep.push("upgrades")
+		},
+    layerShown(){return hasUpgrade("a", 13) && !hasUpgrade("e", 14)}}
 })
 addLayer("Wc", {
     name: "Wave4", // This is optional, only used in a few places, If absent it just uses the layer id.
@@ -411,7 +415,7 @@ update(diff) {
 			let keep = [];
 			if (hasAchievement("A", 34)) keep.push("upgrades")
 		},
-    layerShown(){return hasUpgrade("a", 22)}
+    layerShown(){return hasUpgrade("a", 22) && !hasUpgrade("e", 14)}
 })
 addLayer("Qk", {
     name: "Quark", // This is optional, only used in a few places, If absent it just uses the layer id.
@@ -517,6 +521,10 @@ update(diff) {
             }
 	},
     },
+		doReset(resettingLayer) {
+			let keep = [];
+			if (hasAchievement("A", 34)) keep.push("upgrades")
+		},
     layerShown(){return hasUpgrade("W", 15) || hasUpgrade('Qk',11)}
 })
 addLayer("e", {
@@ -589,11 +597,26 @@ addLayer("e", {
 	},
         13: {
             title: "233",
-            description: "1e15 e",
+            description: "1e15x e",
             
             cost: new Decimal("1e180"),
             unlocked() {
 		    return (hasUpgrade('t',23) || hasUpgrade('e',12))
+	    },
+            effect(){
+                   return true
+            },
+             effectDisplay() {
+				return "1e15x e"
+            }
+	},
+        14: {
+            title: "234",
+            description: "Hide some layer",
+            
+            cost: new Decimal("1"),
+            unlocked() {
+		    return (hasupgrade('DT',44))
 	    },
             effect(){
                    return true
