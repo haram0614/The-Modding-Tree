@@ -617,7 +617,7 @@ addLayer("e", {
             
             cost: new Decimal("1"),
             unlocked() {
-		    return (hasupgrade('DT',44))
+		    return (hasUpgrade('DT',44))
 	    },
             effect(){
                    return true
