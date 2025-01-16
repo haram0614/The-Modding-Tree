@@ -505,6 +505,18 @@ update(diff) {
 				return true
             }
 	},
+        15: {
+            title: "135",
+            description: "^1.1 eff glueon",
+            
+            cost: new Decimal("1.8e308"),
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return true
+            }
+	},
         21: {
             title: "???",
             description: "Bugged get achievement32",
@@ -512,6 +524,21 @@ update(diff) {
             cost: new Decimal(1),
             unlocked() {
 		    return (hasAchievement('A',31))
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return true
+            }
+	},
+        22: {
+            title: "???",
+            description: "^1.1 eff glueon",
+            
+            cost: new Decimal("1e1300"),
+            unlocked() {
+		    return (hasUpgrade('DT',44))
 	    },
             effect(){
                 return true
@@ -819,6 +846,8 @@ update(diff) {
             effect(){
 		base = player.g.points
 		    if (hasUpgrade('g',41)) base = base.pow(player.W.points.add(1.79e308).log10().div(308.26).ln().add(1))
+		    if (hasUpgrade('Qk',15)) base = base.pow(1.1)
+		    if (hasUpgrade('Qk',21)) base = base.pow(1.1)
                 return base
             },
              effectDisplay() {
