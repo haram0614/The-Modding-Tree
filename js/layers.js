@@ -521,6 +521,16 @@ addLayer("A", {
                 addPoints("A",1)
             }
         },
+        44: {
+            name: "10^^4",
+            tooltip: "Get eee10 PL. Reward: 1 AP.",
+            done() {
+                return player.points.gte("eee10")
+            },
+            onComplete() {
+                addPoints("A",1)
+            }
+        },
     },
     tabFormat: {
         "Achievements" :{
@@ -1569,6 +1579,8 @@ update(diff) {
 		    if (hasAchievement('A',42)) base = base.add(1000)
 		    if (hasUpgrade('DT',43)) base = base.add(9000).mul(1.1)
 		    if (hasUpgrade('f',22)) base = base.mul(1.1)
+		    if (hasUpgrade('f',34)) base = base.mul(1.5)
+		    if (hasUpgrade('f',24)) base = base.pow(1.04)
 		return base
             },
              effectDisplay() {
@@ -1682,7 +1694,7 @@ update(diff) {
         },
         24: {
             title: "208",
-            description: "^1.04 Qk so small",
+            description: "^1.04 Qk,QF so small",
             
             cost: new Decimal("22222222"),
             unlocked() {
@@ -1745,6 +1757,21 @@ update(diff) {
             description: "Unlock new layer(WIP)",
             
             cost: new Decimal("1000000"),
+            unlocked() {
+		    return hasAchievement("A",32)
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "nice"
+            }
+        },
+        34: {
+            title: "210",
+            description: "50% more QF",
+            
+            cost: new Decimal("999999"),
             unlocked() {
 		    return hasAchievement("A",32)
 	    },
