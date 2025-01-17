@@ -14,11 +14,91 @@ addLayer("rq", {
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
-        mult = player.points.add("e10").log10().log10().pow(0.5).pow_base(10)
+        mult = new Decimal(1)
+        if (player.rq.points.gte(1)) mult = mult.mul(player.points.add("e10").log10().log10().pow(0.5).pow_base(10))
+	if (hasUpgrade('rq',11)) mult = mult.mul(upgradeEffect("rq",11)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
+    },
+	 upgrades: {
+        rows: 5,
+        cols: 5,
+        11: {
+            title: "401",
+            description: "Boost rq based on Qt",
+            
+            cost: new Decimal(10),
+            effect(){
+                return player.q.points.log10().log10()
+            },
+             effectDisplay() {
+				return "nice"
+            }
+	},
+        12: {
+            title: "402",
+            description: "Boost theory",
+            
+            cost: new Decimal("eee10"),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+		base = player.W.points.add(100).log10().mul(1.107)
+		    if (hasUpgrade('g',14)) base = base.pow(upgradeEffect('g',14))
+                return base
+            },
+             effectDisplay() {
+				return upgradeEffect('W',12) + "x theory"
+            }
+	},
+        13: {
+            title: "53",
+            description: "Qt boost waves",
+            
+            cost: new Decimal("ee400"),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return player.q.points.add("e9e15").log10().div(500).log10()
+            },
+             effectDisplay() {
+				return upgradeEffect('W',13) + "x waves"
+            }
+	},
+        14: {
+            title: "54",
+            description: "Wave boost Up26 base",
+            
+            cost: new Decimal("ee1000"),
+            unlocked() {
+		    return hasUpgrade("f",12)
+	    },
+            effect(){
+                return player.W.points.add(1000)
+            },
+             effectDisplay() {
+				return upgradeEffect('W',14) + "x Up26base"
+            }
+	},
+        15: {
+            title: "55",
+            description: "Unlock new layer!(WIP)",
+            
+            cost: new Decimal(1e80),
+            unlocked() {
+		    return hasUpgrade("f",12)
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return true
+            }
+	},
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     layerShown(){return hasUpgrade("e",14)}
