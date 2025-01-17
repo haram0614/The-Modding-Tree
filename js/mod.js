@@ -3,7 +3,7 @@ let modInfo = {
 	id: "Quantum",
 	author: "haram0614",
 	pointsName: "PL",
-	modFiles: ["layers.js", "tree.js", "wave.js"],
+	modFiles: ["layers.js", "tree.js", "wave.js", "rip.js"],
 
 	discordName: "",
 	discordLink: "",
@@ -13,8 +13,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "1.0",
-	name: "10^^4",
+	num: "1.1",
+	name: "ripped",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -60,7 +60,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.points.gte(new Decimal("eee10"))
+	return player.points.gte(new Decimal("eee20"))
 }
 
 
