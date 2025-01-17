@@ -177,7 +177,10 @@ update(diff) {
 		    return hasUpgrade("q", 23)
 	    },
               effect(){
-                return player.q.points.add("1e2000").div("1e308").log10().log10().mul(10)
+		base = player.q.points.add("1e2000").div("1e308").log10().log10().mul(10)
+		      if (base.gte(1e25)) base = base.div(1e25).pow(0.06).mul(1e25)
+		      if (base.gte(1e50)) base = base.div(1e50).pow(0.06).mul(1e50)
+                return base
             },
             effectDisplay() {
                 return "+" + upgradeEffect("q",24) + "Qt expo"
