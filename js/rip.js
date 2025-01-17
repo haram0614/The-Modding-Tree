@@ -40,6 +40,7 @@ addLayer("rQc", {
     exponent: 0, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+	    if (hasUpgrade("e",15)) mult = mult.mul(player.rq.points.add(10).log10().log10().pow(0.5).pow_base(10)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
