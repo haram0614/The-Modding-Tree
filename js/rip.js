@@ -14,7 +14,7 @@ addLayer("rq", {
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
-        mult = player.points.add("ee100").log10().log10().pow(0.5).pow_base(10)
+        mult = player.points.add("e10").log10().log10().pow(0.5).pow_base(10)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -42,6 +42,33 @@ addLayer("rQc", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
 	    if (hasUpgrade("e",15)) mult = mult.mul(player.rq.points.add(10).log10().log10().pow(0.5).pow_base(10))
+        return mult
+    },
+    gainExp() { // Calculate the exponent on main currency from bonuses
+        return new Decimal(1)
+    },
+    row: 1, // Row the layer is in on the tree (0 is the first row)
+    layerShown(){return hasUpgrade("a",14)}
+})
+addLayer("rT", {
+    name: "Ripped T", // This is optional, only used in a few places, If absent it just uses the layer id.
+    symbol: "rT", // This appears on the layer's node. Default is the id with the first letter capitalized
+    position: 3, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
+    startData() { return {
+        unlocked: true,
+		points: new Decimal(0),
+    }},
+    color: "#FF7F00",
+    requires: new Decimal("ee12200"), // Can be a function that takes requirement increases into account
+    resource: "Ripped T", // Name of prestige currency
+    baseResource: "rq", // Name of resource prestige is based on
+    baseAmount() {return player.rq.points}, // Get the current amount of baseResource
+    type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+    exponent: 0, // Prestige currency exponent
+    branches: ["rq"],
+    gainMult() { // Calculate the multiplier for main currency from bonuses
+        mult = new Decimal(1)
+	    if (hasUpgrade("e",15)) mult = mult.mul(0)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
