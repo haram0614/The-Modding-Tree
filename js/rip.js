@@ -26,7 +26,7 @@ addLayer("rq", {
 addLayer("rQc", {
     name: "Ripped Qc", // This is optional, only used in a few places, If absent it just uses the layer id.
     symbol: "rQc", // This appears on the layer's node. Default is the id with the first letter capitalized
-    position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
+    position: 3, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
 		points: new Decimal(0),
@@ -38,6 +38,7 @@ addLayer("rQc", {
     baseAmount() {return player.rq.points.add(1).log10()}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0, // Prestige currency exponent
+    branches: ["rq"],
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
 	    if (hasUpgrade("e",15)) mult = mult.mul(player.rq.points.add(10).log10().log10().pow(0.5).pow_base(10))
