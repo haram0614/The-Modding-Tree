@@ -653,6 +653,21 @@ addLayer("e", {
 				return "1e15x e"
             }
 	},
+        15: {
+            title: "235",
+            description: "logged and ^0.5 expo to PL but boost rQc gaim",
+            
+            cost: new Decimal("ee25"),
+            unlocked() {
+		    return (hasUpgrade('DT',44))
+	    },
+            effect(){
+                   return true
+            },
+             effectDisplay() {
+				return "1e15x e"
+            }
+	},
     },
 update(diff) {
 	if (player.e.points.gte(1.79e308)) generatePoints('e',diff*0.01);	
