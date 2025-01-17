@@ -47,6 +47,7 @@ addLayer("q", {
 	    if (hasUpgrade("ID",11)) exp = exp.mul(upgradeEffect('ID',11))
 	    if (hasUpgrade('t', 14)) exp = exp.pow(upgradeEffect("t",14))
 	    if (hasUpgrade('f', 42)) exp = exp.add(1e15)
+	    if (exp.gte("ee25")) exp = exp.log10().div(1e25).pow(0.01).mul(1e25).pow_base(10)
         return exp
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
