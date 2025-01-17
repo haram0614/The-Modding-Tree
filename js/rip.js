@@ -16,7 +16,7 @@ addLayer("rq", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         if (player.rq.points.gte(1)) mult = mult.mul(player.points.add("e10").log10().log10().pow(0.5).pow_base(10))
-	if (hasUpgrade('rq',11)) mult = mult.mul(upgradeEffect("rq",11)
+	if (hasUpgrade('rq',11)) mult = mult.mul(upgradeEffect("rq",11))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
