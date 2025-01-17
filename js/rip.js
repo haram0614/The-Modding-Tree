@@ -39,19 +39,17 @@ addLayer("rq", {
 	},
         12: {
             title: "402",
-            description: "Boost theory",
+            description: "Boosted by Qt",
             
-            cost: new Decimal("eee10"),
+            cost: new Decimal("1e25"),
             unlocked() {
 		    return true
 	    },
             effect(){
-		base = player.W.points.add(100).log10().mul(1.107)
-		    if (hasUpgrade('g',14)) base = base.pow(upgradeEffect('g',14))
-                return base
+                return player.q.points.log10().log10().pow(0.5).pow_base(10)
             },
              effectDisplay() {
-				return upgradeEffect('W',12) + "x theory"
+				return upgradeEffect('rq',12) + "x rq"
             }
 	},
         13: {
@@ -139,7 +137,7 @@ addLayer("rT", {
 		points: new Decimal(0),
     }},
     color: "#FF7F00",
-    requires: new Decimal("ee12200"), // Can be a function that takes requirement increases into account
+    requires: new Decimal("e6160"), // Can be a function that takes requirement increases into account
     resource: "Ripped T", // Name of prestige currency
     baseResource: "rq", // Name of resource prestige is based on
     baseAmount() {return player.rq.points}, // Get the current amount of baseResource
@@ -148,7 +146,9 @@ addLayer("rT", {
     branches: ["rq"],
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
-	    if (hasUpgrade("e",15)) mult = mult.mul(0)
+	    if (hasUpgrade("e",15)) mult = mult.mul(1)
+	    if (true) mult = mult.mul(0)
+	    if (true) mult = mult.sub(player.rT.points)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
