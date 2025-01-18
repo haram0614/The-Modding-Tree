@@ -74,7 +74,7 @@ addLayer("rq", {
 	},
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
-    layerShown(){return hasUpgrade("e",14)}
+    layerShown(){return hasUpgrade("e",15)}
 })
 addLayer("rQc", {
     name: "Ripped Qc", // This is optional, only used in a few places, If absent it just uses the layer id.
@@ -166,7 +166,7 @@ addLayer("rQc", {
 	},
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
-    layerShown(){return hasUpgrade("e",14)}
+    layerShown(){return hasUpgrade("e",15)}
 })
 addLayer("rT", {
     name: "Ripped T", // This is optional, only used in a few places, If absent it just uses the layer id.
@@ -186,7 +186,7 @@ addLayer("rT", {
     branches: ["rq"],
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
-	    if (hasUpgrade("e",15)) mult = mult.mul(player.rq.points.mul("1e6160").log10().div(6161).log10().mul(3.32))
+	    if (true) mult = mult.mul(player.rq.points.mul("1e6160").log10().div(6161).log10().mul(3.32))
 	    if (true) mult = mult.log10().log10().pow(0.54).pow_base(10)
 	    if (hasUpgrade('rT',12)) mult = mult.mul(upgradeEffect("rT",12))
 	    if (hasUpgrade('rW',13)) mult = mult.mul(upgradeEffect("rW",13))
@@ -231,7 +231,7 @@ addLayer("rT", {
 	},
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
-    layerShown(){return hasUpgrade("e",14)}
+    layerShown(){return hasUpgrade("e",15)}
 })
 addLayer("rW", {
     name: "Ripped W", // This is optional, only used in a few places, If absent it just uses the layer id.
@@ -323,5 +323,5 @@ update(diff) {
 	if (hasUpgrade('rW', 21)) generatePoints('rW',diff);
 },
     row: 0, // Row the layer is in on the tree (0 is the first row)
-    layerShown(){return hasUpgrade("e",14) && hasUpgrade("rq",13)}
+    layerShown(){return hasUpgrade("e",15) && hasUpgrade("rq",13)}
 })
