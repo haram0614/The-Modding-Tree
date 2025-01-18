@@ -49,7 +49,7 @@ addLayer("rq", {
             effect(){
 		base = new Decimal(0.5)
 		    if (hasUpgrade('rQc',13)) base = base.add(0.02)
-                return player.q.points.log10().log10().pow(0.5).pow_base(10)
+                return player.q.points.log10().log10().pow(base).pow_base(10)
             },
              effectDisplay() {
 				return upgradeEffect('rq',12) + "x rq"
@@ -95,7 +95,7 @@ addLayer("rQc", {
             effect(){
 		base = new Decimal(0.25)
 		    if (hasUpgrade('rQc',13)) base = base.mul(2)
-                return player.Qc.points.log10().log10().pow(0.25).pow_base(10)
+                return player.Qc.points.log10().log10().pow(base).pow_base(10)
             },
              effectDisplay() {
 				return "nice"
