@@ -171,7 +171,7 @@ addLayer("rT", {
         mult = new Decimal(1)
 	    if (hasUpgrade("e",15)) mult = mult.mul(player.rq.points.mul("1e6160").log10().div(6161).log10().mul(3.32))
 	    if (true) mult = mult.log10().log10().pow(0.54).pow_base(10)
-	    if (hasUpgrade('rT',11)) mult = mult.mul(upgradeEffect("rT",11))
+	    if (hasUpgrade('rT',12)) mult = mult.mul(upgradeEffect("rT",12))
 	    if (true) mult = mult.sub(player.rT.points)
         return mult
     },
@@ -208,7 +208,7 @@ addLayer("rT", {
                 return player.t.points.log10().log10().pow(0.54).pow_base(10)
             },
              effectDisplay() {
-				return "???(endgame)"
+				return upgradeEffect('rT',12) + "x rT"
             }
 	},
     },
@@ -226,7 +226,7 @@ addLayer("rW", {
     color: "#FF7F00",
     requires: new Decimal("24"), // Can be a function that takes requirement increases into account
     resource: "Ripped T", // Name of prestige currency
-    baseResource: "rq", // Name of resource prestige is based on
+    baseResource: "rT", // Name of resource prestige is based on
     baseAmount() {return player.rq.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0, // Prestige currency exponent
@@ -242,7 +242,7 @@ addLayer("rW", {
         cols: 5,
         11: {
             title: "451",
-            description: "Auto theory gain",
+            description: "Auto theory,rW gain",
             
             cost: new Decimal("1"),
             unlocked() {
