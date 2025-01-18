@@ -928,6 +928,21 @@ addLayer("t", {
 				return "???"
             }
 	},
+        24: {
+            title: "33",
+            description: "BT softcap is weaker and 100x later softcap",
+            
+            cost: new Decimal(1e60),
+            unlocked() {
+		    return hasUpgrade('t',15)
+	    },
+            effect(){
+		return true
+            },
+             effectDisplay() {
+				return "???"
+            }
+	},
     },
 update(diff) {
 	if (hasUpgrade('rW', 11)) generatePoints('t',diff);
@@ -2213,9 +2228,13 @@ addLayer("DT", {
     exponent: 0, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+	sf = new Decimal(0.03)
+	sfs = new Decimal(5e6)
+	if (hasUpgrade('t',23)) sf = sf.add(0.05)
+	if (hasUpgrade('t',23)) sfs = sfs.mul(100)
 	if (true) mult = mult.mul(player.SP.points.add(1).log10().div(100))
 	if (true) mult = mult.mul(player.q.points.add(1.8e43).log10().log10().div(20000))
-	if (mult.gte(5000000)) mult = mult.div(5000000).pow(0.03).mul(5000000)
+	if (mult.gte(sfs)) mult = mult.div(sfs).pow(sf).mul(sfs)
 	if (true) mult = mult.mul(player.I.points.add(1e8).log10().sub(8))
         mult = mult.sub(player.DT.points)
         mult = mult.max(0)
@@ -2491,6 +2510,20 @@ update(diff) {
             title: "??9",
             description: "Unlock new Upgrade",
             cost: new Decimal("500000000"),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "???"
+            }
+	},
+        45: {
+            title: "?10",
+            description: "Great Boost to glueon",
+            cost: new Decimal("1e10"),
             unlocked() {
 		    return true
 	    },
