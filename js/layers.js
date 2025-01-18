@@ -535,6 +535,16 @@ addLayer("A", {
                 addPoints("A",1)
             }
         },
+        45: {
+            name: "big number I",
+            tooltip: "Get ee1.111e25 PL. Reward: 1 AP glueon boost Qc(glueon upgrade22)",
+            done() {
+                return player.points.gte("ee1.1111111e25")
+            },
+            onComplete() {
+                addPoints("A",1)
+            }
+        },
     },
     tabFormat: {
         "Achievements" :{
