@@ -786,7 +786,7 @@ addLayer("t", {
         if (hasUpgrade('W', 12)) mult = mult.mul(upgradeEffect('W',12))
         if (hasUpgrade('f', 21)) mult = mult.mul(upgradeEffect('f',21))
         if (hasUpgrade('I', 13)) mult = mult.mul(upgradeEffect('I',13))
-        if (hasUpgrade('rW', 12)) mult = mult.mul(upgradeEffect('rW',12))
+        if (hasUpgrade('rW', 12)) mult = mult.mul(player.rW.points.add(2).pow(0.8))
         mult = mult.sub(player.t.points.mul(auto))
         mult = mult.max(0)
 	if (hasUpgrade('q', 25) || hasUpgrade("f",32)) multb = multb.add(1)
