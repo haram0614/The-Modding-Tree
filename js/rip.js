@@ -30,7 +30,7 @@ addLayer("rq", {
             title: "401",
             description: "Boost rq based on Qt",
             
-            cost: new Decimal(10),
+            cost: new Decimal(10000),
             effect(){
                 return player.q.points.log10().log10()
             },
@@ -42,7 +42,7 @@ addLayer("rq", {
             title: "402",
             description: "Boosted by Qt",
             
-            cost: new Decimal("1e25"),
+            cost: new Decimal("1e26"),
             unlocked() {
 		    return true
 	    },
