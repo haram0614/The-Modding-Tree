@@ -131,7 +131,7 @@ addLayer("rQc", {
 				return upgradeEffect('rq',12) + "x rq"
             }
 	},
-        13: {
+        14: {
             title: "414",
             description: "Upg402,411 formula better",
             
@@ -169,7 +169,7 @@ addLayer("rT", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
 	    if (hasUpgrade("e",15)) mult = mult.mul(player.rq.points.mul("1e6160").log10().div(6161).log10().mul(3.32))
-	    if (true) mult = mult.log10().mul(0)
+	    if (true) mult = mult.log10().log10().pow(0.54).pow_base(10)
 	    if (true) mult = mult.sub(player.rT.points)
         return mult
     },
