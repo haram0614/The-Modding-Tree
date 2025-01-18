@@ -17,6 +17,7 @@ addLayer("rq", {
         mult = new Decimal(1)
         if (player.rq.points.gte(1)) mult = mult.mul(player.points.add("e10").log10().log10().pow(0.5).pow_base(10))
 	if (hasUpgrade('rq',11)) mult = mult.mul(upgradeEffect("rq",11))
+        if (hasUpgrade('rq',12)) mult = mult.mul(upgradeEffect("rq",12))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -52,51 +53,6 @@ addLayer("rq", {
 				return upgradeEffect('rq',12) + "x rq"
             }
 	},
-        13: {
-            title: "53",
-            description: "Qt boost waves",
-            
-            cost: new Decimal("ee400"),
-            unlocked() {
-		    return true
-	    },
-            effect(){
-                return player.q.points.add("e9e15").log10().div(500).log10()
-            },
-             effectDisplay() {
-				return upgradeEffect('W',13) + "x waves"
-            }
-	},
-        14: {
-            title: "54",
-            description: "Wave boost Up26 base",
-            
-            cost: new Decimal("ee1000"),
-            unlocked() {
-		    return hasUpgrade("f",12)
-	    },
-            effect(){
-                return player.W.points.add(1000)
-            },
-             effectDisplay() {
-				return upgradeEffect('W',14) + "x Up26base"
-            }
-	},
-        15: {
-            title: "55",
-            description: "Unlock new layer!(WIP)",
-            
-            cost: new Decimal(1e80),
-            unlocked() {
-		    return hasUpgrade("f",12)
-	    },
-            effect(){
-                return true
-            },
-             effectDisplay() {
-				return true
-            }
-	},
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     layerShown(){return hasUpgrade("e",14)}
@@ -125,8 +81,39 @@ addLayer("rQc", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
     },
+	 upgrades: {
+        rows: 5,
+        cols: 5,
+        11: {
+            title: "411",
+            description: "Boost rQc based on Qc",
+            
+            cost: new Decimal(10000),
+            effect(){
+                return player.Qc.points.log10().log10().pow(0.25).pow_base(10)
+            },
+             effectDisplay() {
+				return "nice"
+            }
+	},
+        12: {
+            title: "412",
+            description: "Boosted by Qt",
+            
+            cost: new Decimal("1e100"),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return player.q.points.log10().log10().pow(0.5).pow_base(10)
+            },
+             effectDisplay() {
+				return upgradeEffect('rq',12) + "x rq"
+            }
+	},
+    },
     row: 1, // Row the layer is in on the tree (0 is the first row)
-    layerShown(){return hasUpgrade("a",14)}
+    layerShown(){return hasUpgrade("e",14)}
 })
 addLayer("rT", {
     name: "Ripped T", // This is optional, only used in a few places, If absent it just uses the layer id.
@@ -155,5 +142,5 @@ addLayer("rT", {
         return new Decimal(1)
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
-    layerShown(){return hasUpgrade("a",14)}
+    layerShown(){return hasUpgrade("e",14)}
 })
