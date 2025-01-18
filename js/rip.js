@@ -104,9 +104,9 @@ addLayer("rQc", {
 	},
         12: {
             title: "412",
-            description: "10x Booster",
+            description: "10x Booster(WIP)",
             
-            cost: new Decimal("1e15"),
+            cost: new Decimal("10000000"),
             unlocked() {
 		    return true
 	    },
@@ -121,7 +121,7 @@ addLayer("rQc", {
             title: "413",
             description: "Upg402,411 formula better",
             
-            cost: new Decimal("1e16"),
+            cost: new Decimal("10000000"),
             unlocked() {
 		    return true
 	    },
@@ -204,7 +204,7 @@ addLayer("rT", {
 		    return true
 	    },
             effect(){
-                return player.T.points.log10().log10().pow(0.54).pow_base(10)
+                return player.t.points.log10().log10().pow(0.54).pow_base(10)
             },
              effectDisplay() {
 				return "???(endgame)"
