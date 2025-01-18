@@ -244,7 +244,7 @@ addLayer("rW", {
     requires: new Decimal("24"), // Can be a function that takes requirement increases into account
     resource: "Ripped T", // Name of prestige currency
     baseResource: "rT", // Name of resource prestige is based on
-    baseAmount() {return player.rq.points}, // Get the current amount of baseResource
+    baseAmount() {return player.rt.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 1, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
