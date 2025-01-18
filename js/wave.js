@@ -837,7 +837,7 @@ update(diff) {
                 return player.g.points.add(1).log10().div(132.23).add(1)
             },
              effectDisplay() {
-				return "^" + upgradeEffect('g',21) + "to QC Expo!!(WIP)"
+				return "^" + upgradeEffect('g',22) + "to QC Expo!!(WIP)"
             }
 	},
         23: {
