@@ -55,6 +55,23 @@ addLayer("rq", {
 				return upgradeEffect('rq',12) + "x rq"
             }
 	},
+        13: {
+            title: "403",
+            description: "New layer",
+            
+            cost: new Decimal("ee11"),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+		base = new Decimal(0.5)
+		    if (hasUpgrade('rQc',13)) base = base.add(0.02)
+                return player.q.points.log10().log10().pow(base).pow_base(10)
+            },
+             effectDisplay() {
+				return upgradeEffect('rq',12) + "x rq"
+            }
+	},
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     layerShown(){return hasUpgrade("e",14)}
@@ -270,7 +287,25 @@ addLayer("rW", {
 				return "???"
             }
 	},
+        21: {
+            title: "426",
+            description: "Auto rW",
+            
+            cost: new Decimal("1"),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "???"
+            }
+	},
     },
+update(diff) {
+	if (hasUpgrade('rW', 21)) generatePoints('rW',diff);
+},
     row: 0, // Row the layer is in on the tree (0 is the first row)
-    layerShown(){return hasUpgrade("e",14) && false}
+    layerShown(){return hasUpgrade("e",14) && hasUpgrade("rq",13)}
 })
