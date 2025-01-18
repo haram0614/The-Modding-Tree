@@ -215,3 +215,62 @@ addLayer("rT", {
     row: 1, // Row the layer is in on the tree (0 is the first row)
     layerShown(){return hasUpgrade("e",14)}
 })
+addLayer("rW", {
+    name: "Ripped W", // This is optional, only used in a few places, If absent it just uses the layer id.
+    symbol: "rW", // This appears on the layer's node. Default is the id with the first letter capitalized
+    position: 7, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
+    startData() { return {
+        unlocked: true,
+		points: new Decimal(0),
+    }},
+    color: "#FF7F00",
+    requires: new Decimal("24"), // Can be a function that takes requirement increases into account
+    resource: "Ripped T", // Name of prestige currency
+    baseResource: "rq", // Name of resource prestige is based on
+    baseAmount() {return player.rq.points}, // Get the current amount of baseResource
+    type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+    exponent: 0, // Prestige currency exponent
+    gainMult() { // Calculate the multiplier for main currency from bonuses
+        mult = new Decimal(1)
+        return mult
+    },
+    gainExp() { // Calculate the exponent on main currency from bonuses
+        return new Decimal(1)
+    },
+	 upgrades: {
+        rows: 5,
+        cols: 5,
+        11: {
+            title: "451",
+            description: "Auto theory gain",
+            
+            cost: new Decimal("1"),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "NICE(WIP)"
+            }
+	},
+        12: {
+            title: "422",
+            description: "Boost T at reduce rate",
+            
+            cost: new Decimal("2"),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return player.rW.points.add(2).pow(0.8)
+            },
+             effectDisplay() {
+				return "???"
+            }
+	},
+    },
+    row: 0, // Row the layer is in on the tree (0 is the first row)
+    layerShown(){return hasUpgrade("e",14) && false}
+})
