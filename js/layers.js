@@ -780,13 +780,13 @@ addLayer("t", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         multb = new Decimal(0)
 	auto = new Decimal(1)
-	if (hasUpgrade("rT",11)) auto = auto.sub(1)
+	if (hasUpgrade("rW",11)) auto = auto.sub(1)
 	mult = player.q.points.mul("1e6160").log10().div(6161).log10().mul(3.32)
         mult = mult.mul(mult.add(1).div(2))
         if (hasUpgrade('W', 12)) mult = mult.mul(upgradeEffect('W',12))
         if (hasUpgrade('f', 21)) mult = mult.mul(upgradeEffect('f',21))
         if (hasUpgrade('I', 13)) mult = mult.mul(upgradeEffect('I',13))
-        if (hasUpgrade('rT', 12)) mult = mult.mul(upgradeEffect('rT',12))
+        if (hasUpgrade('rW', 12)) mult = mult.mul(upgradeEffect('rW',12))
         mult = mult.sub(player.t.points.mul(auto))
         mult = mult.max(0)
 	if (hasUpgrade('q', 25) || hasUpgrade("f",32)) multb = multb.add(1)
@@ -930,7 +930,7 @@ addLayer("t", {
 	},
     },
 update(diff) {
-	if (hasUpgrade('rT', 11)) generatePoints('t',diff);
+	if (hasUpgrade('rW', 11)) generatePoints('t',diff);
 },
 		doReset(resettingLayer) {
 			let keep = [];
