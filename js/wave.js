@@ -746,6 +746,7 @@ addLayer("g", {
         if (hasUpgrade('DT',41)) multw = multw.mul(1000)
         if (hasUpgrade('DT',42)) multw = multw.mul(10000000)
         if (hasUpgrade('DT',43)) multw = multw.mul(100000000)
+	if (hasUpgrade('DT',45)) multw = multw.mul(1e10)
         return multw
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -755,6 +756,7 @@ addLayer("g", {
     row: 3, // Row the layer is in on the tree (0 is the first row)
 update(diff) {
 	if (hasUpgrade('DT',23)) generatePoints('g',diff*1000);
+	if (hasUpgrade('DT',45)) generatePoints('g',diff*1e10);
 },
 	 upgrades: {
         rows: 5,
