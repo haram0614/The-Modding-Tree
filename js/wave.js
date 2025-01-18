@@ -235,6 +235,21 @@ update(diff) {
 				return "OP"
             }
 	},
+        21: {
+            title: "??",
+            description: "Unlock new glueon upgrade",
+            
+            cost: new Decimal("1e17000"),
+            unlocked() {
+		    return hasUpgrade("f",33)
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "OP"
+            }
+	},
     },
 		doReset(resettingLayer) {
 			let keep = [];
@@ -740,7 +755,7 @@ addLayer("g", {
     baseAmount() {return player.W.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0, // Prestige currency exponent
-    branches: ["Wc"],
+    branches: ["Wc", "Qk"],
     gainMult() { // Calculate the multiplier for main currency from bonuses
         multw = new Decimal(1)
         if (hasUpgrade('DT',41)) multw = multw.mul(1000)
@@ -819,7 +834,7 @@ update(diff) {
 		    return (hasUpgrade('g',21) || player.Wa.points.gte("1.8e308"))
 	    },
             effect(){
-                return player.g.points.add(1).log10().div(1.3223).add(1)
+                return upgradeEffect("g",42).add(1).log10().div(1.3223).add(1)
             },
              effectDisplay() {
 				return upgradeEffect('g',21) + "to Qk Expo!!"
@@ -834,7 +849,7 @@ update(diff) {
 		    return (hasUpgrade('g',21))
 	    },
             effect(){
-                return player.g.points.add(1).log10().div(132.23).add(1)
+                return upgradeEffect("g",42).add(1).log10().div(132.23).add(1)
             },
              effectDisplay() {
 				return "^" + upgradeEffect('g',22) + "to QC Expo!!(WIP)"
@@ -856,8 +871,8 @@ update(diff) {
             }
 	},
         41: {
-            title: "Wave Boost glueon effect",
-            description: "WIP",
+            title: "???",
+            description: "Wave Boost glueon effect",
             
             cost: new Decimal(1),
             effect(){
@@ -869,6 +884,25 @@ update(diff) {
             },
              effectDisplay() {
 				return upgradeEffect("g",41) + "eff glueon WIP"
+            }
+	},
+        42: {
+            title: "???",
+            description: "Wave2 Boost 2th row glueon upgrade",
+            
+            cost: new Decimal(1),
+            unlocked() {
+		    return (hasUpgrade('Wa',21))
+	    },
+            effect(){
+		base = player.g.points
+		    if (hasUpgrade('g',42)) base = base.pow(player.Wa.points.add(1.79e308).log10().div(308.26).ln().add(1).div(4))
+		    if (hasUpgrade('Qk',15)) base = base.pow(1.1)
+		    if (hasUpgrade('Qk',21)) base = base.pow(1.1)
+                return base
+            },
+             effectDisplay() {
+				return upgradeEffect("g",42) + "eff glueon WIP"
             }
 	},
         51: {
