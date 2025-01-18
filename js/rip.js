@@ -189,6 +189,7 @@ addLayer("rT", {
 	    if (hasUpgrade("e",15)) mult = mult.mul(player.rq.points.mul("1e6160").log10().div(6161).log10().mul(3.32))
 	    if (true) mult = mult.log10().log10().pow(0.54).pow_base(10)
 	    if (hasUpgrade('rT',12)) mult = mult.mul(upgradeEffect("rT",12))
+	    if (hasUpgrade('rW',13)) mult = mult.mul(upgradeEffect("rW",13))
 	    if (true) mult = mult.sub(player.rT.points)
         return mult
     },
@@ -273,7 +274,7 @@ addLayer("rW", {
             }
 	},
         12: {
-            title: "422",
+            title: "452",
             description: "Boost T at reduce rate",
             
             cost: new Decimal("2"),
@@ -287,8 +288,23 @@ addLayer("rW", {
 				return "???"
             }
 	},
+        13: {
+            title: "453",
+            description: "Boost rT based on g,W",
+            
+            cost: new Decimal("400"),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return upgradeEffect('W',12).log10().log10().pow(0.545).pow_base(10)
+            },
+             effectDisplay() {
+				return "???"
+            }
+	},
         21: {
-            title: "426",
+            title: "456",
             description: "Auto rW",
             
             cost: new Decimal("1"),
