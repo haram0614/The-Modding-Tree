@@ -95,6 +95,7 @@ addLayer("rQc", {
             effect(){
 		base = new Decimal(0.25)
 		    if (hasUpgrade('rQc',13)) base = base.mul(2)
+		    if (hasUpgrade('a',11)) base = base.add(0.045)
                 return player.Qc.points.log10().log10().pow(base).pow_base(10)
             },
              effectDisplay() {
@@ -175,6 +176,40 @@ addLayer("rT", {
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
+    },
+	 upgrades: {
+        rows: 5,
+        cols: 5,
+        11: {
+            title: "421",
+            description: "Upg411 formula better",
+            
+            cost: new Decimal("1"),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "+0.045 base"
+            }
+	},
+        12: {
+            title: "422",
+            description: "Boost rT by theory",
+            
+            cost: new Decimal("2"),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return player.T.points.log10().log10().pow(0.54).pow_base(10)
+            },
+             effectDisplay() {
+				return "???(endgame)"
+            }
+	},
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
     layerShown(){return hasUpgrade("e",14)}
