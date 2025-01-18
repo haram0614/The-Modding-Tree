@@ -47,6 +47,8 @@ addLayer("rq", {
 		    return true
 	    },
             effect(){
+		base = new Decimal(0.5)
+		    if (hasUpgrade('rQc',13)) base = base.add(0.02)
                 return player.q.points.log10().log10().pow(0.5).pow_base(10)
             },
              effectDisplay() {
@@ -76,6 +78,7 @@ addLayer("rQc", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
 	    if (hasUpgrade("e",15)) mult = mult.mul(player.rq.points.add(10).log10().log10().pow(0.5).pow_base(10))
+	    if (hasUpgrade('rQc',11)) mult = mult.mul(upgradeEffect("rQc",11))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -90,6 +93,8 @@ addLayer("rQc", {
             
             cost: new Decimal(10000),
             effect(){
+		base = new Decimal(0.25)
+		    if (hasUpgrade('rQc',13)) base = base.mul(2)
                 return player.Qc.points.log10().log10().pow(0.25).pow_base(10)
             },
              effectDisplay() {
@@ -98,9 +103,9 @@ addLayer("rQc", {
 	},
         12: {
             title: "412",
-            description: "Boosted by Qt",
+            description: "10x Booster",
             
-            cost: new Decimal("1e100"),
+            cost: new Decimal("1e15"),
             unlocked() {
 		    return true
 	    },
@@ -109,6 +114,36 @@ addLayer("rQc", {
             },
              effectDisplay() {
 				return upgradeEffect('rq',12) + "x rq"
+            }
+	},
+        13: {
+            title: "413",
+            description: "Upg402,411 formula better",
+            
+            cost: new Decimal("1e16"),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return upgradeEffect('rq',12) + "x rq"
+            }
+	},
+        13: {
+            title: "414",
+            description: "Upg402,411 formula better",
+            
+            cost: new Decimal("1e26"),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "???(endgame)"
             }
 	},
     },
