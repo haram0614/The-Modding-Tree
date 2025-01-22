@@ -717,7 +717,7 @@ update(diff) {
                 base = player.Qc.points.add("1e90").log10().div(3.2).log10().mul(3.321).sub(3.8)
 		      if (hasUpgrade('Qc',24)) base = base.mul(2).add(0.4)
 		      if (hasUpgrade('Qc',25)) base = base.mul(1.5)
-		      if (hasUpgrade('rQc',14)) base = base.log10().pow(0.625).add(1).pow(1.6).pow_base(10)
+		      if (hasUpgrade('Qc',32)) base = base.log10().pow(0.625).add(1).pow(1.6).pow_base(10)
 		return base
             },
              effectDisplay() {
@@ -758,6 +758,20 @@ update(diff) {
             title: "???",
             description: "add 2 to QF gen",
             
+            cost: new Decimal("1"),
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "nice"
+            }
+	},
+        32: {
+            title: "???",
+            description: "Boost upg 23 effect",
+            unlocked() {
+		    return hasUpgrade("rQc", 14)
+	    },
             cost: new Decimal("1"),
             effect(){
                 return true
