@@ -151,9 +151,9 @@ addLayer("rQc", {
 	},
         14: {
             title: "414",
-            description: "Upg402,411 formula better",
+            description: "Unlock new layer",
             
-            cost: new Decimal("1e26"),
+            cost: new Decimal("1e13"),
             unlocked() {
 		    return true
 	    },
