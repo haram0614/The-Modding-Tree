@@ -229,6 +229,21 @@ addLayer("rT", {
 				return upgradeEffect('rT',12) + "x rT"
             }
 	},
+        13: {
+            title: "423",
+            description: "Unlock new layer",
+            
+            cost: new Decimal("1000"),
+            unlocked() {
+		    return true
+	    },
+            effect(){
+                return player.t.points.log10().log10().pow(0.54).pow_base(10)
+            },
+             effectDisplay() {
+				return upgradeEffect('rT',12) + "x rT"
+            }
+	},
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
     layerShown(){return hasUpgrade("e",15)}
