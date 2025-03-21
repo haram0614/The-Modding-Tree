@@ -2587,6 +2587,22 @@ addLayer("P", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
     },
+	 upgrades: {
+        rows: 5,
+        cols: 5,
+        11: {
+            title: "P01",
+            description: "Sac A layer and unlock new layer",
+            
+            cost: new Decimal("25"),
+            effect(){
+                return hasAchievement('A',26)
+            },
+             effectDisplay() {
+				return "nice!"
+            }
+	},
+    },
     row: 4, // Row the layer is in on the tree (0 is the first row)
     layerShown(){return ((player.P.points.gte(1)) || hasUpgrade("rT",13))}
 })
