@@ -67,11 +67,14 @@ update(diff) {
             description: "Qt expo +1",
 
             cost: new Decimal(1.8e44),
-            effect(){
-                return true
+              effect(){
+                exp = new Decimal(1)
+		      if (hasUpgrade('q', 11)) exp = exp.add(1)
+		      if (hasUpgrade('q', 12)) exp = exp.add(1)
+		return exp
             },
              effectDisplay() {
-                return player.points + "xQt"
+                return upgradeEffect('q',11) + "Qt expo"
             }
         },
 	12: {
