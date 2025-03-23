@@ -71,6 +71,11 @@ update(diff) {
                 exp = new Decimal(1)
 		      if (hasUpgrade('q', 11)) exp = exp.add(1)
 		      if (hasUpgrade('q', 12)) exp = exp.add(1)
+		      if (hasUpgrade('q', 14)) exp = exp.add(1)
+                      if (hasUpgrade('q', 15)) exp = exp.add(8)
+	              if (hasUpgrade('q', 24)) exp = exp.add(player.q.points.add("1e2000").div("1e308").log10().log10().mul(10))
+	              if (hasUpgrade('f', 31)) exp = exp.mul(2)
+	              if (hasUpgrade('t', 11)) exp = exp.mul(upgradeEffect("t",11))
 		return exp
             },
              effectDisplay() {
