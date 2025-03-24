@@ -47,8 +47,9 @@ function getPointGen() {
 	if (hasUpgrade("q", 23) || hasUpgrade('SP',13)) gain = gain.mul(upgradeEffect("q",23))
 	if (hasUpgrade("SP", 21)) gain = gain.mul(upgradeEffect("SP",21))
 	if (hasUpgrade("dp", 11)) gain = gain.mul(upgradeEffect("dp",11))
-	if (hasUpgrade('e',15)) gain = gain.log10().log10().pow(0.5).pow_base(10)
 	if (gain.gte("eee50")) gain = gain.log10().log10().div(1e50).pow(0.06).mul(1e50).pow_base(10).pow_base(10)
+	if (gain.gte("eee100")) gain = gain.log10().log10().div(1e100).pow(0.02).mul(1e100).pow_base(10).pow_base(10)
+	if (hasUpgrade('e',15)) gain = gain.log10().log10().pow(0.5).pow_base(10)
 	return gain
 }
 
@@ -62,7 +63,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.points.gte(new Decimal("eee20"))
+	return player.points.gte(new Decimal("eee46"))
 }
 
 

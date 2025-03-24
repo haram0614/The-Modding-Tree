@@ -19,28 +19,7 @@ addLayer("q", {
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         exp = new Decimal(1)
-	db = new Decimal(0)
-	base = new Decimal(2)
-	    if (hasUpgrade('f', 15)) base = base.add(0.5)
-	    if (hasUpgrade('SL',11)) base = base.add(2.2).add(upgradeEffect('q',24).div(5))
-	    if (hasUpgrade('SL',11) && hasUpgrade('a',25)) base.max(upgradeEffect('q',24).div(5).pow(2))
-	    if (hasUpgrade('a', 33)) base = base.max(upgradeEffect('q',34).div(5).pow_base(2))
-	    if (hasUpgrade('I', 22)) base = base.max(10)
-	    if (hasUpgrade('q', 11)) exp = exp.add(upgradeEffect("q",11))
-	    if (hasUpgrade('Qc', 11)) db = db.add(0.9)
-	    if (hasUpgrade('Qc', 12)) db = db.add(0.9)
-	    if (hasUpgrade('Qc', 13)) db = db.add(0.1)
-	    if (hasUpgrade('Qc', 14)) db = db.add(0.9)
-	    if (hasUpgrade('Qc', 15)) db = db.add(0.1)
-	    if (hasUpgrade('Qc', 21)) db = db.add(0.9)
-	    if (hasUpgrade('Qc', 22)) db = db.add(1)
-	    if (hasUpgrade('Qc', 23)) db = db.add(upgradeEffect("Qc",23))
-	    if (hasUpgrade('SP', 11)) db = db.add(upgradeEffect("SP",11))
-	    if (hasUpgrade('g',13)) db = db.pow(upgradeEffect('g',13))
-	    if (true) exp = exp.mul(db.mul(db.add(1)).div(2).pow_base(base))
-	    if (hasUpgrade("ID",11)) exp = exp.mul(upgradeEffect('ID',11))
-	    if (hasUpgrade('t', 14)) exp = exp.pow(upgradeEffect("t",14))
-	    if (hasUpgrade('f', 42)) exp = exp.add(1e15)
+	    if (hasUpgrade('q', 11)) exp = exp.add(upgradeEffect('q',11))
 	    if (exp.gte("ee25")) exp = exp.log10().div(1e25).pow(0.01).mul(1e25).pow_base(10)
 	    if (exp.gte("ee50")) exp = exp.log10().div(1e50).pow(0.06).mul(1e50).pow_base(10)
 	    if (exp.gte("ee100")) exp = exp.log10().div(1e100).pow(0.02).mul(1e100).pow_base(10).max("ee200")
@@ -61,11 +40,40 @@ update(diff) {
             description: "Qt expo +1",
 
             cost: new Decimal(1.8e44),
-            effect(){
-                return true
+              effect(){
+                exp = new Decimal(1)
+		db = new Decimal(0)
+		base = new Decimal(2)	    
+		      if (hasUpgrade('f', 15)) base = base.add(0.5)
+	              if (hasUpgrade('SL',11)) base = base.add(2.2).add(upgradeEffect('q',24).div(5))
+	              if (hasUpgrade('SL',11) && hasUpgrade('a',25)) base.max(upgradeEffect('q',24).div(5).pow(2))
+	              if (hasUpgrade('a', 33)) base = base.max(upgradeEffect('q',34).div(5).pow_base(2))
+	              if (hasUpgrade('I', 22)) base = base.max(10)
+		      if (hasUpgrade('q', 11)) exp = exp.add(1)
+		      if (hasUpgrade('q', 12)) exp = exp.add(1)
+		      if (hasUpgrade('q', 14)) exp = exp.add(1)
+                      if (hasUpgrade('q', 15)) exp = exp.add(8)
+	              if (hasUpgrade('q', 24)) exp = exp.add(player.q.points.add("1e2000").div("1e308").log10().log10().mul(10))
+	              if (hasUpgrade('f', 31)) exp = exp.mul(2)
+	              if (hasUpgrade('t', 11)) exp = exp.mul(upgradeEffect("t",11))
+	              if (hasUpgrade('Qc', 11)) db = db.add(0.9)
+	              if (hasUpgrade('Qc', 12)) db = db.add(0.9)
+	              if (hasUpgrade('Qc', 13)) db = db.add(0.1)
+	              if (hasUpgrade('Qc', 14)) db = db.add(0.9)
+	              if (hasUpgrade('Qc', 15)) db = db.add(0.1)
+	              if (hasUpgrade('Qc', 21)) db = db.add(0.9)
+	              if (hasUpgrade('Qc', 22)) db = db.add(1)
+	              if (hasUpgrade('Qc', 23)) db = db.add(upgradeEffect("Qc",23))
+	              if (hasUpgrade('SP', 11)) db = db.add(upgradeEffect("SP",11))
+	              if (hasUpgrade('g',13)) db = db.pow(upgradeEffect('g',13))
+	              if (true) exp = exp.mul(db.mul(db.add(1)).div(2).pow_base(base))
+	              if (hasUpgrade("ID",11)) exp = exp.mul(upgradeEffect('ID',11))
+	              if (hasUpgrade('t', 14)) exp = exp.pow(upgradeEffect("t",14))
+	              if (hasUpgrade('f', 42)) exp = exp.add(1e15)
+		return exp
             },
              effectDisplay() {
-                return player.points + "xQt"
+                return upgradeEffect('q',11) + "Qt expo"
             }
         },
 	12: {
