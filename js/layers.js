@@ -288,16 +288,6 @@ update(diff) {
             }
 	},
     },
-buyables: {
-    11: {
-        cost(x) { return new Decimal('10^^5').mul(x) },
-        display() { return "Blah" },
-        canAfford() { return player.q.points.gte( new Decimal(1).mul(x) },
-        buy() {
-            setBuyableAmount('q', 11, getBuyableAmount('q', 11).add(1))
-        },
-    },
-},
 		doReset(resettingLayer) {
 			let keep = [];
 			if (hasAchievement("A", 34)) keep.push("upgrades")
