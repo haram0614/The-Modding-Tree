@@ -290,15 +290,14 @@ update(diff) {
     },
 buyables: {
     11: {
-        cost(x) { return new Decimal(1).mul(x) },
+        cost(x) { return new Decimal('10^^5').mul(x) },
         display() { return "Blah" },
-        canAfford() { return player[this.layer].points.gte(this.cost()) },
+        canAfford() { return player.q.points.gte( new Decimal(1).mul(x) },
         buy() {
-            player[this.layer].points = player[this.layer].points.sub(this.cost())
-            setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            setBuyableAmount('q', 11, getBuyableAmount('q', 11).add(1))
         },
     },
-}
+},
 		doReset(resettingLayer) {
 			let keep = [];
 			if (hasAchievement("A", 34)) keep.push("upgrades")
