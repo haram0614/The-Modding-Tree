@@ -812,7 +812,7 @@ addLayer("t", {
 	auto = new Decimal(1)
 	if (hasUpgrade("rW",11)) auto = auto.sub(1)
 	mult = player.q.points.mul("1e6160").log10().div(6161).log10().mul(3.32)
-        mult = mult.mul(mult.add(1).div(2))
+        mult = mult.mul(mult.add(1).div(2)).mul(1.8e43)
         if (hasUpgrade('W', 12)) mult = mult.mul(upgradeEffect('W',12))
         if (hasUpgrade('f', 21)) mult = mult.mul(upgradeEffect('f',21))
         if (hasUpgrade('I', 13)) mult = mult.mul(upgradeEffect('I',13))
