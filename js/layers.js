@@ -2609,6 +2609,30 @@ addLayer("P", {
 				return "nice!"
             }
 	},
+        12: {
+            title: "P02",
+            description: "soft cap is weaker and later",
+            
+            cost: new Decimal("25"),
+            effect(){
+                return hasAchievement('A',26)
+            },
+             effectDisplay() {
+				return "nice!"
+            }
+	},
+        21: {
+            title: "P06",
+            description: "P boost itself",
+            
+            cost: new Decimal("10"),
+            effect(){
+                return player.P.points.add(10).div(10)
+            },
+             effectDisplay() {
+				return "nice!"
+            }
+	},
     },
     row: 4, // Row the layer is in on the tree (0 is the first row)
     layerShown(){return ((player.P.points.gte(1)) || hasUpgrade("rT",13))}
