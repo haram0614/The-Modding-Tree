@@ -22,11 +22,11 @@ addLayer("q", {
         exp3 = new Decimal(0)
 	    if (hasUpgrade('q', 11)) exp = exp.add(upgradeEffect('q',11))
 	    if (exp.gte("ee25")) exp = exp.log10().div(1e25).pow(0.01).mul(1e25).pow_base(10)
-	    if (hasUpgrade('P', 11)) exp = exp.log10().log10().mul(4).pow(1.673).pow_base(10).pow_base(10)
+	    if (hasUpgrade('P', 11)) exp = exp.log10().log10().mul(6).pow(1.673).pow_base(10).pow_base(10)
 	    if (exp.gte("ee50")) exp = exp.log10().div(1e50).pow(0.06).mul(1e50).pow_base(10)
 	    if (exp.gte("ee100")) exp = exp.log10().div(1e100).pow(0.02).mul(1e100).pow_base(10)
 	    if (exp.gte("ee100")) exp3 = exp.log10().log10()
-	    if (exp.gte("ee200")) exp3 = exp.div(200).pow(0.5).mul(200).max("1000000")
+	    if (exp.gte("ee200")) exp3 = exp.div(200).pow(0.5).mul(200).min("1000000")
 	    if (exp.gte("ee200")) exp = exp3.pow_base(10).pow_base(10)
         return exp
     },
@@ -2655,7 +2655,7 @@ addLayer("P", {
             
             cost: new Decimal("10"),
             effect(){
-                return player.P.points.add(10).div(10).max(20)
+                return player.P.points.add(10).div(10).min(20)
             },
              effectDisplay() {
 				return "nice!"
