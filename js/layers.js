@@ -727,6 +727,7 @@ update(diff) {
 		      if (hasUpgrade('Qc',24)) base = base.mul(2).add(0.4)
 		      if (hasUpgrade('Qc',25)) base = base.mul(1.5)
 		      if (hasUpgrade('Qc',32)) base = base.log10().pow(0.625).add(1).pow(1.6).pow_base(10)
+		      if (hasUpgrade('Qc',33)) base = base.log10().pow(0.625).add(1).pow(1.6).pow_base(10)
 		return base
             },
              effectDisplay() {
@@ -780,6 +781,20 @@ update(diff) {
             description: "Boost upg 23 effect",
             unlocked() {
 		    return hasUpgrade("rQc", 14)
+	    },
+            cost: new Decimal("1"),
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return "nice"
+            }
+	},
+        33: {
+            title: "???",
+            description: "Boost upg 23 effect",
+            unlocked() {
+		    return hasUpgrade("rQc", 15)
 	    },
             cost: new Decimal("1"),
             effect(){
