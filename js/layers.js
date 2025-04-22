@@ -2589,6 +2589,7 @@ addLayer("P", {
     exponent: 0, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+	if (hasUpgrade('P',21)) mult = mult.mul(upgradeEffect('P',21))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -2621,13 +2622,25 @@ addLayer("P", {
 				return "nice!"
             }
 	},
+        13: {
+            title: "P03",
+            description: "New upgrade in ripped",
+            
+            cost: new Decimal("245"),
+            effect(){
+                return hasAchievement('A',26)
+            },
+             effectDisplay() {
+				return "nice!"
+            }
+	},
         21: {
             title: "P06",
             description: "P boost itself",
             
             cost: new Decimal("10"),
             effect(){
-                return player.P.points.add(10).div(10)
+                return player.P.points.add(10).div(10).max(20)
             },
              effectDisplay() {
 				return "nice!"
