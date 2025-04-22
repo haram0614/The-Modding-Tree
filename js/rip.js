@@ -161,6 +161,21 @@ addLayer("rQc", {
                 return true
             },
              effectDisplay() {
+				return "OP"
+            }
+	},
+        15: {
+            title: "415",
+            description: "Great Boost to Qt",
+            
+            cost: new Decimal("1e18"),
+            unlocked() {
+		    return hasUpgrade("P",13)
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
 				return "???(endgame)"
             }
 	},
