@@ -2285,6 +2285,7 @@ addLayer("DT", {
 	if (true) mult = mult.mul(player.SP.points.add(1).log10().div(100))
 	if (true) mult = mult.mul(player.q.points.add(1.8e43).log10().log10().div(20000))
 	if (mult.gte(sfs)) mult = mult.div(sfs).pow(sf).mul(sfs)
+	if (mult.gte(2.5e17)) mult = mult.div(2.5e17).pow(0.05).mul(2.5e17)
 	if (true) mult = mult.mul(player.I.points.add(1e8).log10().sub(8))
         mult = mult.sub(player.DT.points)
         mult = mult.max(0)
