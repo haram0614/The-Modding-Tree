@@ -562,6 +562,21 @@ update(diff) {
 				return true
             }
 	},
+        23: {
+            title: "???",
+            description: "^1.3 eff glueon",
+            
+            cost: new Decimal("1e10400"),
+            unlocked() {
+		    return (hasUpgrade('DT',45))
+	    },
+            effect(){
+                return true
+            },
+             effectDisplay() {
+				return true
+            }
+	},
     },
 		doReset(resettingLayer) {
 			let keep = [];
