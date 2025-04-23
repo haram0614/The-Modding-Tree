@@ -568,7 +568,7 @@ update(diff) {
             
             cost: new Decimal("1e10400"),
             unlocked() {
-		    return (hasUpgrade('DT',45))
+		    return (hasUpgrade('P',13))
 	    },
             effect(){
                 return true
@@ -895,6 +895,7 @@ update(diff) {
 		    if (hasUpgrade('g',41)) base = base.pow(player.W.points.add(1.79e308).log10().div(308.26).ln().add(1))
 		    if (hasUpgrade('Qk',15)) base = base.pow(1.1)
 		    if (hasUpgrade('Qk',21)) base = base.pow(1.1)
+		    if (hasUpgrade('Qk',23)) base = base.pow(1.331)
                 return base
             },
              effectDisplay() {
@@ -914,6 +915,7 @@ update(diff) {
 		    if (hasUpgrade('g',42)) base = base.pow(player.Wa.points.add(1.79e308).log10().div(308.26).ln().add(1).div(4))
 		    if (hasUpgrade('Qk',15)) base = base.pow(1.1)
 		    if (hasUpgrade('Qk',21)) base = base.pow(1.1)
+                    if (hasUpgrade('Qk',23)) base = base.pow(1.331)
                 return base
             },
              effectDisplay() {
@@ -933,6 +935,10 @@ update(diff) {
             }
 	},
     },
+		doReset(resettingLayer) {
+			let keep = [];
+			if (hasAchievement("A", 34)) keep.push("upgrades")
+		},
     layerShown(){return hasUpgrade("q", 35) && player.e.points.gte(1e70)}
 })
 addLayer("Li", {
