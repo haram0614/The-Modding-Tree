@@ -2632,7 +2632,9 @@ addLayer("P", {
             
             cost: new Decimal("25"),
             effect(){
-                return hasAchievement('A',26)
+		    let a = player.P.points
+                      if (a.gte(10)) a = a.div(10).log(10).div(0.414).add(10)
+                return a
             },
              effectDisplay() {
 				return "nice!"
