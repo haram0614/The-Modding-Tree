@@ -41,15 +41,19 @@ function canGenPoints(){
 function getPointGen() {
 	if(!canGenPoints())
 		return new Decimal(0)
-
 	let gain = new Decimal("1.8e43")
+	let gain2 = new Decimal(0)
 	if (hasUpgrade("q", 13)) gain = gain.mul(player.q.points.add(1000).div(1000).pow(0.05).min(1e15))
 	if (hasUpgrade("q", 23) || hasUpgrade('SP',13)) gain = gain.mul(upgradeEffect("q",23))
 	if (hasUpgrade("SP", 21)) gain = gain.mul(upgradeEffect("SP",21))
 	if (hasUpgrade("dp", 11)) gain = gain.mul(upgradeEffect("dp",11))
-	if (gain.gte("eee50")) gain = gain.log10().log10().div(1e50).pow(0.06).mul(1e50).pow_base(10).pow_base(10)
-	if (gain.gte("eee100")) gain = gain.log10().log10().div(1e100).pow(0.02).mul(1e100).pow_base(10).pow_base(10).max("eee200")
 	if (hasUpgrade('e',15)) gain = gain.log10().log10().pow(0.5).pow_base(10)
+	if (gain.gte("eee50")) gain2 = gain.log10().log10()
+	if (gain2.gte("1e50")) gain2 = gain2.div(1e50).pow(0.06).mul(1e50)
+	if (gain2.gte("1e100")) gain2 = gain2.div(1e100).pow(0.02).mul(1e100)
+	if (gain2.gte("1e200")) gain2 = gain2.log10().div(200).pow(0.35).mul(200).pow_base(10).min("1e1000000")
+	if (gain2.gte("1e200")) gain2 = gain2.log10().div(1000000).pow(0.05).mul(1000000).pow_base(10).min("1e3e15")
+	if (gain2.gte("1")) gain = gain2.pow_base(10).pow_base(10)
 	return gain
 }
 
