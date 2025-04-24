@@ -2635,7 +2635,7 @@ addLayer("P", {
             cost: new Decimal("25"),
             effect(){
 		    let a = player.P.points
-                      if (a.gte(10)) a = a.div(10).log(10).div(0.0414).add(10)
+                      if (a.gte(10)) a = a.div(10).log10().div(0.0414).add(10)
                 return a
             },
              effectDisplay() {
