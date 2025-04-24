@@ -20,17 +20,16 @@ addLayer("q", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         exp = new Decimal(1)
         exp2 = new Decimal(0)
-        exp3 = new Decimal(0)
 	sf1 = new Decimal(0.01)
             if (hasUpgrade('P', 12)) sf1 = sf1.add(0.09)
 	    if (hasUpgrade('q', 11)) exp = exp.add(upgradeEffect('q',11))
 	    if (exp.gte("ee25")) exp2 = exp.log10()
-	    if (exp2.gte("1e25")) exp = exp.log10().div(1e25).pow(sf1).mul(1e25).pow_base(10)
-	    if (hasUpgrade('P', 11)) exp = exp.log10().log10().mul(6).pow(1.673).pow_base(10).pow_base(10)
-	    if (exp.gte("ee50")) exp = exp.log10().div(1e50).pow(0.06).mul(1e50).pow_base(10)
-	    if (exp.gte("ee100")) exp = exp.log10().div(1e100).pow(0.02).mul(1e100).pow_base(10)
-	    if (exp.gte("ee200")) exp3 = exp.div(200).pow(0.5).mul(200).min("1000000")
-	    if (exp.gte("ee200")) exp = exp3.pow_base(10).pow_base(10)
+	    if (exp2.gte("1e25")) exp2 = exp2.div(1e25).pow(sf1).mul(1e25).pow_base(10)
+	    if (hasUpgrade('P', 11)) exp2 = exp2.log10().mul(6).pow(1.673).pow_base(10).pow_base(10)
+	    if (exp2.gte("1e50")) exp2 = exp2.div(1e50).pow(0.06).mul(1e50).pow_base(10)
+	    if (exp2.gte("1e100")) exp2 = exp2.div(1e100).pow(0.02).mul(1e100).pow_base(10)
+	    if (exp2.gte("1e200")) exp2 = exp2.log10().div(200).pow(0.5).mul(200).min("1000000").pow_base(10)
+	    if (exp2.gte("1")) exp = exp2.pow_base(10)
         return exp
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
@@ -2636,7 +2635,7 @@ addLayer("P", {
             cost: new Decimal("25"),
             effect(){
 		    let a = player.P.points
-                      if (a.gte(10)) a = a.div(10).log(10).div(0.414).add(10)
+                      if (a.gte(10)) a = a.div(10).log(10).div(0.0414).add(10)
                 return a
             },
              effectDisplay() {
